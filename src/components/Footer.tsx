@@ -17,7 +17,12 @@ export default function Footer() {
               src={logo}
               alt="Fincile"
               className="mb-4 block"
-              style={{ width: '170px', height: 'auto', filter: 'brightness(0) invert(1)' }}
+              style={{
+                width: '150px',
+                height: 'auto',
+                objectFit: 'contain',
+                filter: 'brightness(0) invert(1)',
+              }}
             />
             <p className="text-sm text-primary-foreground/60 leading-relaxed">
               Revenue reconciliation and audit intelligence for Shopify merchants.
