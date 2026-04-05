@@ -82,7 +82,7 @@ export default function Navbar() {
                     href="#contact"
                     className="inline-flex w-full items-center justify-center h-12 px-6 rounded-md text-base font-semibold gradient-cta text-primary-foreground"
                   >
-                    Request Free Audit
+                    Request Free Audit Now
                   </a>
                 </SheetClose>
               </div>
