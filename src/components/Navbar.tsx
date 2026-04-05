@@ -25,7 +25,7 @@ export default function Navbar() {
     } border-b border-border`}>
       <div className="container mx-auto flex items-center justify-between h-16 px-4 lg:px-8">
         <a href="#" className="flex items-center">
-          <img src={logo} alt="Fincile" className="h-8" />
+          <img src={logo} alt="Fincile" style={{ width: '150px', height: 'auto' }} />
         </a>
 
         <div className="hidden md:flex items-center gap-8">
