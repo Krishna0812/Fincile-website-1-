@@ -29,11 +29,11 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled ? 'bg-card/90 backdrop-blur-lg shadow-sm' : 'bg-card'
-        } border-b border-border`}
+        className={`fixed top-0 left-0 right-0 z-[100] border-b border-border transition-all duration-300 ${
+          scrolled ? 'bg-white/95 backdrop-blur-lg shadow-sm' : 'bg-white'
+        }`}
       >
-        <div className="container mx-auto flex items-center justify-between h-16 px-4 lg:px-8">
+        <div className="container mx-auto flex h-16 items-center justify-between px-4 lg:px-8">
           <a href="#" className="flex items-center">
             <img src={logo} alt="Fincile" style={{ width: '150px', height: 'auto' }} />
           </a>
@@ -57,7 +57,7 @@ export default function Navbar() {
           </div>
 
           <button
-            onClick={() => setMobileOpen(!mobileOpen)}
+            onClick={() => setMobileOpen((open) => !open)}
             className="md:hidden p-2 text-navy"
             aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
           >
@@ -67,28 +67,30 @@ export default function Navbar() {
       </nav>
 
       {mobileOpen && (
-        <div className="md:hidden fixed inset-0 top-16 z-40 bg-card px-6 py-8 flex flex-col">
-          <div className="flex flex-col gap-6 pt-4">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileOpen(false)}
-                className="text-2xl font-semibold text-navy"
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
+        <div className="fixed inset-0 z-[90] md:hidden bg-white">
+          <div className="flex h-full flex-col px-6 pt-24 pb-8">
+            <div className="flex flex-col gap-6">
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMobileOpen(false)}
+                  className="text-2xl font-semibold text-navy"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
 
-          <div className="mt-8">
-            <a
-              href="#contact"
-              onClick={() => setMobileOpen(false)}
-              className="inline-flex w-full items-center justify-center h-12 px-6 rounded-md text-base font-semibold gradient-cta text-primary-foreground"
-            >
-              Request Free Audit
-            </a>
+            <div className="mt-8">
+              <a
+                href="#contact"
+                onClick={() => setMobileOpen(false)}
+                className="inline-flex w-full items-center justify-center h-12 px-6 rounded-md text-base font-semibold gradient-cta text-primary-foreground"
+              >
+                Request Free Audit
+              </a>
+            </div>
           </div>
         </div>
       )}
