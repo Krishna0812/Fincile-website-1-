@@ -15,17 +15,19 @@ export default function Index() {
   return (
     <div className="min-h-screen">
       <Navbar />
-      <Hero />
-      <WhyMatters />
-      <WhatWeDetect />
-      <BusinessOutcomes />
-      <HowItWorks />
-      <EarlyAccess />
-      <Security />
-      <BestFit />
-      <Contact />
-      <ServiceTerms />
-      <Footer />
+      <main className="pt-16 md:pt-20">
+        <Hero />
+        <WhyMatters />
+        <WhatWeDetect />
+        <BusinessOutcomes />
+        <HowItWorks />
+        <EarlyAccess />
+        <Security />
+        <BestFit />
+        <Contact />
+        <ServiceTerms />
+        <Footer />
+      </main>
     </div>
   );
 }
