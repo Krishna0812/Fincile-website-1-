@@ -13,7 +13,7 @@ export default function Footer() {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="grid md:grid-cols-3 gap-10 mb-12">
           <div>
-            <img src={logo} alt="Fincile" className="h-8 brightness-0 invert mb-4" />
+            <img src={logo} alt="Fincile" style={{ width: '150px', height: 'auto', filter: 'brightness(0) invert(1)' }} className="mb-4" />
             <p className="text-sm text-primary-foreground/60 leading-relaxed">
               Revenue reconciliation and audit intelligence for Shopify merchants.
             </p>
