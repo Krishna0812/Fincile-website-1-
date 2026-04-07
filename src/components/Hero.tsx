@@ -59,7 +59,7 @@ function AuditCard() {
 
 export default function Hero() {
   return (
-    <section className="bg-navy dot-pattern pt-20 pb-0">
+    <section className="bg-navy dot-pattern pt-0 pb-0">
       <div className="container mx-auto px-4 lg:px-8 py-16 lg:py-24">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left */}
