@@ -21,14 +21,14 @@ export default function Navbar() {
 
   return (
     <nav
-         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled ? 'bg-card/80 backdrop-blur-lg shadow-sm' : 'bg-card'
-        }`}>
-        <div className="container mx-auto flex h-full items-center justify-between px-4 lg:px-8">
-          <a href="#" className="flex items-center">
-            <img src={logo} alt="Fincile" className="h-12 w-auto object-contain" />
-    </a>
-
+      className={`fixed top-0 left-0 right-0 z-50 bg-card transition-all duration-300 ${
+        scrolled ? 'backdrop-blur-lg shadow-sm' : ''
+      }`}
+    >
+      <div className="container mx-auto flex min-h-[92px] items-center justify-between px-4 lg:px-8">
+        <a href="#" className="flex items-center">
+          <img src={logo} alt="Fincile" className="h-12 w-auto object-contain" />
+        </a>
 
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((l) => (
@@ -54,9 +54,14 @@ export default function Navbar() {
       </div>
 
       {mobileOpen && (
-        <div className="md:hidden bg-[#d9dde2] border-t border-border flex flex-col items-center justify-center gap-8 py-8">
+        <div className="md:hidden bg-card flex flex-col items-center justify-center gap-8 py-8 shadow-sm">
           {navLinks.map((l) => (
-            <a key={l.href} href={l.href} onClick={() => setMobileOpen(false)} className="text-lg font-medium text-navy">
+            <a
+              key={l.href}
+              href={l.href}
+              onClick={() => setMobileOpen(false)}
+              className="text-lg font-medium text-navy"
+            >
               {l.label}
             </a>
           ))}
