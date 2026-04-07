@@ -21,10 +21,9 @@ export default function Navbar() {
 
   return (
     <nav
-        className={`fixed top-0 left-0 right-0 z-50 h-20 border-b border-border transition-all duration-300 ${
-          scrolled ? 'bg-[#d9dde2]/95 backdrop-blur-md shadow-sm' : 'bg-[#d9dde2]'
-        }`}
-      >
+         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled ? 'bg-card/80 backdrop-blur-lg shadow-sm' : 'bg-card'
+        }`}>
         <div className="container mx-auto flex h-full items-center justify-between px-4 lg:px-8">
           <a href="#" className="flex items-center">
             <img src={logo} alt="Fincile" className="h-12 w-auto object-contain" />
