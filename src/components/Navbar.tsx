@@ -1,12 +1,6 @@
-import { useEffect, useState } from 'react';
-import { Menu } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Menu, X } from 'lucide-react';
 import logo from '@/assets/fincile-logo.png';
-import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetTrigger,
-} from '@/components/ui/sheet';
 
 const navLinks = [
   { label: 'How It Works', href: '#how-it-works' },
@@ -17,6 +11,7 @@ const navLinks = [
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
@@ -26,71 +21,54 @@ export default function Navbar() {
 
   return (
     <nav
-        className={`fixed top-0 left-0 right-0 z-50 h-20 transition-all duration-300 ${
-          scrolled ? 'bg-card/80 backdrop-blur-lg shadow-sm' : 'bg-card'
-        } border-b border-border`}
-      >
-        <div className="container mx-auto flex h-full items-center justify-between px-4 lg:px-8">
-          <a href="#" className="flex items-center">
-            <img src={logo} alt="Fincile" className="h-12 w-auto" />
-    </a>
-
+      className={`sticky top-0 z-50 border-b border-border transition-all duration-300 ${
+        scrolled ? 'bg-[#d9dde2]/95 backdrop-blur-md shadow-sm' : 'bg-[#d9dde2]'
+      }`}
+    >
+      <div className="container mx-auto flex h-20 items-center justify-between px-4 lg:px-8">
+        <a href="#" className="flex items-center">
+          <img src={logo} alt="Fincile" className="h-12 w-auto object-contain" />
+        </a>
 
         <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
+          {navLinks.map((l) => (
             <a
-              key={link.href}
-              href={link.href}
+              key={l.href}
+              href={l.href}
               className="text-sm font-medium text-text-secondary hover:text-navy transition-colors"
             >
-              {link.label}
+              {l.label}
             </a>
           ))}
           <a
             href="#contact"
-            className="inline-flex items-center justify-center h-9 px-5 rounded-md text-sm font-semibold gradient-cta text-primary-foreground hover:opacity-90 transition-all hover:-translate-y-0.5"
+            className="inline-flex items-center justify-center h-11 px-6 rounded-md text-sm font-semibold gradient-cta text-primary-foreground hover:opacity-90 transition-all"
           >
             Request Free Audit
           </a>
         </div>
 
-        <div className="md:hidden">
-          <Sheet>
-            <SheetTrigger asChild>
-              <button className="p-2 text-navy" aria-label="Open menu">
-                <Menu size={26} />
-              </button>
-            </SheetTrigger>
-
-            <SheetContent side="right" className="w-[86vw] max-w-[360px] bg-white border-l border-border px-6 pt-10">
-              <div className="mb-8">
-                <img src={logo} alt="Fincile" style={{ width: '150px', height: 'auto' }} />
-              </div>
-
-              <div className="flex flex-col gap-6">
-                {navLinks.map((link) => (
-                  <SheetClose asChild key={link.href}>
-                    <a href={link.href} className="text-xl font-semibold text-navy">
-                      {link.label}
-                    </a>
-                  </SheetClose>
-                ))}
-              </div>
-
-              <div className="mt-8">
-                <SheetClose asChild>
-                  <a
-                    href="#contact"
-                    className="inline-flex w-full items-center justify-center h-12 px-6 rounded-md text-base font-semibold gradient-cta text-primary-foreground"
-                  >
-                    Request Free Audit Now
-                  </a>
-                </SheetClose>
-              </div>
-            </SheetContent>
-          </Sheet>
-        </div>
+        <button onClick={() => setMobileOpen(!mobileOpen)} className="md:hidden p-2 text-navy">
+          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
       </div>
+
+      {mobileOpen && (
+        <div className="md:hidden bg-[#d9dde2] border-t border-border flex flex-col items-center justify-center gap-8 py-8">
+          {navLinks.map((l) => (
+            <a key={l.href} href={l.href} onClick={() => setMobileOpen(false)} className="text-lg font-medium text-navy">
+              {l.label}
+            </a>
+          ))}
+          <a
+            href="#contact"
+            onClick={() => setMobileOpen(false)}
+            className="inline-flex items-center justify-center h-11 px-8 rounded-md text-base font-semibold gradient-cta text-primary-foreground"
+          >
+            Request Free Audit
+          </a>
+        </div>
+      )}
     </nav>
   );
 }
