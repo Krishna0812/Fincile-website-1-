@@ -21,14 +21,15 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`sticky top-0 z-50 border-b border-border transition-all duration-300 ${
-        scrolled ? 'bg-[#d9dde2]/95 backdrop-blur-md shadow-sm' : 'bg-[#d9dde2]'
-      }`}
-    >
-      <div className="container mx-auto flex h-20 items-center justify-between px-4 lg:px-8">
-        <a href="#" className="flex items-center">
-          <img src={logo} alt="Fincile" className="h-12 w-auto object-contain" />
-        </a>
+        className={`fixed top-0 left-0 right-0 z-50 h-20 border-b border-border transition-all duration-300 ${
+          scrolled ? 'bg-[#d9dde2]/95 backdrop-blur-md shadow-sm' : 'bg-[#d9dde2]'
+        }`}
+      >
+        <div className="container mx-auto flex h-full items-center justify-between px-4 lg:px-8">
+          <a href="#" className="flex items-center">
+            <img src={logo} alt="Fincile" className="h-12 w-auto object-contain" />
+    </a>
+
 
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((l) => (
