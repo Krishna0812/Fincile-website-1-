@@ -69,14 +69,13 @@ export default function Hero() {
               Revenue Integrity Audit
             </span>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-primary-foreground leading-tight mb-6">
-            Fincile Helps Shopify Stores Recover Hidden Revenue
-          </h1>
+              Fincile Helps Shopify Stores Recover Hidden Revenue
+            </h1>
             <p className="text-base lg:text-lg text-primary-foreground/70 leading-relaxed mb-8 max-w-xl">
-              Fincile is a financial integrity firewall that recovers "invisible" Shopify revenue leaks. Beyond
-              cross-referencing, it uses cent-safe math to detect Ghost Orders (unsettled payments), prevent
-              Double-Refunds, and surface Unrecovered Processor Fees. By auditing the gap between Shopify sales and
-              bank deposits, Fincile provides an Audit Health Score to stop revenue erosion and ensure every dollar
-              earned is recovered.
+              Fincile is a Shopify revenue reconciliation and audit platform that detects missing payments,
+              duplicate charges, refund mismatches, and settlement gaps across Shopify, Stripe, and PayPal.
+              It helps merchants recover lost revenue, verify payout accuracy, and understand their Audit
+              Health Score.
             </p>
 
             <div className="flex flex-wrap gap-3 mb-8">
