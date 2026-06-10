@@ -10,6 +10,7 @@ import BestFit from '@/components/BestFit';
 import Contact from '@/components/Contact';
 import ServiceTerms from '@/components/ServiceTerms';
 import Footer from '@/components/Footer';
+import FAQ from '@/components/FAQ';
 
 export default function Index() {
   return (
@@ -25,6 +26,7 @@ export default function Index() {
         <Security />
         <BestFit />
         <Contact />
+        <FAQ />
         <ServiceTerms />
         <Footer />
       </main>
