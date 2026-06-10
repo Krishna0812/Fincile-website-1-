@@ -17,7 +17,7 @@ export default function WhatWeDetect() {
       <div ref={ref} className={`container mx-auto px-4 lg:px-8 transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
         <div className="text-center mb-14">
           <span className="text-xs font-semibold tracking-[0.2em] uppercase text-teal mb-3 block">What We Detect</span>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-navy">Built for fast, clear reconciliation insight.</h2>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-navy">6 Shopify Payout Problems Fincile Detects Automatically</h2>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map(f => (

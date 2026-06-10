@@ -15,7 +15,7 @@ export default function WhyMatters() {
       <div ref={ref} className={`container mx-auto px-4 lg:px-8 max-w-3xl transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
         <span className="text-xs font-semibold tracking-[0.2em] uppercase text-teal mb-3 block">Why This Matters</span>
         <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-navy mb-12 leading-tight">
-          Most merchants see revenue. Very few verify collection integrity.
+          Why Your Shopify Payouts Never Match Your Bank — And How to Fix It
         </h2>
         <div className="space-y-10">
           {sources.map(s => (

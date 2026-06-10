@@ -69,7 +69,7 @@ export default function Hero() {
               Revenue Integrity Audit
             </span>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-primary-foreground leading-tight mb-6">
-              Fincile Helps Shopify Stores Recover Hidden Revenue
+              Shopify Payout Reconciliation — Automatically Fix Missing & Mismatched Payouts
             </h1>
             <p className="text-base lg:text-lg text-primary-foreground/70 leading-relaxed mb-8 max-w-xl">
               Fincile is a Shopify revenue reconciliation and audit platform that detects missing payments,

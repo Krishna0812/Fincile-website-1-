@@ -3,34 +3,122 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fincile | Shopify Revenue Reconciliation &amp; Audit Platform</title>
-    <meta
-  name="description"
-  content="Fincile is a Shopify revenue reconciliation and audit platform that identifies missing payments, duplicate charges, refund mismatches, and settlement gaps across Shopify, Stripe, and PayPal."
-    />
+
+    <!-- Primary SEO -->
+    <title>Fincile – Shopify Payout Reconciliation Tool | Fix Missing &amp; Mismatched Payouts</title>
+    <meta name="description" content="Fincile automatically reconciles Shopify payouts against Stripe, PayPal, and Klarna. Catch missing payments, duplicate charges, and refund mismatches in minutes. Free audit for Shopify merchants." />
+    <meta name="keywords" content="shopify payout reconciliation, shopify payment reconciliation, shopify stripe reconciliation, shopify paypal reconciliation, shopify missing payout, shopify payout mismatch, shopify payout wrong, ecommerce reconciliation tool, shopify accounting software, shopify revenue reconciliation, reconcile shopify payouts, shopify settlement discrepancy, shopify payments mismatch" />
     <meta name="author" content="Fincile" />
-    
-    <meta
-  property="og:title"
-  content="Fincile | Shopify Revenue Reconciliation &amp; Audit Platform"
-/>
-<meta
-  property="og:description"
-  content="Fincile identifies missing payments, duplicate charges, refund mismatches, and settlement gaps across Shopify, Stripe, and PayPal."
-  />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://getfincile.com/" />
+
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://getfincile.com/" />
+    <meta property="og:title" content="Fincile – Fix Your Shopify Payout Mismatches Automatically" />
+    <meta property="og:description" content="Shopify payouts never match your bank? Fincile reconciles Shopify, Stripe, PayPal and Klarna automatically — catches every missing payment and duplicate charge." />
+    <meta property="og:image" content="https://getfincile.com/og-image.png" />
+    <meta property="og:site_name" content="Fincile" />
 
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://getfincile.com/" />
+    <meta name="twitter:title" content="Fincile – Shopify Payout Reconciliation Tool" />
+    <meta name="twitter:description" content="Automatically reconcile Shopify payouts against Stripe, PayPal, and Klarna. Catch every missing payment and duplicate charge in minutes." />
+    <meta name="twitter:image" content="https://getfincile.com/og-image.png" />
 
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Fincile",
+      "url": "https://getfincile.com",
+      "description": "Fincile is a Shopify payout reconciliation platform that automatically identifies missing payments, duplicate charges, refund mismatches, and settlement gaps across Shopify, Stripe, PayPal, and Klarna.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "description": "Free audit for Shopify merchants"
+      },
+      "creator": {
+        "@type": "Organization",
+        "name": "Fincile",
+        "url": "https://getfincile.com"
+      },
+      "featureList": [
+        "Shopify payout reconciliation",
+        "Missing payment detection",
+        "Duplicate charge detection",
+        "Refund mismatch verification",
+        "Stripe reconciliation",
+        "PayPal reconciliation",
+        "Settlement gap analysis"
+      ]
+    }
+    </script>
+
+    <!-- FAQ Schema — targets question-based Google searches -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why doesn't my Shopify payout match my sales?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Shopify payouts often don't match sales due to refunds, chargebacks, processing fees, or timing differences. Fincile automatically reconciles every order against your Stripe and PayPal payouts to find exactly where the discrepancy is."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I reconcile Shopify payouts with Stripe?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Fincile connects to your Shopify orders, Stripe payouts, and PayPal transactions and automatically matches every transaction line by line, flagging any mismatches, missing payments, or duplicate charges."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What causes Shopify payout discrepancies?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Common causes include missing payments, duplicate charges from retry logic, refund mismatches, processor fee errors, and settlement timing gaps. Fincile detects all of these automatically."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Favicons -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
   </head>
-
   <body>
     <div id="root"></div>
+
+    <!-- Fallback content for Google crawlers that don't render JavaScript -->
+    <noscript>
+      <h1>Fincile – Shopify Payout Reconciliation Tool</h1>
+      <p>Fincile automatically reconciles Shopify payouts against Stripe, PayPal, and Klarna. Catch missing payments, duplicate charges, refund mismatches, and settlement gaps in minutes.</p>
+      <h2>What Fincile Detects</h2>
+      <ul>
+        <li>Missing payments — orders marked paid in Shopify with no matching charge in your processor</li>
+        <li>Duplicate charges — the same order charged more than once in Stripe or PayPal</li>
+        <li>Refund mismatches — refunds in Shopify with no confirmed evidence in your processor</li>
+        <li>Settlement gaps — Shopify order totals that don't match gateway payout records</li>
+        <li>Processor fee errors — verify the actual net amount received for every order</li>
+      </ul>
+      <p>Works with Shopify, Stripe, PayPal, and Klarna. Get your free audit at getfincile.com.</p>
+    </noscript>
+
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
