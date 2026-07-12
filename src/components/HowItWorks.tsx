@@ -1,9 +1,9 @@
 import { useInView } from '@/hooks/use-animations';
 
 const steps = [
-  { num: '1', title: 'Export Your Data', time: '5 minutes', desc: 'Download your Shopify orders CSV and your payment processor exports from Stripe, PayPal, or any other gateway. No API access required. No integrations. Simple data exports.' },
-  { num: '2', title: 'Fincile Runs the Reconciliation', desc: 'Our engine cross-references every order against every payment record using cent-safe integer math. We detect Ghost Orders, duplicate payments, refund gaps, and transactions that exist in your processor but never hit your bank account.' },
-  { num: '3', title: 'Receive Your Audit Report', desc: 'You receive a professional audit report within 24 hours showing exactly which transactions reconciled cleanly and which require attention — complete with order IDs, transaction logs, and specific recovery actions.' },
+  { num: '1', title: 'Install & Connect', time: '2 minutes', desc: 'Install Fincile from the Shopify App Store. OAuth connects your store automatically — no manual exports needed. For Stripe, PayPal, and Shopify Payments, live sync pulls your payout data directly via API.' },
+  { num: '2', title: 'Run an Audit', desc: 'Select your gateway, set a date range, and click Run Audit. Fincile cross-references every Shopify order against every gateway payout using cent-safe integer math — detecting ghost orders, duplicate charges, refund mismatches, and settlement gaps.' },
+  { num: '3', title: 'Review Your Findings', desc: 'Results appear instantly in your dashboard. Every exception shows the exact order ID, amount, and variance. Export findings as CSV or download a PDF audit report — then resolve or dismiss each finding as you go.' },
 ];
 
 export default function HowItWorks() {
@@ -35,8 +35,8 @@ export default function HowItWorks() {
         </div>
 
         <div className="text-center mt-14">
-          <a href="#contact" className="inline-flex items-center justify-center h-12 px-8 rounded-lg text-base font-semibold gradient-cta text-primary-foreground hover:opacity-90 transition-all hover:-translate-y-0.5 shadow-lg shadow-teal/20">
-            Request Free Audit →
+          <a href="https://app.getfincile.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center h-12 px-8 rounded-lg text-base font-semibold gradient-cta text-primary-foreground hover:opacity-90 transition-all hover:-translate-y-0.5 shadow-lg shadow-teal/20">
+            Start Free Trial →
           </a>
         </div>
       </div>

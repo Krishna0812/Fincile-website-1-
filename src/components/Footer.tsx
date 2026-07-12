@@ -44,8 +44,8 @@ export default function Footer() {
             <a href="mailto:support@getfincile.com" className="block text-sm text-teal hover:underline mb-2">
               support@getfincile.com
             </a>
-            <p className="text-sm text-primary-foreground/60">24-hour audit turnaround</p>
-            <p className="text-sm text-primary-foreground/60">Limited early access - apply now</p>
+            <p className="text-sm text-primary-foreground/60">14-day free trial on all plans</p>
+            <p className="text-sm text-primary-foreground/60">Founding pricing from $39/mo</p>
           </div>
         </div>
 
