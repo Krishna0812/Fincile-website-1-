@@ -5,6 +5,22 @@ import Footer from '@/components/Footer';
 
 const posts = [
   {
+    slug: 'shopify-payout-discrepancy',
+    eyebrow: 'Revenue Reconciliation',
+    title: '5 Signs Your Shopify Payouts Are Wrong — And What to Do About Each One',
+    excerpt: 'A consistent gap between Shopify revenue and your bank balance is a warning sign. Here are the 5 most common causes — and how to investigate each one.',
+    date: 'July 2026',
+    readTime: '6 min read',
+  },
+  {
+    slug: 'shopify-stripe-reconciliation',
+    eyebrow: 'Payment Reconciliation',
+    title: 'Shopify + Stripe Reconciliation: Why Your Payouts Don\'t Match Your Orders',
+    excerpt: 'A single Shopify order can generate up to six separate Stripe records. Here\'s how to match them correctly — and the 6 most common causes of Stripe-Shopify mismatches.',
+    date: 'July 2026',
+    readTime: '7 min read',
+  },
+  {
     slug: 'ghost-orders-shopify',
     eyebrow: 'Revenue Reconciliation',
     title: 'What Are Ghost Orders on Shopify? How to Detect and Fix Payout Gaps',

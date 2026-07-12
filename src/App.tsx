@@ -6,6 +6,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
 import Blog from "./pages/Blog.tsx";
 import BlogGhostOrders from "./pages/BlogGhostOrders.tsx";
+import BlogStripeShopify from "./pages/BlogStripeShopify.tsx";
+import BlogPayoutDiscrepancy from "./pages/BlogPayoutDiscrepancy.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -20,6 +22,8 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/ghost-orders-shopify" element={<BlogGhostOrders />} />
+          <Route path="/blog/shopify-stripe-reconciliation" element={<BlogStripeShopify />} />
+          <Route path="/blog/shopify-payout-discrepancy" element={<BlogPayoutDiscrepancy />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
