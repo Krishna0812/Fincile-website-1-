@@ -1,15 +1,15 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import logo from '@/assets/fincile-logo.png';
 
 const navLinks = [
-  { label: 'How It Works', href: '#how-it-works' },
-  { label: 'What We Detect', href: '#what-we-detect' },
-  { label: 'Security', href: '#security' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'How It Works', href: '#how-it-works', internal: false },
+  { label: 'What We Detect', href: '#what-we-detect', internal: false },
+  { label: 'Security', href: '#security', internal: false },
+  { label: 'Blog', href: '/blog', internal: true },
+  { label: 'Contact', href: '#contact', internal: false },
 ];
-
-const installAppLink = { label: 'Install App', href: 'https://app.getfincile.com' };
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -21,6 +21,9 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  const linkClass = "text-sm font-medium text-text-secondary hover:text-navy transition-colors";
+  const mobileLinkClass = "text-lg font-medium text-navy";
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 bg-card transition-all duration-300 ${
@@ -28,27 +31,29 @@ export default function Navbar() {
       }`}
     >
       <div className="container mx-auto flex min-h-[92px] items-center justify-between px-4 lg:px-8">
-        <a href="#" className="flex items-center">
+        <Link to="/" className="flex items-center">
           <img src={logo} alt="Fincile" className="h-12 w-auto object-contain" />
-        </a>
+        </Link>
 
         <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="text-sm font-medium text-text-secondary hover:text-navy transition-colors"
-            >
-              {l.label}
-            </a>
-          ))}
+          {navLinks.map((l) =>
+            l.internal ? (
+              <Link key={l.href} to={l.href} className={linkClass}>
+                {l.label}
+              </Link>
+            ) : (
+              <a key={l.href} href={l.href} className={linkClass}>
+                {l.label}
+              </a>
+            )
+          )}
           <a
-            href={installAppLink.href}
+            href="https://app.getfincile.com"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center h-11 px-6 rounded-md text-sm font-semibold gradient-cta text-primary-foreground hover:opacity-90 transition-all"
           >
-            {installAppLink.label}
+            Install App
           </a>
           <a
             href="#contact"
@@ -65,16 +70,27 @@ export default function Navbar() {
 
       {mobileOpen && (
         <div className="md:hidden bg-card flex flex-col items-center justify-center gap-8 py-8 shadow-sm">
-          {navLinks.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              onClick={() => setMobileOpen(false)}
-              className="text-lg font-medium text-navy"
-            >
-              {l.label}
-            </a>
-          ))}
+          {navLinks.map((l) =>
+            l.internal ? (
+              <Link
+                key={l.href}
+                to={l.href}
+                onClick={() => setMobileOpen(false)}
+                className={mobileLinkClass}
+              >
+                {l.label}
+              </Link>
+            ) : (
+              <a
+                key={l.href}
+                href={l.href}
+                onClick={() => setMobileOpen(false)}
+                className={mobileLinkClass}
+              >
+                {l.label}
+              </a>
+            )
+          )}
           <a
             href="https://app.getfincile.com"
             target="_blank"
