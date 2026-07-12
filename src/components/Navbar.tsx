@@ -9,6 +9,8 @@ const navLinks = [
   { label: 'Contact', href: '#contact' },
 ];
 
+const installAppLink = { label: 'Install App', href: 'https://app.getfincile.com' };
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -41,8 +43,16 @@ export default function Navbar() {
             </a>
           ))}
           <a
-            href="#contact"
+            href={installAppLink.href}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center justify-center h-11 px-6 rounded-md text-sm font-semibold gradient-cta text-primary-foreground hover:opacity-90 transition-all"
+          >
+            {installAppLink.label}
+          </a>
+          <a
+            href="#contact"
+            className="inline-flex items-center justify-center h-11 px-5 rounded-md text-sm font-semibold border border-border text-navy hover:bg-surface transition-all"
           >
             Request Free Audit
           </a>
@@ -66,9 +76,18 @@ export default function Navbar() {
             </a>
           ))}
           <a
-            href="#contact"
+            href="https://app.getfincile.com"
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => setMobileOpen(false)}
             className="inline-flex items-center justify-center h-11 px-8 rounded-md text-base font-semibold gradient-cta text-primary-foreground"
+          >
+            Install App
+          </a>
+          <a
+            href="#contact"
+            onClick={() => setMobileOpen(false)}
+            className="inline-flex items-center justify-center h-11 px-8 rounded-md text-base font-semibold border border-border text-navy"
           >
             Request Free Audit
           </a>

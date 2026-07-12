@@ -138,6 +138,12 @@ export default function Contact() {
               <option>Stripe</option>
               <option>PayPal</option>
               <option>Shopify Payments</option>
+              <option>Square</option>
+              <option>Authorize.net</option>
+              <option>Braintree</option>
+              <option>Klarna</option>
+              <option>Afterpay</option>
+              <option>Razorpay</option>
               <option>Multiple gateways</option>
               <option>Other</option>
             </select>

@@ -94,11 +94,16 @@ export default function Hero() {
             </div>
 
             <a
-              href="#contact"
+              href="https://app.getfincile.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center h-12 px-8 rounded-lg text-base font-semibold gradient-cta text-primary-foreground hover:opacity-90 transition-all hover:-translate-y-0.5 shadow-lg shadow-teal/20"
             >
-              Request Your Free Audit →
+              Start Free Trial →
             </a>
+            <p className="mt-3 text-sm text-primary-foreground/60">
+              Founding pricing from $39/mo — 14-day free trial, no credit card required.
+            </p>
           </div>
 
           <div className="animate-fade-up" style={{ animationDelay: '0.3s' }}>
