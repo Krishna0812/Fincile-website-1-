@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import WhyMatters from '@/components/WhyMatters';
@@ -13,6 +15,18 @@ import Footer from '@/components/Footer';
 import FAQ from '@/components/FAQ';
 
 export default function Index() {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (!location.hash) return;
+    const id = location.hash.replace('#', '');
+    // Wait a tick for all sections to mount before scrolling.
+    requestAnimationFrame(() => {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    });
+  }, [location]);
+
   return (
     <div className="min-h-screen">
       <Navbar />
