@@ -4,11 +4,11 @@ import { Menu, X } from 'lucide-react';
 import logo from '@/assets/fincile-logo.png';
 
 const navLinks = [
-  { label: 'How It Works', href: '#how-it-works', internal: false },
-  { label: 'What We Detect', href: '#what-we-detect', internal: false },
-  { label: 'Security', href: '#security', internal: false },
+  { label: 'How It Works', href: '/#how-it-works', internal: false },
+  { label: 'What We Detect', href: '/#what-we-detect', internal: false },
+  { label: 'Security', href: '/#security', internal: false },
   { label: 'Blog', href: '/blog', internal: true },
-  { label: 'Contact', href: '#contact', internal: false },
+  { label: 'Contact', href: '/#contact', internal: false },
 ];
 
 export default function Navbar() {
@@ -56,7 +56,7 @@ export default function Navbar() {
             Install App
           </a>
           <a
-            href="#contact"
+            href="/#contact"
             className="inline-flex items-center justify-center h-11 px-5 rounded-md text-sm font-semibold border border-border text-navy hover:bg-surface transition-all"
           >
             Request Free Audit
@@ -101,7 +101,7 @@ export default function Navbar() {
             Install App
           </a>
           <a
-            href="#contact"
+            href="/#contact"
             onClick={() => setMobileOpen(false)}
             className="inline-flex items-center justify-center h-11 px-8 rounded-md text-base font-semibold border border-border text-navy"
           >
