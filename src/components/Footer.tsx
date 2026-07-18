@@ -1,10 +1,10 @@
 import logo from '@/assets/fincile-logo.png';
 
 const links = [
-  { label: 'How It Works', href: '#how-it-works' },
-  { label: 'What We Detect', href: '#what-we-detect' },
-  { label: 'Security', href: '#security' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'How It Works', href: '/#how-it-works' },
+  { label: 'What We Detect', href: '/#what-we-detect' },
+  { label: 'Security', href: '/#security' },
+  { label: 'Contact', href: '/#contact' },
 ];
 
 export default function Footer() {
