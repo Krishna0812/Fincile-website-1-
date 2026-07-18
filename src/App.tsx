@@ -8,6 +8,8 @@ import Blog from "./pages/Blog.tsx";
 import BlogGhostOrders from "./pages/BlogGhostOrders.tsx";
 import BlogStripeShopify from "./pages/BlogStripeShopify.tsx";
 import BlogPayoutDiscrepancy from "./pages/BlogPayoutDiscrepancy.tsx";
+import BlogFincileVsA2X from "./pages/BlogFincileVsA2X.tsx";
+import BlogFincileVsSynder from "./pages/BlogFincileVsSynder.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -24,6 +26,8 @@ const App = () => (
           <Route path="/blog/ghost-orders-shopify" element={<BlogGhostOrders />} />
           <Route path="/blog/shopify-stripe-reconciliation" element={<BlogStripeShopify />} />
           <Route path="/blog/shopify-payout-discrepancy" element={<BlogPayoutDiscrepancy />} />
+          <Route path="/blog/fincile-vs-a2x" element={<BlogFincileVsA2X />} />
+          <Route path="/blog/fincile-vs-synder" element={<BlogFincileVsSynder />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
