@@ -28,6 +28,22 @@ const posts = [
     date: 'July 2026',
     readTime: '8 min read',
   },
+  {
+    slug: 'fincile-vs-a2x',
+    eyebrow: 'Comparison',
+    title: 'Fincile vs A2X: Which Shopify Reconciliation Tool Is Right for You?',
+    excerpt: 'A2X and Fincile solve genuinely different problems. Here\'s how to tell which one (or both) you actually need.',
+    date: 'July 2026',
+    readTime: '6 min read',
+  },
+  {
+    slug: 'fincile-vs-synder',
+    eyebrow: 'Comparison',
+    title: 'Fincile vs Synder: Comparing Shopify Payout Reconciliation Options',
+    excerpt: 'Synder covers multi-channel sync. Fincile goes deep on Shopify payouts specifically. Here\'s how to pick.',
+    date: 'July 2026',
+    readTime: '6 min read',
+  },
 ];
 
 export default function Blog() {
