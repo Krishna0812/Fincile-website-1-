@@ -1,10 +1,13 @@
+import { Link } from 'react-router-dom';
 import logo from '@/assets/fincile-logo.png';
 
 const links = [
-  { label: 'How It Works', href: '/#how-it-works' },
-  { label: 'What We Detect', href: '/#what-we-detect' },
-  { label: 'Security', href: '/#security' },
-  { label: 'Contact', href: '/#contact' },
+  { label: 'How It Works', href: '/#how-it-works', internal: false },
+  { label: 'What We Detect', href: '/#what-we-detect', internal: false },
+  { label: 'Security', href: '/#security', internal: false },
+  { label: 'About', href: '/about', internal: true },
+  { label: 'Blog', href: '/blog', internal: true },
+  { label: 'Contact', href: '/#contact', internal: false },
 ];
 
 export default function Footer() {
@@ -27,15 +30,25 @@ export default function Footer() {
           <div>
             <h4 className="text-sm font-semibold text-primary-foreground mb-4">Links</h4>
             <div className="space-y-2">
-              {links.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="block text-sm text-primary-foreground/60 hover:text-teal transition-colors"
-                >
-                  {link.label}
-                </a>
-              ))}
+              {links.map((link) =>
+                link.internal ? (
+                  <Link
+                    key={link.href}
+                    to={link.href}
+                    className="block text-sm text-primary-foreground/60 hover:text-teal transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                ) : (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    className="block text-sm text-primary-foreground/60 hover:text-teal transition-colors"
+                  >
+                    {link.label}
+                  </a>
+                )
+              )}
             </div>
           </div>
 
