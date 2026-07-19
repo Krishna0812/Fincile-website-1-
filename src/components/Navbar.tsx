@@ -51,7 +51,7 @@ export default function Navbar() {
             href="https://app.getfincile.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center h-11 px-6 rounded-md text-sm font-semibold gradient-cta text-primary-foreground hover:opacity-90 transition-all"
+            className="inline-flex items-center justify-center h-11 px-6 rounded-md text-sm font-semibold gradient-cta text-primary-foreground hover:opacity-90 active:scale-[0.98] transition-all"
           >
             Install App
           </a>
@@ -69,7 +69,7 @@ export default function Navbar() {
       </div>
 
       {mobileOpen && (
-        <div className="md:hidden bg-card flex flex-col items-center justify-center gap-8 py-8 shadow-sm">
+        <div className="animate-fade-up-sm md:hidden bg-card flex flex-col items-center justify-center gap-8 py-8 shadow-sm">
           {navLinks.map((l) =>
             l.internal ? (
               <Link
@@ -96,7 +96,7 @@ export default function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setMobileOpen(false)}
-            className="inline-flex items-center justify-center h-11 px-8 rounded-md text-base font-semibold gradient-cta text-primary-foreground"
+            className="inline-flex items-center justify-center h-11 px-8 rounded-md text-base font-semibold gradient-cta text-primary-foreground active:scale-[0.98] transition-transform"
           >
             Install App
           </a>

@@ -77,7 +77,7 @@ export default function FAQ() {
                 />
               </button>
               {open === i && (
-                <div className="px-6 py-4 bg-surface border-t border-border">
+                <div className="animate-fade-up-sm px-6 py-4 bg-surface border-t border-border">
                   <p className="text-sm md:text-base text-text-secondary leading-relaxed">{faq.a}</p>
                 </div>
               )}
