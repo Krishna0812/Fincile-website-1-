@@ -66,7 +66,7 @@ export default function BlogGhostOrders() {
             </p>
 
             <p className="text-base leading-relaxed text-text-secondary mb-6">
-              Most merchants never notice. Shopify's dashboard shows a clean "Paid" status. The gateway account shows a slightly different total. The difference gets attributed to fees, timing, or a vague sense that "the numbers are always a bit off." Over months, this gap can represent thousands of dollars in unrecovered revenue.
+              Most merchants never notice. Shopify's dashboard shows a clean "Paid" status. The gateway account shows a slightly different total. The difference gets attributed to fees, timing, or a vague sense that "the numbers are always a bit off." Over months, this gap can represent thousands of dollars in unrecovered revenue — and it's the most common form of a Shopify missing payout: an order Shopify counted as paid that never actually settled.
             </p>
 
             <h2 className="text-xl font-bold text-navy mt-10 mb-4">Why ghost orders happen</h2>

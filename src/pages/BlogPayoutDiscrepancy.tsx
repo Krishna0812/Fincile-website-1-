@@ -58,7 +58,7 @@ export default function BlogPayoutDiscrepancy() {
               Most Shopify merchants never actively verify that the revenue Shopify reports actually matches what lands in their bank account. The assumption is that the numbers are right — and most of the time, they roughly are. But "roughly" isn't good enough when you're making hiring decisions, negotiating supplier contracts, or talking to investors based on those numbers.
             </p>
             <p className="text-base leading-relaxed text-text-secondary mb-6">
-              Here are five warning signs that your Shopify payouts have a discrepancy — and the exact steps to investigate each one.
+              Here are five warning signs that your Shopify payout doesn't match your bank balance for a real, fixable reason — and the exact steps to investigate each one.
             </p>
 
             {[
