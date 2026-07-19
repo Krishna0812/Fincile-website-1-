@@ -39,9 +39,18 @@
       "operatingSystem": "Web",
       "offers": {
         "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD",
-        "description": "Free audit for Shopify merchants"
+        "category": "SaaS subscription",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "0",
+          "priceCurrency": "USD",
+          "referenceQuantity": {
+            "@type": "QuantitativeValue",
+            "value": "14",
+            "unitCode": "DAY"
+          }
+        },
+        "description": "14-day free trial, no credit card required. Paid plans available after the trial."
       },
       "creator": {
         "@type": "Organization",
@@ -57,6 +66,28 @@
         "PayPal reconciliation",
         "Settlement gap analysis"
       ]
+    }
+    </script>
+
+    <!-- Organization Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Fincile",
+      "url": "https://www.getfincile.com",
+      "logo": "https://www.getfincile.com/apple-touch-icon.png",
+      "description": "Fincile is a Shopify payout reconciliation platform that automatically identifies missing payments, duplicate charges, refund mismatches, and settlement gaps across Shopify, Stripe, PayPal, and 11+ gateways."
+    }
+    </script>
+
+    <!-- WebSite Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Fincile",
+      "url": "https://www.getfincile.com"
     }
     </script>
 
