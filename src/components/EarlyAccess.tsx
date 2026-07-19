@@ -28,7 +28,7 @@ export default function EarlyAccess() {
           ))}
         </div>
 
-        <a href="https://app.getfincile.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center h-12 px-8 rounded-lg text-base font-semibold bg-card text-teal hover:bg-card/90 active:scale-[0.98] transition-all hover:-translate-y-0.5 shadow-lg mb-4">
+        <a href="https://app.getfincile.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center h-12 px-8 rounded-lg text-base font-semibold bg-card text-teal hover:bg-card/90 active:scale-[0.98] transition-all hover:-translate-y-0.5 shadow-lg mb-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-teal">
           Start Free Trial →
         </a>
         <p className="text-sm text-primary-foreground/60">Questions? Email support@getfincile.com</p>

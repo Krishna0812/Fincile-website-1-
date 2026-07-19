@@ -157,7 +157,7 @@ export default function Contact() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full h-12 rounded-lg text-base font-semibold gradient-cta text-primary-foreground hover:opacity-90 active:scale-[0.98] transition-all hover:-translate-y-0.5 disabled:opacity-70 disabled:hover:translate-y-0"
+              className="w-full h-12 rounded-lg text-base font-semibold gradient-cta text-primary-foreground hover:opacity-90 active:scale-[0.98] transition-all hover:-translate-y-0.5 disabled:opacity-70 disabled:hover:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             >
               {isSubmitting ? 'Sending...' : 'Request Free Audit ->'}
             </button>

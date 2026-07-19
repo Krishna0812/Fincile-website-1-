@@ -112,7 +112,7 @@ export default function Blog() {
               <Link
                 key={post.slug}
                 to={`/blog/${post.slug}`}
-                className="block bg-card border border-border rounded-xl p-7 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 group"
+                className="block bg-card border border-border rounded-xl p-7 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
               >
                 <span className="text-xs font-semibold tracking-[0.12em] uppercase text-teal mb-3 block">
                   {post.eyebrow}
