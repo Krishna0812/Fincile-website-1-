@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { useSeoMeta, blogPostingSchema } from '@/lib/seo';
+import { useSeoMeta, blogPostingSchema, breadcrumbSchema, combineSchemas } from '@/lib/seo';
 
 const TITLE = 'What Are Ghost Orders on Shopify? How to Detect and Fix Payout Gaps | Fincile';
 const DESCRIPTION = 'Ghost orders are Shopify orders marked as paid with no matching charge in your payment processor. Learn how to detect them and close the payout gap they leave behind.';
@@ -13,12 +13,19 @@ export default function BlogGhostOrders() {
     title: TITLE,
     description: DESCRIPTION,
     path: PATH,
-    structuredData: blogPostingSchema({
-      headline: 'What Are Ghost Orders on Shopify? How to Detect and Fix Payout Gaps',
-      description: DESCRIPTION,
-      path: PATH,
-      datePublished: '2026-07-12',
-    }),
+    structuredData: combineSchemas(
+      blogPostingSchema({
+        headline: 'What Are Ghost Orders on Shopify? How to Detect and Fix Payout Gaps',
+        description: DESCRIPTION,
+        path: PATH,
+        datePublished: '2026-07-12',
+      }),
+      breadcrumbSchema([
+        { name: 'Home', path: '/' },
+        { name: 'Blog', path: '/blog' },
+        { name: 'Ghost Orders on Shopify' },
+      ]),
+    ),
   });
 
   useEffect(() => {

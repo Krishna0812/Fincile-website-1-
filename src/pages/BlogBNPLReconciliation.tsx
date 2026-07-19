@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { useSeoMeta, blogPostingSchema } from '@/lib/seo';
+import { useSeoMeta, blogPostingSchema, breadcrumbSchema, combineSchemas } from '@/lib/seo';
 
 const TITLE = 'Shopify Klarna & Afterpay Reconciliation: Why Payouts Don\'t Match | Fincile';
 const DESCRIPTION = 'Klarna and Afterpay settle Shopify orders in installments, not all at once — which makes reconciliation harder than a normal card or PayPal payout. Here\'s how to reconcile BNPL orders correctly.';
@@ -13,12 +13,19 @@ export default function BlogBNPLReconciliation() {
     title: TITLE,
     description: DESCRIPTION,
     path: PATH,
-    structuredData: blogPostingSchema({
-      headline: 'Shopify Klarna & Afterpay Reconciliation: Why Payouts Don\'t Match',
-      description: DESCRIPTION,
-      path: PATH,
-      datePublished: '2026-07-19',
-    }),
+    structuredData: combineSchemas(
+      blogPostingSchema({
+        headline: 'Shopify Klarna & Afterpay Reconciliation: Why Payouts Don\'t Match',
+        description: DESCRIPTION,
+        path: PATH,
+        datePublished: '2026-07-19',
+      }),
+      breadcrumbSchema([
+        { name: 'Home', path: '/' },
+        { name: 'Blog', path: '/blog' },
+        { name: 'Klarna & Afterpay Reconciliation' },
+      ]),
+    ),
   });
 
   useEffect(() => {

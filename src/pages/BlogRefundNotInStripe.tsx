@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { useSeoMeta, blogPostingSchema } from '@/lib/seo';
+import { useSeoMeta, blogPostingSchema, breadcrumbSchema, combineSchemas } from '@/lib/seo';
 
 const TITLE = 'Shopify Refund Not Showing in Stripe? Here\'s Why | Fincile';
 const DESCRIPTION = 'A Shopify refund can look complete while the money never actually leaves your Stripe balance. Here\'s how to verify every refund actually settled — and what to do when one didn\'t.';
@@ -13,12 +13,19 @@ export default function BlogRefundNotInStripe() {
     title: TITLE,
     description: DESCRIPTION,
     path: PATH,
-    structuredData: blogPostingSchema({
-      headline: 'Shopify Refund Not Showing in Stripe? Here\'s Why',
-      description: DESCRIPTION,
-      path: PATH,
-      datePublished: '2026-07-19',
-    }),
+    structuredData: combineSchemas(
+      blogPostingSchema({
+        headline: 'Shopify Refund Not Showing in Stripe? Here\'s Why',
+        description: DESCRIPTION,
+        path: PATH,
+        datePublished: '2026-07-19',
+      }),
+      breadcrumbSchema([
+        { name: 'Home', path: '/' },
+        { name: 'Blog', path: '/blog' },
+        { name: 'Shopify Refund Not in Stripe' },
+      ]),
+    ),
   });
 
   useEffect(() => {

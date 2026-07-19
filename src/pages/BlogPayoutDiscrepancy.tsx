@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { useSeoMeta, blogPostingSchema } from '@/lib/seo';
+import { useSeoMeta, blogPostingSchema, breadcrumbSchema, combineSchemas } from '@/lib/seo';
 
 const TITLE = '5 Signs Your Shopify Payouts Are Wrong (And What to Do) | Fincile';
 const DESCRIPTION = '5 warning signs that your Shopify store has a payout discrepancy — and the exact steps to investigate and fix each one.';
@@ -13,12 +13,19 @@ export default function BlogPayoutDiscrepancy() {
     title: TITLE,
     description: DESCRIPTION,
     path: PATH,
-    structuredData: blogPostingSchema({
-      headline: '5 Signs Your Shopify Payouts Are Wrong — And What to Do About Each One',
-      description: DESCRIPTION,
-      path: PATH,
-      datePublished: '2026-07-12',
-    }),
+    structuredData: combineSchemas(
+      blogPostingSchema({
+        headline: '5 Signs Your Shopify Payouts Are Wrong — And What to Do About Each One',
+        description: DESCRIPTION,
+        path: PATH,
+        datePublished: '2026-07-12',
+      }),
+      breadcrumbSchema([
+        { name: 'Home', path: '/' },
+        { name: 'Blog', path: '/blog' },
+        { name: '5 Signs Your Payouts Are Wrong' },
+      ]),
+    ),
   });
 
   useEffect(() => {

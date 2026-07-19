@@ -19,7 +19,7 @@ export default function Index() {
   const location = useLocation();
 
   useSeoMeta({
-    title: 'Fincile – Shopify Payout Reconciliation Tool | Fix Missing & Mismatched Payouts',
+    title: 'Fincile – Shopify Payout Reconciliation Tool',
     description: 'Fincile automatically reconciles Shopify payouts against Stripe, PayPal, Shopify Payments, and 11+ gateways. Catch missing payments, duplicate charges, and refund mismatches in minutes. 14-day free trial.',
     path: '/',
     ogTitle: 'Fincile – Fix Your Shopify Payout Mismatches Automatically',

@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { useSeoMeta, blogPostingSchema } from '@/lib/seo';
+import { useSeoMeta, blogPostingSchema, breadcrumbSchema, combineSchemas } from '@/lib/seo';
 
 const TITLE = 'Shopify Duplicate Charges on Stripe: Causes and How to Find Them | Fincile';
 const DESCRIPTION = 'Why Stripe sometimes charges a Shopify customer twice for one order, how to find every duplicate charge in your account, and how to stop it happening again.';
@@ -13,12 +13,19 @@ export default function BlogDuplicateChargesStripe() {
     title: TITLE,
     description: DESCRIPTION,
     path: PATH,
-    structuredData: blogPostingSchema({
-      headline: 'Shopify Duplicate Charges on Stripe: Causes and How to Find Them',
-      description: DESCRIPTION,
-      path: PATH,
-      datePublished: '2026-07-19',
-    }),
+    structuredData: combineSchemas(
+      blogPostingSchema({
+        headline: 'Shopify Duplicate Charges on Stripe: Causes and How to Find Them',
+        description: DESCRIPTION,
+        path: PATH,
+        datePublished: '2026-07-19',
+      }),
+      breadcrumbSchema([
+        { name: 'Home', path: '/' },
+        { name: 'Blog', path: '/blog' },
+        { name: 'Shopify Duplicate Charges on Stripe' },
+      ]),
+    ),
   });
 
   useEffect(() => {

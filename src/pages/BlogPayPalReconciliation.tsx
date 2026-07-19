@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { useSeoMeta, blogPostingSchema } from '@/lib/seo';
+import { useSeoMeta, blogPostingSchema, breadcrumbSchema, combineSchemas } from '@/lib/seo';
 
 const TITLE = 'Shopify + PayPal Reconciliation: Why Payments Go Missing | Fincile';
 const DESCRIPTION = 'PayPal reconciliation on Shopify has different failure modes than card processors. Learn why PayPal payments go missing and how to reconcile every transaction correctly.';
@@ -13,12 +13,19 @@ export default function BlogPayPalReconciliation() {
     title: TITLE,
     description: DESCRIPTION,
     path: PATH,
-    structuredData: blogPostingSchema({
-      headline: 'Shopify + PayPal Reconciliation: Why Payments Go Missing',
-      description: DESCRIPTION,
-      path: PATH,
-      datePublished: '2026-07-19',
-    }),
+    structuredData: combineSchemas(
+      blogPostingSchema({
+        headline: 'Shopify + PayPal Reconciliation: Why Payments Go Missing',
+        description: DESCRIPTION,
+        path: PATH,
+        datePublished: '2026-07-19',
+      }),
+      breadcrumbSchema([
+        { name: 'Home', path: '/' },
+        { name: 'Blog', path: '/blog' },
+        { name: 'Shopify + PayPal Reconciliation' },
+      ]),
+    ),
   });
 
   useEffect(() => {

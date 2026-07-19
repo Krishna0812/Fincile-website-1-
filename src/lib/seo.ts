@@ -104,3 +104,25 @@ export function blogPostingSchema(opts: {
     },
   };
 }
+
+export function breadcrumbSchema(items: { name: string; path?: string }[]) {
+  return {
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: item.name,
+      ...(item.path ? { item: `${SITE_URL}${item.path}` } : {}),
+    })),
+  };
+}
+
+/** Combines multiple schema objects into one @graph block under a single
+ * @context, so a page can carry e.g. BlogPosting + BreadcrumbList together
+ * without stacking multiple <script> tags. */
+export function combineSchemas(...schemas: Record<string, unknown>[]) {
+  return {
+    "@context": "https://schema.org",
+    "@graph": schemas.map(({ "@context": _drop, ...rest }) => rest),
+  };
+}
