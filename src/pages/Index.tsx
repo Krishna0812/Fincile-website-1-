@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { useSeoMeta } from '@/lib/seo';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import WhyMatters from '@/components/WhyMatters';
@@ -16,6 +17,14 @@ import FAQ from '@/components/FAQ';
 
 export default function Index() {
   const location = useLocation();
+
+  useSeoMeta({
+    title: 'Fincile – Shopify Payout Reconciliation Tool | Fix Missing & Mismatched Payouts',
+    description: 'Fincile automatically reconciles Shopify payouts against Stripe, PayPal, Shopify Payments, and 11+ gateways. Catch missing payments, duplicate charges, and refund mismatches in minutes. 14-day free trial.',
+    path: '/',
+    ogTitle: 'Fincile – Fix Your Shopify Payout Mismatches Automatically',
+    ogDescription: 'Shopify payouts never match your bank? Fincile reconciles Shopify, Stripe, PayPal, and 11+ gateways automatically — catches every missing payment and duplicate charge.',
+  });
 
   useEffect(() => {
     if (!location.hash) return;

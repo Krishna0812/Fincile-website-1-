@@ -2,11 +2,27 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { useSeoMeta, blogPostingSchema } from '@/lib/seo';
+
+const TITLE = 'Fincile vs Synder: Comparing Shopify Payout Reconciliation Options | Fincile';
+const DESCRIPTION = 'Synder syncs multi-channel sales and payment data into your books. Fincile focuses specifically on catching Shopify payout errors — missing payments, duplicate charges, and settlement gaps. Here\'s the difference.';
+const PATH = '/blog/fincile-vs-synder';
 
 export default function BlogFincileVsSynder() {
+  useSeoMeta({
+    title: TITLE,
+    description: DESCRIPTION,
+    path: PATH,
+    structuredData: blogPostingSchema({
+      headline: 'Fincile vs Synder: Comparing Shopify Payout Reconciliation Options',
+      description: DESCRIPTION,
+      path: PATH,
+      datePublished: '2026-07-18',
+    }),
+  });
+
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = 'Fincile vs Synder: Comparing Shopify Payout Reconciliation Options | Fincile';
   }, []);
 
   return (

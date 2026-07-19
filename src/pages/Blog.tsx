@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { useSeoMeta } from '@/lib/seo';
 
 const posts = [
   {
@@ -47,9 +48,14 @@ const posts = [
 ];
 
 export default function Blog() {
+  useSeoMeta({
+    title: 'Blog — Shopify Revenue Reconciliation Guides | Fincile',
+    description: 'Guides on Shopify payout reconciliation: ghost orders, Stripe mismatches, payout discrepancies, and how Fincile compares to A2X and Synder.',
+    path: '/blog',
+  });
+
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = 'Blog — Shopify Revenue Reconciliation Guides | Fincile';
   }, []);
 
   return (

@@ -2,13 +2,27 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { useSeoMeta, blogPostingSchema } from '@/lib/seo';
+
+const TITLE = 'Shopify + Stripe Reconciliation: Why Your Payouts Don\'t Match | Fincile';
+const DESCRIPTION = 'A complete guide to reconciling Shopify orders against Stripe payouts. Learn the 6 most common causes of Stripe-Shopify mismatches and how to fix them.';
+const PATH = '/blog/shopify-stripe-reconciliation';
 
 export default function BlogStripeShopify() {
+  useSeoMeta({
+    title: TITLE,
+    description: DESCRIPTION,
+    path: PATH,
+    structuredData: blogPostingSchema({
+      headline: 'Shopify + Stripe Reconciliation: Why Your Payouts Don\'t Match Your Orders',
+      description: DESCRIPTION,
+      path: PATH,
+      datePublished: '2026-07-12',
+    }),
+  });
+
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = 'Shopify + Stripe Reconciliation: Why Your Payouts Don\'t Match | Fincile';
-    const desc = document.querySelector('meta[name="description"]');
-    if (desc) desc.setAttribute('content', 'A complete guide to reconciling Shopify orders against Stripe payouts. Learn the 6 most common causes of Stripe-Shopify mismatches and how to fix them.');
   }, []);
 
   return (

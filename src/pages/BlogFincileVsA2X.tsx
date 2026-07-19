@@ -2,11 +2,27 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { useSeoMeta, blogPostingSchema } from '@/lib/seo';
+
+const TITLE = 'Fincile vs A2X: Which Shopify Reconciliation Tool Is Right for You? | Fincile';
+const DESCRIPTION = 'A2X posts summarized Shopify sales into your accounting platform. Fincile catches missing payments, duplicate charges, and payout mismatches at the transaction level. Here\'s how they differ.';
+const PATH = '/blog/fincile-vs-a2x';
 
 export default function BlogFincileVsA2X() {
+  useSeoMeta({
+    title: TITLE,
+    description: DESCRIPTION,
+    path: PATH,
+    structuredData: blogPostingSchema({
+      headline: 'Fincile vs A2X: Which Shopify Reconciliation Tool Is Right for You?',
+      description: DESCRIPTION,
+      path: PATH,
+      datePublished: '2026-07-18',
+    }),
+  });
+
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = 'Fincile vs A2X: Which Shopify Reconciliation Tool Is Right for You? | Fincile';
   }, []);
 
   return (
