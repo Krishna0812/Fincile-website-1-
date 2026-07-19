@@ -45,6 +45,38 @@ const posts = [
     date: 'July 2026',
     readTime: '6 min read',
   },
+  {
+    slug: 'shopify-duplicate-charge-stripe',
+    eyebrow: 'Payment Reconciliation',
+    title: 'Shopify Duplicate Charges on Stripe: Causes and How to Find Them',
+    excerpt: 'Why Stripe sometimes charges a customer twice for one Shopify order, and how to find every duplicate before it turns into a dispute.',
+    date: 'July 2026',
+    readTime: '6 min read',
+  },
+  {
+    slug: 'shopify-refund-not-in-stripe',
+    eyebrow: 'Payment Reconciliation',
+    title: 'Shopify Refund Not Showing in Stripe? Here\'s Why',
+    excerpt: 'A Shopify refund can look complete while the money never actually leaves your Stripe balance. Here\'s how to verify every refund actually settled.',
+    date: 'July 2026',
+    readTime: '6 min read',
+  },
+  {
+    slug: 'shopify-paypal-reconciliation',
+    eyebrow: 'Payment Reconciliation',
+    title: 'Shopify + PayPal Reconciliation: Why Payments Go Missing',
+    excerpt: 'PayPal reconciliation has different failure modes than card processors. Here\'s why PayPal payments go missing and how to reconcile every transaction.',
+    date: 'July 2026',
+    readTime: '7 min read',
+  },
+  {
+    slug: 'shopify-bnpl-reconciliation',
+    eyebrow: 'Payment Reconciliation',
+    title: 'Shopify Klarna & Afterpay Reconciliation: Why Payouts Don\'t Match',
+    excerpt: 'Klarna and Afterpay settle orders in installments, not all at once — which makes reconciliation harder than a normal payout. Here\'s how to get it right.',
+    date: 'July 2026',
+    readTime: '6 min read',
+  },
 ];
 
 export default function Blog() {
