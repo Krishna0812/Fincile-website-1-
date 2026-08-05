@@ -4,10 +4,17 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
+import About from "./pages/About.tsx";
 import Blog from "./pages/Blog.tsx";
 import BlogGhostOrders from "./pages/BlogGhostOrders.tsx";
 import BlogStripeShopify from "./pages/BlogStripeShopify.tsx";
 import BlogPayoutDiscrepancy from "./pages/BlogPayoutDiscrepancy.tsx";
+import BlogFincileVsA2X from "./pages/BlogFincileVsA2X.tsx";
+import BlogFincileVsSynder from "./pages/BlogFincileVsSynder.tsx";
+import BlogDuplicateChargesStripe from "./pages/BlogDuplicateChargesStripe.tsx";
+import BlogRefundNotInStripe from "./pages/BlogRefundNotInStripe.tsx";
+import BlogPayPalReconciliation from "./pages/BlogPayPalReconciliation.tsx";
+import BlogBNPLReconciliation from "./pages/BlogBNPLReconciliation.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -20,10 +27,17 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/about" element={<About />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/ghost-orders-shopify" element={<BlogGhostOrders />} />
           <Route path="/blog/shopify-stripe-reconciliation" element={<BlogStripeShopify />} />
           <Route path="/blog/shopify-payout-discrepancy" element={<BlogPayoutDiscrepancy />} />
+          <Route path="/blog/fincile-vs-a2x" element={<BlogFincileVsA2X />} />
+          <Route path="/blog/fincile-vs-synder" element={<BlogFincileVsSynder />} />
+          <Route path="/blog/shopify-duplicate-charge-stripe" element={<BlogDuplicateChargesStripe />} />
+          <Route path="/blog/shopify-refund-not-in-stripe" element={<BlogRefundNotInStripe />} />
+          <Route path="/blog/shopify-paypal-reconciliation" element={<BlogPayPalReconciliation />} />
+          <Route path="/blog/shopify-bnpl-reconciliation" element={<BlogBNPLReconciliation />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

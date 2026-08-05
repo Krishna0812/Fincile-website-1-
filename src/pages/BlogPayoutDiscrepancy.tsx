@@ -2,13 +2,34 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { useSeoMeta, blogPostingSchema, breadcrumbSchema, combineSchemas } from '@/lib/seo';
+
+const TITLE = '5 Signs Your Shopify Payouts Are Wrong (And What to Do) | Fincile';
+const DESCRIPTION = '5 warning signs that your Shopify store has a payout discrepancy — and the exact steps to investigate and fix each one.';
+const PATH = '/blog/shopify-payout-discrepancy';
 
 export default function BlogPayoutDiscrepancy() {
+  useSeoMeta({
+    title: TITLE,
+    description: DESCRIPTION,
+    path: PATH,
+    structuredData: combineSchemas(
+      blogPostingSchema({
+        headline: '5 Signs Your Shopify Payouts Are Wrong — And What to Do About Each One',
+        description: DESCRIPTION,
+        path: PATH,
+        datePublished: '2026-07-12',
+      }),
+      breadcrumbSchema([
+        { name: 'Home', path: '/' },
+        { name: 'Blog', path: '/blog' },
+        { name: '5 Signs Your Payouts Are Wrong' },
+      ]),
+    ),
+  });
+
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = '5 Signs Your Shopify Payouts Are Wrong (And What to Do) | Fincile';
-    const desc = document.querySelector('meta[name="description"]');
-    if (desc) desc.setAttribute('content', '5 warning signs that your Shopify store has a payout discrepancy — and the exact steps to investigate and fix each one.');
   }, []);
 
   return (
@@ -44,7 +65,7 @@ export default function BlogPayoutDiscrepancy() {
               Most Shopify merchants never actively verify that the revenue Shopify reports actually matches what lands in their bank account. The assumption is that the numbers are right — and most of the time, they roughly are. But "roughly" isn't good enough when you're making hiring decisions, negotiating supplier contracts, or talking to investors based on those numbers.
             </p>
             <p className="text-base leading-relaxed text-text-secondary mb-6">
-              Here are five warning signs that your Shopify payouts have a discrepancy — and the exact steps to investigate each one.
+              Here are five warning signs that your Shopify payout doesn't match your bank balance for a real, fixable reason — and the exact steps to investigate each one.
             </p>
 
             {[
@@ -108,7 +129,7 @@ export default function BlogPayoutDiscrepancy() {
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <a href="https://app.getfincile.com" target="_blank" rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center h-11 px-7 rounded-md text-sm font-semibold bg-teal text-navy hover:opacity-90 transition-all">
+                  className="inline-flex items-center justify-center h-11 px-7 rounded-md text-sm font-semibold bg-teal text-navy hover:opacity-90 active:scale-[0.98] transition-all">
                   Try Free — Up to 100 Orders →
                 </a>
                 <Link to="/" className="inline-flex items-center justify-center h-11 px-7 rounded-md text-sm font-semibold border border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10 transition-all">

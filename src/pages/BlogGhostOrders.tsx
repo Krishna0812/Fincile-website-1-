@@ -2,11 +2,34 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { useSeoMeta, blogPostingSchema, breadcrumbSchema, combineSchemas } from '@/lib/seo';
+
+const TITLE = 'What Are Ghost Orders on Shopify? How to Detect and Fix Payout Gaps | Fincile';
+const DESCRIPTION = 'Ghost orders are Shopify orders marked as paid with no matching charge in your payment processor. Learn how to detect them and close the payout gap they leave behind.';
+const PATH = '/blog/ghost-orders-shopify';
 
 export default function BlogGhostOrders() {
+  useSeoMeta({
+    title: TITLE,
+    description: DESCRIPTION,
+    path: PATH,
+    structuredData: combineSchemas(
+      blogPostingSchema({
+        headline: 'What Are Ghost Orders on Shopify? How to Detect and Fix Payout Gaps',
+        description: DESCRIPTION,
+        path: PATH,
+        datePublished: '2026-07-12',
+      }),
+      breadcrumbSchema([
+        { name: 'Home', path: '/' },
+        { name: 'Blog', path: '/blog' },
+        { name: 'Ghost Orders on Shopify' },
+      ]),
+    ),
+  });
+
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = 'What Are Ghost Orders on Shopify? How to Detect and Fix Payout Gaps | Fincile';
   }, []);
 
   return (
@@ -50,7 +73,7 @@ export default function BlogGhostOrders() {
             </p>
 
             <p className="text-base leading-relaxed text-text-secondary mb-6">
-              Most merchants never notice. Shopify's dashboard shows a clean "Paid" status. The gateway account shows a slightly different total. The difference gets attributed to fees, timing, or a vague sense that "the numbers are always a bit off." Over months, this gap can represent thousands of dollars in unrecovered revenue.
+              Most merchants never notice. Shopify's dashboard shows a clean "Paid" status. The gateway account shows a slightly different total. The difference gets attributed to fees, timing, or a vague sense that "the numbers are always a bit off." Over months, this gap can represent thousands of dollars in unrecovered revenue — and it's the most common form of a Shopify missing payout: an order Shopify counted as paid that never actually settled.
             </p>
 
             <h2 className="text-xl font-bold text-navy mt-10 mb-4">Why ghost orders happen</h2>
@@ -180,7 +203,7 @@ export default function BlogGhostOrders() {
                   href="https://app.getfincile.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center h-11 px-7 rounded-md text-sm font-semibold bg-teal text-navy hover:opacity-90 transition-all"
+                  className="inline-flex items-center justify-center h-11 px-7 rounded-md text-sm font-semibold bg-teal text-navy hover:opacity-90 active:scale-[0.98] transition-all"
                 >
                   Try Free — Up to 100 Orders →
                 </a>

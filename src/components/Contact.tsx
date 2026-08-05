@@ -157,19 +157,19 @@ export default function Contact() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full h-12 rounded-lg text-base font-semibold gradient-cta text-primary-foreground hover:opacity-90 transition-all hover:-translate-y-0.5 disabled:opacity-70 disabled:hover:translate-y-0"
+              className="w-full h-12 rounded-lg text-base font-semibold gradient-cta text-primary-foreground hover:opacity-90 active:scale-[0.98] transition-all hover:-translate-y-0.5 disabled:opacity-70 disabled:hover:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             >
               {isSubmitting ? 'Sending...' : 'Request Free Audit ->'}
             </button>
 
             {submitState === 'success' && (
-              <p className="rounded-lg bg-teal/10 px-4 py-3 text-sm font-medium text-navy">
+              <p className="animate-fade-up-sm rounded-lg bg-teal/10 px-4 py-3 text-sm font-medium text-navy">
                 Thank you! We'll review your details and get back to you within 24 hours.
               </p>
             )}
 
             {submitState === 'error' && (
-              <p className="rounded-lg bg-destructive/10 px-4 py-3 text-sm font-medium text-destructive">
+              <p className="animate-fade-up-sm rounded-lg bg-destructive/10 px-4 py-3 text-sm font-medium text-destructive">
                 {errorMessage}
               </p>
             )}

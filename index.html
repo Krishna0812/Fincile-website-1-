@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Primary SEO -->
-    <title>Fincile – Shopify Payout Reconciliation Tool | Fix Missing &amp; Mismatched Payouts</title>
+    <title>Fincile – Shopify Payout Reconciliation Tool</title>
     <meta name="description" content="Fincile automatically reconciles Shopify payouts against Stripe, PayPal, Shopify Payments, and 11+ gateways. Catch missing payments, duplicate charges, and refund mismatches in minutes. 14-day free trial." />
     <meta name="keywords" content="shopify payout reconciliation, shopify payment reconciliation, shopify stripe reconciliation, shopify paypal reconciliation, shopify missing payout, shopify payout mismatch, shopify payout wrong, ecommerce reconciliation tool, shopify accounting software, shopify revenue reconciliation, reconcile shopify payouts, shopify settlement discrepancy, shopify payments mismatch" />
     <meta name="author" content="Fincile" />
@@ -39,9 +39,18 @@
       "operatingSystem": "Web",
       "offers": {
         "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD",
-        "description": "Free audit for Shopify merchants"
+        "category": "SaaS subscription",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "0",
+          "priceCurrency": "USD",
+          "referenceQuantity": {
+            "@type": "QuantitativeValue",
+            "value": "14",
+            "unitCode": "DAY"
+          }
+        },
+        "description": "14-day free trial, no credit card required. Paid plans available after the trial."
       },
       "creator": {
         "@type": "Organization",
@@ -57,6 +66,28 @@
         "PayPal reconciliation",
         "Settlement gap analysis"
       ]
+    }
+    </script>
+
+    <!-- Organization Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Fincile",
+      "url": "https://www.getfincile.com",
+      "logo": "https://www.getfincile.com/apple-touch-icon.png",
+      "description": "Fincile is a Shopify payout reconciliation platform that automatically identifies missing payments, duplicate charges, refund mismatches, and settlement gaps across Shopify, Stripe, PayPal, and 11+ gateways."
+    }
+    </script>
+
+    <!-- WebSite Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Fincile",
+      "url": "https://www.getfincile.com"
     }
     </script>
 

@@ -15,7 +15,7 @@ export default function Security() {
         <div className="w-16 h-16 rounded-2xl bg-teal-light flex items-center justify-center text-teal mx-auto mb-6">
           <Shield size={32} />
         </div>
-        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-navy mb-3">Your Data Stays Secure</h2>
+        <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-navy mb-3">Your Data Stays Secure</h2>
         <p className="text-text-secondary mb-12">We take data handling seriously, especially for financial data.</p>
 
         <div className="grid sm:grid-cols-3 gap-8 text-left">

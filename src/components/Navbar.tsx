@@ -4,11 +4,11 @@ import { Menu, X } from 'lucide-react';
 import logo from '@/assets/fincile-logo.png';
 
 const navLinks = [
-  { label: 'How It Works', href: '#how-it-works', internal: false },
-  { label: 'What We Detect', href: '#what-we-detect', internal: false },
-  { label: 'Security', href: '#security', internal: false },
+  { label: 'How It Works', href: '/#how-it-works', internal: false },
+  { label: 'What We Detect', href: '/#what-we-detect', internal: false },
+  { label: 'Security', href: '/#security', internal: false },
   { label: 'Blog', href: '/blog', internal: true },
-  { label: 'Contact', href: '#contact', internal: false },
+  { label: 'Contact', href: '/#contact', internal: false },
 ];
 
 export default function Navbar() {
@@ -21,8 +21,8 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const linkClass = "text-sm font-medium text-text-secondary hover:text-navy transition-colors";
-  const mobileLinkClass = "text-lg font-medium text-navy";
+  const linkClass = "text-sm font-medium text-text-secondary hover:text-navy transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2";
+  const mobileLinkClass = "text-lg font-medium text-navy rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2";
 
   return (
     <nav
@@ -51,25 +51,25 @@ export default function Navbar() {
             href="https://app.getfincile.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center h-11 px-6 rounded-md text-sm font-semibold gradient-cta text-primary-foreground hover:opacity-90 transition-all"
+            className="inline-flex items-center justify-center h-11 px-6 rounded-md text-sm font-semibold gradient-cta text-primary-foreground hover:opacity-90 active:scale-[0.98] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           >
             Install App
           </a>
           <a
-            href="#contact"
-            className="inline-flex items-center justify-center h-11 px-5 rounded-md text-sm font-semibold border border-border text-navy hover:bg-surface transition-all"
+            href="/#contact"
+            className="inline-flex items-center justify-center h-11 px-5 rounded-md text-sm font-semibold border border-border text-navy hover:bg-surface transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           >
             Request Free Audit
           </a>
         </div>
 
-        <button onClick={() => setMobileOpen(!mobileOpen)} className="md:hidden p-2 text-navy">
+        <button onClick={() => setMobileOpen(!mobileOpen)} aria-label={mobileOpen ? 'Close menu' : 'Open menu'} className="md:hidden p-2 text-navy rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
       {mobileOpen && (
-        <div className="md:hidden bg-card flex flex-col items-center justify-center gap-8 py-8 shadow-sm">
+        <div className="animate-fade-up-sm md:hidden bg-card flex flex-col items-center justify-center gap-8 py-8 shadow-sm">
           {navLinks.map((l) =>
             l.internal ? (
               <Link
@@ -96,14 +96,14 @@ export default function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setMobileOpen(false)}
-            className="inline-flex items-center justify-center h-11 px-8 rounded-md text-base font-semibold gradient-cta text-primary-foreground"
+            className="inline-flex items-center justify-center h-11 px-8 rounded-md text-base font-semibold gradient-cta text-primary-foreground active:scale-[0.98] transition-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           >
             Install App
           </a>
           <a
-            href="#contact"
+            href="/#contact"
             onClick={() => setMobileOpen(false)}
-            className="inline-flex items-center justify-center h-11 px-8 rounded-md text-base font-semibold border border-border text-navy"
+            className="inline-flex items-center justify-center h-11 px-8 rounded-md text-base font-semibold border border-border text-navy focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           >
             Request Free Audit
           </a>

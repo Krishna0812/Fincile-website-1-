@@ -66,7 +66,7 @@ export default function FAQ() {
           {faqs.map((faq, i) => (
             <div key={i} className="border border-border rounded-xl overflow-hidden">
               <button
-                className="w-full text-left px-6 py-4 flex items-center justify-between gap-4 bg-card hover:bg-surface transition-colors"
+                className="w-full text-left px-6 py-4 flex items-center justify-between gap-4 bg-card hover:bg-surface transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-inset"
                 onClick={() => setOpen(open === i ? null : i)}
                 aria-expanded={open === i}
               >
@@ -77,7 +77,7 @@ export default function FAQ() {
                 />
               </button>
               {open === i && (
-                <div className="px-6 py-4 bg-surface border-t border-border">
+                <div className="animate-fade-up-sm px-6 py-4 bg-surface border-t border-border">
                   <p className="text-sm md:text-base text-text-secondary leading-relaxed">{faq.a}</p>
                 </div>
               )}

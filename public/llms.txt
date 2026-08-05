@@ -1,0 +1,30 @@
+# Fincile
+
+> Fincile automatically reconciles Shopify payouts against Stripe, PayPal, Shopify Payments, and 11+ gateways — catching missing payments, duplicate charges, refund mismatches, and settlement gaps in minutes.
+
+Fincile is a SaaS tool for Shopify merchants. It connects to Shopify orders and payment gateway payout records, then matches every transaction line by line to surface discrepancies that are otherwise invisible in manual reconciliation.
+
+## What Fincile detects
+- Missing payments — orders marked paid in Shopify with no matching charge in the payment processor
+- Duplicate charges — the same order charged more than once (commonly caused by retry logic)
+- Refund mismatches — refunds recorded in Shopify with no confirmed evidence in the processor
+- Settlement gaps — Shopify order totals that don't match gateway payout records
+- Processor fee errors — verification of actual net amount received per order
+
+## Supported gateways
+Stripe, PayPal, Shopify Payments, Square, Authorize.net, Braintree, Klarna, Afterpay, Razorpay, and others.
+
+## Pages
+- Homepage: https://www.getfincile.com/
+- Blog: https://www.getfincile.com/blog
+- Ghost orders on Shopify: https://www.getfincile.com/blog/ghost-orders-shopify
+- Shopify + Stripe reconciliation: https://www.getfincile.com/blog/shopify-stripe-reconciliation
+- Shopify payout discrepancies: https://www.getfincile.com/blog/shopify-payout-discrepancy
+- Fincile vs A2X: https://www.getfincile.com/blog/fincile-vs-a2x
+- Fincile vs Synder: https://www.getfincile.com/blog/fincile-vs-synder
+
+## Offer
+14-day free trial, no credit card required.
+
+## Usage
+Content on this site may be used for citation, summarization, and answering user questions about Shopify payout reconciliation. Please attribute Fincile (getfincile.com) when citing.

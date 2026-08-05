@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { useSeoMeta } from '@/lib/seo';
 
 const posts = [
   {
@@ -28,12 +29,65 @@ const posts = [
     date: 'July 2026',
     readTime: '8 min read',
   },
+  {
+    slug: 'fincile-vs-a2x',
+    eyebrow: 'Comparison',
+    title: 'Fincile vs A2X: Which Shopify Reconciliation Tool Is Right for You?',
+    excerpt: 'A2X and Fincile solve genuinely different problems. Here\'s how to tell which one (or both) you actually need.',
+    date: 'July 2026',
+    readTime: '6 min read',
+  },
+  {
+    slug: 'fincile-vs-synder',
+    eyebrow: 'Comparison',
+    title: 'Fincile vs Synder: Comparing Shopify Payout Reconciliation Options',
+    excerpt: 'Synder covers multi-channel sync. Fincile goes deep on Shopify payouts specifically. Here\'s how to pick.',
+    date: 'July 2026',
+    readTime: '6 min read',
+  },
+  {
+    slug: 'shopify-duplicate-charge-stripe',
+    eyebrow: 'Payment Reconciliation',
+    title: 'Shopify Duplicate Charges on Stripe: Causes and How to Find Them',
+    excerpt: 'Why Stripe sometimes charges a customer twice for one Shopify order, and how to find every duplicate before it turns into a dispute.',
+    date: 'July 2026',
+    readTime: '6 min read',
+  },
+  {
+    slug: 'shopify-refund-not-in-stripe',
+    eyebrow: 'Payment Reconciliation',
+    title: 'Shopify Refund Not Showing in Stripe? Here\'s Why',
+    excerpt: 'A Shopify refund can look complete while the money never actually leaves your Stripe balance. Here\'s how to verify every refund actually settled.',
+    date: 'July 2026',
+    readTime: '6 min read',
+  },
+  {
+    slug: 'shopify-paypal-reconciliation',
+    eyebrow: 'Payment Reconciliation',
+    title: 'Shopify + PayPal Reconciliation: Why Payments Go Missing',
+    excerpt: 'PayPal reconciliation has different failure modes than card processors. Here\'s why PayPal payments go missing and how to reconcile every transaction.',
+    date: 'July 2026',
+    readTime: '7 min read',
+  },
+  {
+    slug: 'shopify-bnpl-reconciliation',
+    eyebrow: 'Payment Reconciliation',
+    title: 'Shopify Klarna & Afterpay Reconciliation: Why Payouts Don\'t Match',
+    excerpt: 'Klarna and Afterpay settle orders in installments, not all at once — which makes reconciliation harder than a normal payout. Here\'s how to get it right.',
+    date: 'July 2026',
+    readTime: '6 min read',
+  },
 ];
 
 export default function Blog() {
+  useSeoMeta({
+    title: 'Blog — Shopify Revenue Reconciliation Guides | Fincile',
+    description: 'Guides on Shopify payout reconciliation: ghost orders, Stripe mismatches, payout discrepancies, and how Fincile compares to A2X and Synder.',
+    path: '/blog',
+  });
+
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = 'Blog — Shopify Revenue Reconciliation Guides | Fincile';
   }, []);
 
   return (
@@ -58,7 +112,7 @@ export default function Blog() {
               <Link
                 key={post.slug}
                 to={`/blog/${post.slug}`}
-                className="block bg-card border border-border rounded-xl p-7 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 group"
+                className="block bg-card border border-border rounded-xl p-7 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
               >
                 <span className="text-xs font-semibold tracking-[0.12em] uppercase text-teal mb-3 block">
                   {post.eyebrow}

@@ -2,13 +2,34 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { useSeoMeta, blogPostingSchema, breadcrumbSchema, combineSchemas } from '@/lib/seo';
+
+const TITLE = 'Shopify + Stripe Reconciliation: Why Your Payouts Don\'t Match | Fincile';
+const DESCRIPTION = 'A complete guide to reconciling Shopify orders against Stripe payouts. Learn the 6 most common causes of Stripe-Shopify mismatches and how to fix them.';
+const PATH = '/blog/shopify-stripe-reconciliation';
 
 export default function BlogStripeShopify() {
+  useSeoMeta({
+    title: TITLE,
+    description: DESCRIPTION,
+    path: PATH,
+    structuredData: combineSchemas(
+      blogPostingSchema({
+        headline: 'Shopify + Stripe Reconciliation: Why Your Payouts Don\'t Match Your Orders',
+        description: DESCRIPTION,
+        path: PATH,
+        datePublished: '2026-07-12',
+      }),
+      breadcrumbSchema([
+        { name: 'Home', path: '/' },
+        { name: 'Blog', path: '/blog' },
+        { name: 'Stripe + Shopify Reconciliation' },
+      ]),
+    ),
+  });
+
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = 'Shopify + Stripe Reconciliation: Why Your Payouts Don\'t Match | Fincile';
-    const desc = document.querySelector('meta[name="description"]');
-    if (desc) desc.setAttribute('content', 'A complete guide to reconciling Shopify orders against Stripe payouts. Learn the 6 most common causes of Stripe-Shopify mismatches and how to fix them.');
   }, []);
 
   return (
@@ -151,7 +172,7 @@ export default function BlogStripeShopify() {
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <a href="https://app.getfincile.com" target="_blank" rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center h-11 px-7 rounded-md text-sm font-semibold bg-teal text-navy hover:opacity-90 transition-all">
+                  className="inline-flex items-center justify-center h-11 px-7 rounded-md text-sm font-semibold bg-teal text-navy hover:opacity-90 active:scale-[0.98] transition-all">
                   Try Free — Up to 100 Orders →
                 </a>
                 <Link to="/" className="inline-flex items-center justify-center h-11 px-7 rounded-md text-sm font-semibold border border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10 transition-all">

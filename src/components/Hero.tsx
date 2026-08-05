@@ -97,7 +97,7 @@ export default function Hero() {
               href="https://app.getfincile.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center h-12 px-8 rounded-lg text-base font-semibold gradient-cta text-primary-foreground hover:opacity-90 transition-all hover:-translate-y-0.5 shadow-lg shadow-teal/20"
+              className="inline-flex items-center justify-center h-12 px-8 rounded-lg text-base font-semibold gradient-cta text-primary-foreground hover:opacity-90 active:scale-[0.98] transition-all hover:-translate-y-0.5 shadow-lg shadow-teal/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             >
               Start Free Trial →
             </a>
