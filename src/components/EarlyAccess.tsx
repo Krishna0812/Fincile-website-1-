@@ -20,7 +20,7 @@ export default function EarlyAccess() {
           {[
             { icon: <FileText size={16} />, text: 'Free trial — up to 100 orders, no card needed' },
             { icon: <Clock size={16} />, text: 'Results in minutes, not 24 hours' },
-            { icon: <Lock size={16} />, text: 'Read-only access — your data is never stored' },
+            { icon: <Lock size={16} />, text: 'Read-only Shopify access, encrypted at rest' },
           ].map(t => (
             <div key={t.text} className="flex items-center gap-2 text-sm text-primary-foreground/90">
               {t.icon} {t.text}
