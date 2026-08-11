@@ -1,0 +1,10 @@
+# /privacy and /terms were never wired up as real routes in this SPA (no
+# <Route> in src/App.tsx, no page component) - every visit fell through to
+# the client-side NotFound catch-all, served with a 200 status since React
+# Router (not the server) determines the 404. The Shopify App Store listing
+# links directly to these URLs, so a reviewer hit a dead page immediately.
+# app.getfincile.com already has real, working /privacy and /terms pages -
+# redirect here at the server level (works even without JS/for crawlers)
+# rather than duplicating legal content across two codebases.
+/privacy https://app.getfincile.com/privacy 301
+/terms https://app.getfincile.com/terms 301
