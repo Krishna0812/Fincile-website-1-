@@ -1,8 +1,16 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { useSeoMeta } from "@/lib/seo";
 
 const NotFound = () => {
   const location = useLocation();
+
+  useSeoMeta({
+    title: "Page Not Found | Fincile",
+    description: "The page you're looking for doesn't exist or has moved.",
+    path: location.pathname,
+    noindex: true,
+  });
 
   useEffect(() => {
     console.error("404 Error: User attempted to access non-existent route:", location.pathname);

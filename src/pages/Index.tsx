@@ -7,6 +7,7 @@ import WhyMatters from '@/components/WhyMatters';
 import WhatWeDetect from '@/components/WhatWeDetect';
 import BusinessOutcomes from '@/components/BusinessOutcomes';
 import HowItWorks from '@/components/HowItWorks';
+import ComingSoon from '@/components/ComingSoon';
 import EarlyAccess from '@/components/EarlyAccess';
 import Security from '@/components/Security';
 import BestFit from '@/components/BestFit';
@@ -45,6 +46,7 @@ export default function Index() {
         <WhatWeDetect />
         <BusinessOutcomes />
         <HowItWorks />
+        <ComingSoon />
         <EarlyAccess />
         <Security />
         <BestFit />

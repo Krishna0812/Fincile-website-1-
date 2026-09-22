@@ -6,6 +6,7 @@ import logo from '@/assets/fincile-logo.png';
 const navLinks = [
   { label: 'How It Works', href: '/#how-it-works', internal: false },
   { label: 'What We Detect', href: '/#what-we-detect', internal: false },
+  { label: "What's Next", href: '/#coming-soon', internal: false },
   { label: 'Security', href: '/#security', internal: false },
   { label: 'Blog', href: '/blog', internal: true },
   { label: 'Contact', href: '/#contact', internal: false },

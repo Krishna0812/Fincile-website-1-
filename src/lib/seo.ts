@@ -51,6 +51,10 @@ export interface SeoMetaOptions {
   ogTitle?: string;
   ogDescription?: string;
   structuredData?: Record<string, unknown>;
+  /** Set true for pages that should never be indexed (e.g. a 404) --
+   * otherwise a soft-404 SPA route with no robots tag can get indexed by
+   * search engines under its own URL. */
+  noindex?: boolean;
 }
 
 /** Updates document title, meta description/canonical/OG/Twitter tags, and
@@ -68,6 +72,7 @@ export function useSeoMeta(options: SeoMetaOptions) {
     setMetaByName("twitter:title", options.ogTitle ?? options.title);
     setMetaByName("twitter:description", options.ogDescription ?? options.description);
     setStructuredData(options.structuredData);
+    setMetaByName("robots", options.noindex ? "noindex, nofollow" : "index, follow");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 }
