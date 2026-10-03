@@ -2,7 +2,7 @@ import { useInView } from '@/hooks/use-animations';
 import { SHOPIFY_APP_STORE_URL, SYNC_LINE } from '@/lib/site';
 
 const steps = [
-  { num: '1', title: 'Install & Connect', time: '2 minutes', desc: 'Install Fincile from the Shopify App Store. OAuth connects your store automatically — no manual exports needed. ' + SYNC_LINE },
+  { num: '1', title: 'Install & Connect', time: '2 minutes', desc: 'Install Fincile from the Shopify App Store. OAuth connects your store automatically — no manual exports needed for Stripe and PayPal. ' + SYNC_LINE },
   { num: '2', title: 'Run an Audit', desc: 'Select your gateway, set a date range, and click Run Audit. Fincile cross-references every Shopify order against every gateway payout using cent-safe integer math — detecting ghost orders, duplicate charges, refund mismatches, and settlement gaps.' },
   { num: '3', title: 'Review Your Findings', desc: 'Results appear instantly in your dashboard. Every exception shows the exact order ID, amount, and variance. Export findings as CSV or download a PDF audit report — then resolve or dismiss each finding as you go.' },
 ];

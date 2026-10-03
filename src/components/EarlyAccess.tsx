@@ -14,7 +14,7 @@ export default function EarlyAccess() {
           Run Your First Audit Free — No Credit Card Required
         </h2>
         <p className="text-base lg:text-lg text-primary-foreground/80 mb-10 leading-relaxed">
-          Install Fincile from the Shopify App Store and run your first full reconciliation audit at no cost. See exactly what your store might be missing before you pay anything.
+          Install Fincile from the Shopify App Store and run your first audit free (up to 100 orders). See exactly what your store might be missing before you pay anything.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-10">

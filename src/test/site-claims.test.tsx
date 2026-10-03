@@ -85,6 +85,13 @@ describe('prices, trial, sync and example claims', () => {
     const how = text(show(<HowItWorks />));
     expect(how).toContain('Live sync for Stripe and PayPal. Shopify Payments and 11+ other gateways by payout CSV upload.');
     expect(how).not.toMatch(/Shopify Payments, live sync/);
+    expect(how).toContain('OAuth connects your store automatically — no manual exports needed for Stripe and PayPal. Live sync for Stripe and PayPal.');
+  });
+
+  it('Get Started: first audit free, up to 100 orders', () => {
+    const start = text(show(<EarlyAccess />));
+    expect(start).toContain('Install Fincile from the Shopify App Store and run your first audit free (up to 100 orders). See exactly what your store might be missing before you pay anything.');
+    expect(start).not.toContain('full reconciliation audit at no cost');
   });
 
   it('privacy wording names the service providers on the privacy page', () => {
