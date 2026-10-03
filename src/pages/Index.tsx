@@ -21,9 +21,9 @@ export default function Index() {
 
   useSeoMeta({
     title: 'Fincile – Shopify Payout Reconciliation Tool',
-    description: 'Fincile automatically reconciles Shopify payouts against Stripe, PayPal, Shopify Payments, and 11+ gateways. Catch missing payments, duplicate charges, and refund mismatches in minutes. 14-day free trial.',
+    description: 'Fincile automatically reconciles Shopify payouts against Stripe, PayPal, Shopify Payments, and 11+ gateways. Catch missing payments, duplicate charges, and refund mismatches in minutes. Free audit plan, plus a 14-day free trial on paid plans.',
     path: '/',
-    ogTitle: 'Fincile – Fix Your Shopify Payout Mismatches Automatically',
+    ogTitle: 'Fincile – Find Your Shopify Payout Mismatches',
     ogDescription: 'Shopify payouts never match your bank? Fincile reconciles Shopify, Stripe, PayPal, and 11+ gateways automatically — catches every missing payment and duplicate charge.',
   });
 

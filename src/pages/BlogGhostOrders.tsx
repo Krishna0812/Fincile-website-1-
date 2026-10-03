@@ -196,11 +196,11 @@ export default function BlogGhostOrders() {
                 Fincile automates everything above
               </h3>
               <p className="text-sm text-primary-foreground/70 leading-relaxed mb-6 max-w-md mx-auto">
-                Connect your Shopify store via OAuth, select your gateway, and run your first audit in under 5 minutes. Stripe, PayPal, and Shopify Payments sync live via API. Results in minutes, not hours.
+                Connect your Shopify store via OAuth, select your gateway, and run your first audit in under 5 minutes. Stripe and PayPal sync live via API; Shopify Payments and other gateways by payout CSV upload. Results in minutes, not hours.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <a
-                  href="https://app.getfincile.com"
+                  href="https://apps.shopify.com/fincile"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center h-11 px-7 rounded-md text-sm font-semibold bg-teal text-navy hover:opacity-90 active:scale-[0.98] transition-all"

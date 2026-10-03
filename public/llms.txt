@@ -13,6 +13,7 @@ Fincile is a SaaS tool for Shopify merchants. It connects to Shopify orders and 
 
 ## Supported gateways
 Stripe, PayPal, Shopify Payments, Square, Authorize.net, Braintree, Klarna, Afterpay, Razorpay, and others.
+Live sync for Stripe and PayPal. Shopify Payments and 11+ other gateways by payout CSV upload.
 
 ## Pages
 - Homepage: https://www.getfincile.com/
@@ -24,7 +25,8 @@ Stripe, PayPal, Shopify Payments, Square, Authorize.net, Braintree, Klarna, Afte
 - Fincile vs Synder: https://www.getfincile.com/blog/fincile-vs-synder
 
 ## Offer
-14-day free trial, no credit card required.
+Free audit plan, plus a 14-day free trial on paid plans. Start with a free audit. Paid plans from $29/month.
+Install: https://apps.shopify.com/fincile
 
 ## Usage
 Content on this site may be used for citation, summarization, and answering user questions about Shopify payout reconciliation. Please attribute Fincile (getfincile.com) when citing.

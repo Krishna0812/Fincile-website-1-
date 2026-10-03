@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import logo from '@/assets/fincile-logo.png';
+import { PRICING_LINE, TRIAL_LINE } from '@/lib/site';
 
 const links = [
   { label: 'How It Works', href: '/#how-it-works', internal: false },
@@ -57,8 +58,8 @@ export default function Footer() {
             <a href="mailto:support@getfincile.com" className="block text-sm text-teal hover:underline mb-2">
               support@getfincile.com
             </a>
-            <p className="text-sm text-primary-foreground/60">14-day free trial on all plans</p>
-            <p className="text-sm text-primary-foreground/60">Founding pricing from $39/mo</p>
+            <p className="text-sm text-primary-foreground/60">{TRIAL_LINE}</p>
+            <p className="text-sm text-primary-foreground/60">{PRICING_LINE}</p>
           </div>
         </div>
 

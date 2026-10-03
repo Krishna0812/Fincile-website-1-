@@ -144,7 +144,7 @@ export default function BlogPayPalReconciliation() {
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <a
-                  href="https://app.getfincile.com"
+                  href="https://apps.shopify.com/fincile"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center h-11 px-7 rounded-md text-sm font-semibold bg-teal text-navy hover:opacity-90 active:scale-[0.98] transition-all"

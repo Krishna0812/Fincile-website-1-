@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import logo from '@/assets/fincile-logo.png';
+import { APP_LOGIN_URL, SHOPIFY_APP_STORE_URL } from '@/lib/site';
 
 const navLinks = [
   { label: 'How It Works', href: '/#how-it-works', internal: false },
@@ -49,7 +50,15 @@ export default function Navbar() {
             )
           )}
           <a
-            href="https://app.getfincile.com"
+            href={APP_LOGIN_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={linkClass}
+          >
+            Log in
+          </a>
+          <a
+            href={SHOPIFY_APP_STORE_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center h-11 px-6 rounded-md text-sm font-semibold gradient-cta text-primary-foreground hover:opacity-90 active:scale-[0.98] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
@@ -93,7 +102,16 @@ export default function Navbar() {
             )
           )}
           <a
-            href="https://app.getfincile.com"
+            href={APP_LOGIN_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setMobileOpen(false)}
+            className={mobileLinkClass}
+          >
+            Log in
+          </a>
+          <a
+            href={SHOPIFY_APP_STORE_URL}
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setMobileOpen(false)}

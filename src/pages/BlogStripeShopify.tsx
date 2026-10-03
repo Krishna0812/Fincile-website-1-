@@ -171,7 +171,7 @@ export default function BlogStripeShopify() {
                 Connect Shopify + Stripe via OAuth. Fincile pulls every order, every charge, every refund and dispute, and cross-references them automatically using cent-safe arithmetic. Discrepancies surface immediately with the exact order ID and variance amount.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <a href="https://app.getfincile.com" target="_blank" rel="noopener noreferrer"
+                <a href="https://apps.shopify.com/fincile" target="_blank" rel="noopener noreferrer"
                   className="inline-flex items-center justify-center h-11 px-7 rounded-md text-sm font-semibold bg-teal text-navy hover:opacity-90 active:scale-[0.98] transition-all">
                   Try Free — Up to 100 Orders →
                 </a>

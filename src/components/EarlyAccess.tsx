@@ -1,5 +1,6 @@
 import { useInView } from '@/hooks/use-animations';
 import { FileText, Clock, Lock } from 'lucide-react';
+import { SHOPIFY_APP_STORE_URL, TRIAL_LINE } from '@/lib/site';
 
 export default function EarlyAccess() {
   const { ref, inView } = useInView();
@@ -18,7 +19,7 @@ export default function EarlyAccess() {
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-10">
           {[
-            { icon: <FileText size={16} />, text: 'Free trial — up to 100 orders, no card needed' },
+            { icon: <FileText size={16} />, text: 'Free audit — up to 100 orders, no card needed' },
             { icon: <Clock size={16} />, text: 'Results in minutes, not 24 hours' },
             { icon: <Lock size={16} />, text: 'Read-only Shopify access, encrypted at rest' },
           ].map(t => (
@@ -28,10 +29,10 @@ export default function EarlyAccess() {
           ))}
         </div>
 
-        <a href="https://app.getfincile.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center h-12 px-8 rounded-lg text-base font-semibold bg-card text-teal hover:bg-card/90 active:scale-[0.98] transition-all hover:-translate-y-0.5 shadow-lg mb-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-teal">
-          Start Free Trial →
+        <a href={SHOPIFY_APP_STORE_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center h-12 px-8 rounded-lg text-base font-semibold bg-card text-teal hover:bg-card/90 active:scale-[0.98] transition-all hover:-translate-y-0.5 shadow-lg mb-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-teal">
+          Install Free on Shopify →
         </a>
-        <p className="text-sm text-primary-foreground/60">Questions? Email support@getfincile.com</p>
+        <p className="text-sm text-primary-foreground/60">{TRIAL_LINE} Questions? Email support@getfincile.com</p>
       </div>
     </section>
   );

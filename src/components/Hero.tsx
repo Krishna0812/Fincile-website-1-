@@ -1,5 +1,6 @@
 import { useCountUp, useInView, useParallax } from '@/hooks/use-animations';
 import { CreditCard, Landmark, Wallet } from 'lucide-react';
+import { PRICING_LINE, SHOPIFY_APP_STORE_URL } from '@/lib/site';
 
 function AuditCard() {
   const { ref: cardRef } = useParallax();
@@ -19,7 +20,7 @@ function AuditCard() {
           <span className="text-xs font-semibold tracking-widest uppercase text-teal">Revenue Integrity Report</span>
           <span className="text-xs font-medium bg-teal-light text-teal px-3 py-1 rounded-full">30 Days</span>
         </div>
-        <h3 className="text-lg font-bold text-navy mb-5">Sample Merchant Audit</h3>
+        <h3 className="text-lg font-bold text-navy mb-5">Example audit using test data</h3>
 
         <div className="grid grid-cols-3 gap-3 mb-5">
           {[
@@ -69,12 +70,12 @@ export default function Hero() {
               Revenue Integrity Audit
             </span>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-primary-foreground leading-tight mb-6">
-              Shopify Payout Reconciliation — Automatically Fix Missing & Mismatched Payouts
+              Shopify Payout Reconciliation — Find Missing & Mismatched Payouts
             </h1>
             <p className="text-base lg:text-lg text-primary-foreground/70 leading-relaxed mb-8 max-w-xl">
               Fincile is a Shopify revenue reconciliation and audit platform that detects missing payments,
               duplicate charges, refund mismatches, and settlement gaps across Shopify, Stripe, and PayPal.
-              It helps merchants recover lost revenue, verify payout accuracy, and understand their Audit
+              It helps merchants find revenue they may be missing, verify payout accuracy, and understand their Audit
               Health Score.
             </p>
 
@@ -94,15 +95,15 @@ export default function Hero() {
             </div>
 
             <a
-              href="https://app.getfincile.com"
+              href={SHOPIFY_APP_STORE_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center h-12 px-8 rounded-lg text-base font-semibold gradient-cta text-primary-foreground hover:opacity-90 active:scale-[0.98] transition-all hover:-translate-y-0.5 shadow-lg shadow-teal/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             >
-              Start Free Trial →
+              Install Free on Shopify →
             </a>
             <p className="mt-3 text-sm text-primary-foreground/60">
-              Founding pricing from $39/mo — 14-day free trial, no credit card required.
+              {PRICING_LINE} 14-day free trial on paid plans.
             </p>
           </div>
 
@@ -114,8 +115,8 @@ export default function Hero() {
 
       <div className="bg-navy-light py-4">
         <p className="text-center text-sm text-primary-foreground/80 font-medium px-4">
-          Sample Audit — 30-Day Dataset: <span className="font-mono font-bold text-teal">$21,117</span> in
-          Identified Discrepancies Across 3 Issue Types
+          Example audit using test data — 30-day dataset: <span className="font-mono font-bold text-teal">$21,117</span> in
+          identified discrepancies across 3 issue types
         </p>
       </div>
     </section>

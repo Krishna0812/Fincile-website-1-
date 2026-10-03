@@ -16,12 +16,13 @@ export default function BusinessOutcomes() {
         <div className="grid md:grid-cols-12 gap-6">
           <div className="md:col-span-6 rounded-2xl border-2 border-teal bg-teal-light/40 p-8 flex flex-col justify-between">
             <div>
-              <h3 className="text-lg font-semibold text-navy mb-3">Recover overlooked revenue</h3>
+              <h3 className="text-lg font-semibold text-navy mb-3">Spot overlooked revenue</h3>
               <p className="text-text-secondary leading-relaxed mb-6">Surface discrepancies before they compound across hundreds of orders.</p>
             </div>
             <div>
+              <span className="text-xs font-semibold tracking-[0.2em] uppercase text-text-secondary mb-2 block">Illustration</span>
               <div className="text-4xl md:text-5xl font-extrabold text-teal-dark leading-none mb-2">$5,000<span className="text-lg font-semibold text-text-secondary">/mo</span></div>
-              <p className="text-sm text-text-secondary">quietly leaving a $500K/month business — from just a 1% reconciliation gap.</p>
+              <p className="text-sm text-text-secondary">For example, if 1% of payments don't match on a $500K/month store, that's $5,000 a month to look into.</p>
             </div>
           </div>
           {secondaryOutcomes.map(o => (

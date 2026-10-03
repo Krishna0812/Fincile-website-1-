@@ -3,8 +3,8 @@ import { Shield, Eye, Ban } from 'lucide-react';
 
 const points = [
   { icon: <Eye size={22} />, title: 'Read-Only Shopify Access', desc: 'Fincile connects via Shopify OAuth with read-only access to your orders — never write access to your store, and no customer or payment-terms data requested. Gateway credentials (Stripe, PayPal) are encrypted with AES-256 before storage and never exposed in responses.' },
-  { icon: <Ban size={22} />, title: 'Your Audit History, Your Control', desc: 'Your audit history and findings are retained in your dashboard so you can review them anytime — retention depends on your plan (3 months on Starter, 12 months on Growth, unlimited on Scale+). Request full deletion anytime at support@getfincile.com.' },
-  { icon: <Shield size={22} />, title: 'No Third-Party Sharing', desc: 'Your merchant data is never sold, shared, or used for any purpose beyond delivering your reconciliation reports. No exceptions.' },
+  { icon: <Ban size={22} />, title: 'Your Audit History, Your Control', desc: 'Your audit history and findings are retained in your dashboard so you can review them anytime — retention depends on your plan (3 months on the Free audit and Starter, 12 months on Growth, unlimited on Scale). Request full deletion anytime at support@getfincile.com.' },
+  { icon: <Shield size={22} />, title: 'Never Sold', desc: 'Your data is never sold and is only used to run Fincile. We use a few trusted service providers (Cloudflare for hosting, Resend for email) to run the service.' },
 ];
 
 export default function Security() {
