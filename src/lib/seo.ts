@@ -50,6 +50,8 @@ export interface SeoMetaOptions {
   path: string;
   ogTitle?: string;
   ogDescription?: string;
+  /** og:type value; only set when provided (the site default lives in index.html). */
+  ogType?: string;
   structuredData?: Record<string, unknown>;
   /** Set true for pages that should never be indexed (e.g. a 404) --
    * otherwise a soft-404 SPA route with no robots tag can get indexed by
@@ -69,6 +71,7 @@ export function useSeoMeta(options: SeoMetaOptions) {
     setMetaByProperty("og:title", options.ogTitle ?? options.title);
     setMetaByProperty("og:description", options.ogDescription ?? options.description);
     setMetaByProperty("og:url", url);
+    if (options.ogType) setMetaByProperty("og:type", options.ogType);
     setMetaByName("twitter:title", options.ogTitle ?? options.title);
     setMetaByName("twitter:description", options.ogDescription ?? options.description);
     setStructuredData(options.structuredData);
