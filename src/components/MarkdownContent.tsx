@@ -1,8 +1,8 @@
 import { Fragment, type ReactNode } from 'react';
 
 // Minimal markdown renderer for blog posts: ## headings, paragraphs,
-// ordered/unordered lists, **bold** and [links](url). No HTML passthrough.
-const INLINE = /\*\*(.+?)\*\*|\[([^\]]+)\]\(([^)\s]+)\)/g;
+// ordered/unordered lists, **bold**, *italic* and [links](url). No HTML passthrough.
+const INLINE = /\*\*(.+?)\*\*|\*([^*]+)\*|\[([^\]]+)\]\(([^)\s]+)\)/g;
 
 function inline(text: string): ReactNode[] {
   const out: ReactNode[] = [];
@@ -12,16 +12,18 @@ function inline(text: string): ReactNode[] {
     if (m.index > last) out.push(text.slice(last, m.index));
     if (m[1] !== undefined) {
       out.push(<strong key={key++} className="font-semibold text-navy">{m[1]}</strong>);
+    } else if (m[2] !== undefined) {
+      out.push(<em key={key++}>{m[2]}</em>);
     } else {
-      const external = /^https?:/.test(m[3]);
+      const external = /^https?:/.test(m[4]);
       out.push(
         <a
           key={key++}
-          href={m[3]}
+          href={m[4]}
           className="text-teal-text underline underline-offset-2 hover:text-teal transition-colors"
           {...(external ? { rel: 'noopener noreferrer' } : {})}
         >
-          {m[2]}
+          {m[3]}
         </a>,
       );
     }

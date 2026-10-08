@@ -101,4 +101,4 @@ For stores on Shopify Payments, there is also a payout monitor in beta (invite o
 
 [Try the free audit](https://apps.shopify.com/fincile?utm_source=blog&utm_medium=article&utm_campaign=reconcile_shopify_payouts)
 
-This guide is general information, not accounting or tax advice. Check labels in your own Shopify admin, and confirm your treatment with your accountant.
+*This guide is general information, not accounting or tax advice. Check labels in your own Shopify admin, and confirm your treatment with your accountant.*
