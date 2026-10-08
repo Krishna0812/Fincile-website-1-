@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { useSeoMeta } from '@/lib/seo';
+import { formatPostDate, markdownPosts } from '@/lib/posts';
 
-const posts = [
+const legacyPosts = [
   {
     slug: 'shopify-payout-discrepancy',
     eyebrow: 'Revenue Reconciliation',
@@ -79,6 +80,19 @@ const posts = [
   },
 ];
 
+// Markdown posts (content/blog) first: they are newer than the hand-written pages.
+const posts = [
+  ...markdownPosts.map((p) => ({
+    slug: p.slug,
+    eyebrow: 'Revenue Reconciliation',
+    title: p.title,
+    excerpt: p.description,
+    date: formatPostDate(p.date),
+    readTime: null as string | null,
+  })),
+  ...legacyPosts,
+];
+
 export default function Blog() {
   useSeoMeta({
     title: 'Blog — Shopify Revenue Reconciliation Guides | Fincile',
@@ -125,8 +139,7 @@ export default function Blog() {
                 </p>
                 <div className="flex items-center gap-3 text-xs text-text-secondary">
                   <span>{post.date}</span>
-                  <span>·</span>
-                  <span>{post.readTime}</span>
+                  {post.readTime && <><span>·</span><span>{post.readTime}</span></>}
                   <span className="ml-auto text-teal font-semibold group-hover:translate-x-1 transition-transform">
                     Read →
                   </span>
