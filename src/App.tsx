@@ -15,6 +15,7 @@ import BlogDuplicateChargesStripe from "./pages/BlogDuplicateChargesStripe.tsx";
 import BlogRefundNotInStripe from "./pages/BlogRefundNotInStripe.tsx";
 import BlogPayPalReconciliation from "./pages/BlogPayPalReconciliation.tsx";
 import BlogBNPLReconciliation from "./pages/BlogBNPLReconciliation.tsx";
+import BlogPost from "./pages/BlogPost.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -38,6 +39,7 @@ const App = () => (
           <Route path="/blog/shopify-refund-not-in-stripe" element={<BlogRefundNotInStripe />} />
           <Route path="/blog/shopify-paypal-reconciliation" element={<BlogPayPalReconciliation />} />
           <Route path="/blog/shopify-bnpl-reconciliation" element={<BlogBNPLReconciliation />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

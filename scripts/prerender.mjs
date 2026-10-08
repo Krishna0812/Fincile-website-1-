@@ -22,6 +22,7 @@ const routes = [
   "/blog/shopify-refund-not-in-stripe",
   "/blog/shopify-paypal-reconciliation",
   "/blog/shopify-bnpl-reconciliation",
+  "/blog/reconcile-shopify-payouts",
 ];
 
 const mimeTypes = {
