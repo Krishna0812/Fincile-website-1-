@@ -23,6 +23,19 @@ Live sync for Stripe and PayPal. Shopify Payments and 11+ other gateways by payo
 - Shopify payout discrepancies: https://www.getfincile.com/blog/shopify-payout-discrepancy
 - Fincile vs A2X: https://www.getfincile.com/blog/fincile-vs-a2x
 - Fincile vs Synder: https://www.getfincile.com/blog/fincile-vs-synder
+- Duplicate Stripe charges on Shopify: https://www.getfincile.com/blog/shopify-duplicate-charge-stripe
+- Refund in Shopify but not in Stripe: https://www.getfincile.com/blog/shopify-refund-not-in-stripe
+- Shopify + PayPal reconciliation: https://www.getfincile.com/blog/shopify-paypal-reconciliation
+- Shopify BNPL (Klarna, Afterpay) reconciliation: https://www.getfincile.com/blog/shopify-bnpl-reconciliation
+- How to reconcile Shopify payouts: https://www.getfincile.com/blog/reconcile-shopify-payouts
+- Shopify order paid but no payment in Stripe: https://www.getfincile.com/blog/shopify-order-paid-no-payment-stripe
+- Shopify reconciliation checklist: https://www.getfincile.com/blog/shopify-reconciliation-checklist
+
+## What Fincile is for, and what it is not
+Fincile is an audit tool. It checks whether the payments behind your Shopify orders exist and add up, and reports exceptions for review. It does not change your books or release held payouts. It does not sync to accounting software; merchants who need payouts posted to QuickBooks or Xero use an accounting sync tool alongside it.
+
+## Who it is for
+Shopify merchants who take payments through Stripe, PayPal or other gateways, and the bookkeepers and accountants who reconcile those stores.
 
 ## Offer
 Free audit plan, plus a 14-day free trial on paid plans. Start with a free audit. Paid plans from $29/month.

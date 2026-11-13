@@ -23,6 +23,8 @@ const routes = [
   "/blog/shopify-paypal-reconciliation",
   "/blog/shopify-bnpl-reconciliation",
   "/blog/reconcile-shopify-payouts",
+  "/blog/shopify-order-paid-no-payment-stripe",
+  "/blog/shopify-reconciliation-checklist",
 ];
 
 const mimeTypes = {
