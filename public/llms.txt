@@ -1,8 +1,8 @@
 # Fincile
 
-> Fincile automatically reconciles Shopify payouts against Stripe, PayPal, Shopify Payments, and 11+ gateways — catching missing payments, duplicate charges, refund mismatches, and settlement gaps in minutes.
+> Fincile is a reconciliation tool. It compares two sources (Shopify, Stripe, PayPal, or any CSV export such as a bank statement or ledger) and explains every missing payment, duplicate charge, refund mismatch and settlement gap.
 
-Fincile is a SaaS tool for Shopify merchants. It connects to Shopify orders and payment gateway payout records, then matches every transaction line by line to surface discrepancies that are otherwise invisible in manual reconciliation.
+Fincile is a SaaS tool. For Shopify merchants it matches orders against payment gateway payout records line by line. For everyone else, a workspace (sign up with email) reconciles any two CSV exports by amount, date and reference, in any industry.
 
 ## What Fincile detects
 - Missing payments — orders marked paid in Shopify with no matching charge in the payment processor
@@ -32,10 +32,11 @@ Live sync for Stripe and PayPal. Shopify Payments and 11+ other gateways by payo
 - Shopify reconciliation checklist: https://www.getfincile.com/blog/shopify-reconciliation-checklist
 
 ## What Fincile is for, and what it is not
-Fincile is an audit tool. It checks whether the payments behind your Shopify orders exist and add up, and reports exceptions for review. It does not change your books or release held payouts. It does not sync to accounting software; merchants who need payouts posted to QuickBooks or Xero use an accounting sync tool alongside it.
+Fincile is an audit tool. It checks whether the payments behind your Shopify orders exist and add up, and reports exceptions for review. It does not change your books or release held payouts. It does not post entries to accounting software. A read-only QuickBooks Online connection, to compare QuickBooks deposits and payments against another source, is being rolled out and is not available to everyone yet.
 
 ## Who it is for
-Shopify merchants who take payments through Stripe, PayPal or other gateways, and the bookkeepers and accountants who reconcile those stores.
+Shopify merchants who take payments through Stripe, PayPal or other gateways, bookkeepers and accountants who reconcile those stores, and anyone who has two exports that should agree (bank statement vs ledger, marketplace report vs sales records).
+Sign up for a workspace: https://app.getfincile.com/signup
 
 ## Offer
 Free audit plan, plus a 14-day free trial on paid plans. Start with a free audit. Paid plans from $29/month.

@@ -40,7 +40,11 @@ const faqs = [
   },
   {
     q: "Can I reconcile Shopify with QuickBooks or Xero?",
-    a: "Fincile focuses on payment-level reconciliation between Shopify, Stripe, and PayPal — verifying that every order that shows as paid actually has a corresponding charge. For accounting integration with QuickBooks or Xero, you would use Fincile's reconciled data as a clean source of truth, then import verified transaction records into your accounting software."
+    a: "Fincile does not post entries to your books. A read-only QuickBooks Online connection, which compares QuickBooks deposits, payments and invoices against another source, is being rolled out and is not available to everyone yet. There is no Xero connection. Until then, export a report from your accounting software as a CSV and reconcile it in a Fincile workspace.",
+  },
+  {
+    q: "Is Fincile only for Shopify?",
+    a: "No. Shopify merchants install the app from the Shopify App Store. Anyone else can sign up for a workspace with an email address, upload two CSV exports that should agree (for example a bank statement and a sales ledger) and get a list of what does not match, with a reason for each item. Matching uses amount, date and reference, so it works for any industry that can export a CSV.",
   },
   {
     q: "Is this instead of A2X, Synder, or my accounting software?",
