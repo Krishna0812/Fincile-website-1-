@@ -134,3 +134,15 @@ export function combineSchemas(...schemas: Record<string, unknown>[]) {
     "@graph": schemas.map(({ "@context": _drop, ...rest }) => rest),
   };
 }
+
+/** FAQPage schema. Only pass questions that are also visible on the page. */
+export function faqSchema(items: { q: string; a: string }[]) {
+  return {
+    "@type": "FAQPage",
+    mainEntity: items.map((i) => ({
+      "@type": "Question",
+      name: i.q,
+      acceptedAnswer: { "@type": "Answer", text: i.a },
+    })),
+  };
+}

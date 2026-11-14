@@ -25,6 +25,9 @@ const routes = [
   "/blog/reconcile-shopify-payouts",
   "/blog/shopify-order-paid-no-payment-stripe",
   "/blog/shopify-reconciliation-checklist",
+  "/blog/reconcile-two-csv-files",
+  "/blog/quickbooks-deposit-reconciliation",
+  "/blog/payment-reconciliation-software-guide",
 ];
 
 const mimeTypes = {

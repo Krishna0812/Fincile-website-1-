@@ -30,6 +30,9 @@ Live sync for Stripe and PayPal. Shopify Payments and 11+ other gateways by payo
 - How to reconcile Shopify payouts: https://www.getfincile.com/blog/reconcile-shopify-payouts
 - Shopify order paid but no payment in Stripe: https://www.getfincile.com/blog/shopify-order-paid-no-payment-stripe
 - Shopify reconciliation checklist: https://www.getfincile.com/blog/shopify-reconciliation-checklist
+- Payment reconciliation software: types and how to choose: https://www.getfincile.com/blog/payment-reconciliation-software-guide
+- QuickBooks deposits vs processor payouts: https://www.getfincile.com/blog/quickbooks-deposit-reconciliation
+- How to reconcile two CSV files of transactions: https://www.getfincile.com/blog/reconcile-two-csv-files
 
 ## What Fincile is for, and what it is not
 Fincile is an audit tool. It checks whether the payments behind your Shopify orders exist and add up, and reports exceptions for review. It does not change your books or release held payouts. It does not post entries to accounting software. A read-only QuickBooks Online connection, to compare QuickBooks deposits and payments against another source, is being rolled out and is not available to everyone yet.
