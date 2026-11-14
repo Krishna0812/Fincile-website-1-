@@ -7,6 +7,9 @@ export const SHOPIFY_APP_STORE_URL = 'https://apps.shopify.com/fincile';
 // Existing merchants sign in to the app here.
 export const APP_LOGIN_URL = 'https://app.getfincile.com';
 
+// Email sign-up for the workspace (any CSV export, not only Shopify).
+export const APP_SIGNUP_URL = 'https://app.getfincile.com/signup';
+
 // Mirrors the Fincile app's plan config (lib/billing.ts: Starter $29/month is
 // the cheapest paid plan; the Free audit plan is free). The site is deployed
 // separately from the app, so change both together.

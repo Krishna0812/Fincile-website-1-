@@ -77,7 +77,7 @@ describe('prices, trial, sync and example claims', () => {
 
   it('headline finds, not fixes; no "recover lost revenue"', () => {
     const hero = text(show(<Hero />));
-    expect(hero).toContain('Shopify Payout Reconciliation — Find Missing & Mismatched Payouts');
+    expect(hero).toContain('Reconciliation Software — Find Missing & Mismatched Payments');
     expect(hero).not.toMatch(/automatically fix|recover lost revenue/i);
   });
 
