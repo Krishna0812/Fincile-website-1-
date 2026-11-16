@@ -134,3 +134,55 @@ export function combineSchemas(...schemas: Record<string, unknown>[]) {
     "@graph": schemas.map(({ "@context": _drop, ...rest }) => rest),
   };
 }
+
+export function faqPageSchema(faqs: { q: string; a: string }[]) {
+  return {
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+}
+
+export function webPageSchema(opts: { name: string; description: string; path: string }) {
+  return {
+    "@type": "WebPage",
+    name: opts.name,
+    description: opts.description,
+    url: `${SITE_URL}${opts.path}`,
+    isPartOf: { "@type": "WebSite", name: "Fincile", url: SITE_URL },
+  };
+}
+
+/** The product as a web application. Only the free tier is listed as an offer:
+ * paid workspace plans are in test mode and cannot be bought yet. */
+export function softwareApplicationSchema() {
+  return {
+    "@type": "SoftwareApplication",
+    name: "Fincile",
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Web",
+    url: SITE_URL,
+    description: "Reconciliation software that matches any two datasets, scores each match, and lists exceptions for review.",
+    offers: { "@type": "Offer", price: "0", priceCurrency: "USD", description: "Free plan: 1 run per month, up to 100 rows per source" },
+  };
+}
+
+export function organizationSchema() {
+  return {
+    "@type": "Organization",
+    name: "Fincile",
+    url: SITE_URL,
+    logo: `${SITE_URL}/apple-touch-icon.png`,
+    email: "support@getfincile.com",
+  };
+}
+
+export function itemListSchema(items: { name: string; path: string }[]) {
+  return {
+    "@type": "ItemList",
+    itemListElement: items.map((it, i) => ({ "@type": "ListItem", position: i + 1, name: it.name, url: `${SITE_URL}${it.path}` })),
+  };
+}

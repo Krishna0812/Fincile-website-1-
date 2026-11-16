@@ -1,0 +1,908 @@
+[
+ {
+  "slug": "bank-reconciliation",
+  "templateId": "bank-vs-ledger",
+  "name": "Bank reconciliation",
+  "department": "Accounting",
+  "metaTitle": "Bank Reconciliation Software: Statement vs Ledger | Fincile",
+  "metaDescription": "Upload a bank statement and your general ledger cash account. Fincile matches every line, scores each match, and lists what is missing on either side.",
+  "h1": "Match your bank statement to your ledger, line by line",
+  "intro": "Upload the statement export and the cash account from your ledger. Fincile pairs the lines, tells you how sure it is, and lists what sits on only one side so you can clear it before close.",
+  "sourceA": {
+   "label": "Bank statement",
+   "hint": "CSV or Excel export from online banking"
+  },
+  "sourceB": {
+   "label": "General ledger cash account",
+   "hint": "Cash account detail from your accounting system"
+  },
+  "problem": "Month-end cash work usually means two long lists and a lot of scrolling. The bank has fees and interest nobody booked yet. The ledger has cheques that have not cleared and deposits still in transit. Transfers get posted on different days on each side. A single duplicate posting can hide for months because the totals only look slightly off.",
+  "whyHard": "Dates rarely agree, references are inconsistent (cheque numbers on one side, free text on the other), and the same amount appears many times in a busy account, so matching on amount alone pairs the wrong lines.",
+  "handling": [
+   "Pairs lines on the cheque, deposit or transfer reference first, and ignores punctuation and spaces so CHK-1001 and CHK1001 agree.",
+   "Lets dates differ by up to 5 days by default, which covers weekends and clearing delays. You can tighten or widen it.",
+   "Uses debit and credit columns or one signed amount column, whichever your export has.",
+   "Anything left over is listed as an exception with a likely reason, such as missing on the other side."
+  ],
+  "sample": {
+   "fileA": "bank-statement.csv",
+   "fileB": "general-ledger.csv",
+   "rowsA": 8,
+   "rowsB": 8,
+   "matched": 7,
+   "findings": [
+    {
+     "label": "Only in the bank statement",
+     "detail": "A 25.00 line with no ledger entry. In real data this is often a bank fee or interest not yet booked.",
+     "amount": "25.00"
+    },
+    {
+     "label": "Only in the ledger",
+     "detail": "A 200.00 ledger entry with no bank line. In real data this is often a cheque that has not cleared.",
+     "amount": "200.00"
+    }
+   ]
+  },
+  "exceptions": [
+   "Bank fees and interest not yet booked",
+   "Cheques written but not cleared",
+   "Deposits in transit",
+   "Transfers booked on different days",
+   "Duplicate postings"
+  ],
+  "faqs": [
+   {
+    "q": "Do I need to export from a specific bank or accounting system?",
+    "a": "No. Any CSV, TSV or Excel file works. You choose which column is the amount, date and reference once, and you can save that choice as a template for next month."
+   },
+   {
+    "q": "Can it handle separate debit and credit columns?",
+    "a": "Yes. Choose the debit and credit columns and Fincile treats credit minus debit as the signed amount."
+   },
+   {
+    "q": "Does it post anything to my ledger?",
+    "a": "No. Fincile only reads the files you give it and reports differences. Booking the fix stays in your accounting system."
+   }
+  ],
+  "related": [
+   "payment-processor-reconciliation",
+   "expense-card-reconciliation",
+   "vendor-statement-reconciliation"
+  ]
+ },
+ {
+  "slug": "payment-processor-reconciliation",
+  "templateId": "processor-vs-ledger",
+  "name": "Payment processor reconciliation",
+  "department": "Finance",
+  "metaTitle": "Payment Processor Reconciliation: Payouts vs Books | Fincile",
+  "metaDescription": "Check that every payout from Stripe, PayPal, Adyen or another processor was booked in your accounting records for the right amount.",
+  "h1": "Check every processor payout against what you booked",
+  "intro": "Take the payout report from your processor and the deposits in your accounting records. Fincile shows which payouts were booked, which were booked short, and which are missing.",
+  "sourceA": {
+   "label": "Processor payout report",
+   "hint": "Payout or settlement export from the processor"
+  },
+  "sourceB": {
+   "label": "Accounting records",
+   "hint": "Deposits or revenue entries from your books"
+  },
+  "problem": "Processors pay out net of fees, hold reserves, and sometimes bundle many sales into one deposit. Bookkeepers then book the net amount in one place and the fees in another, or split one payout across several entries. When a payout is in transit at period end, the books and the report disagree for a perfectly good reason, and finding the real errors among the explainable ones takes time.",
+  "whyHard": "The same payout can appear as one line on the processor side and several lines in the ledger, so a one-to-one match fails even when the books are right.",
+  "handling": [
+   "Matches on the payout identifier, for example po_… for Stripe, so the match does not depend on amount.",
+   "Recognises one payout booked as several entries, and adds the entries up to check they equal the payout.",
+   "Allows a 4-day date window by default for payouts that land after the report date.",
+   "Flags a payout booked for a different amount and suggests a fee or deduction as the likely reason."
+  ],
+  "sample": {
+   "fileA": "processor-payouts.csv",
+   "fileB": "ledger-deposits.csv",
+   "rowsA": 4,
+   "rowsB": 5,
+   "matched": 3,
+   "findings": [
+    {
+     "label": "One payout booked as two entries",
+     "detail": "A 760.00 payout appears as 300.00 plus 460.00 in the ledger. Fincile groups them and confirms the total equals the payout (confidence 92).",
+     "amount": "0.00"
+    },
+    {
+     "label": "Amount differs",
+     "detail": "One payout is 50.00 away from its ledger entry. Likely reason shown: a fee or discount.",
+     "amount": "50.00"
+    }
+   ]
+  },
+  "exceptions": [
+   "Payout booked net of fees instead of gross",
+   "One payout booked as several deposits",
+   "Payout in transit at period end",
+   "Chargebacks and reserves held back"
+  ],
+  "faqs": [
+   {
+    "q": "Which processors does it work with?",
+    "a": "Any processor that lets you export payouts as CSV or Excel. Headers from Stripe, PayPal, Shopify Payments, Square, Klarna, Afterpay, Authorize.net, Braintree, 2Checkout, Adyen and Razorpay exports are recognised automatically. There is no live connection to those processors in workspaces yet."
+   },
+   {
+    "q": "Can it connect to QuickBooks Online?",
+    "a": "A read-only QuickBooks Online connection is built and being prepared for launch. It has been tested against a simulated QuickBooks API, not a live Intuit account. Until it is switched on, export the deposits report to CSV and upload it."
+   },
+   {
+    "q": "What about fees?",
+    "a": "Fincile does not guess fee rates. When a payout and a ledger entry differ, it reports the difference and suggests a fee as one likely reason so you can check the processor statement."
+   }
+  ],
+  "related": [
+   "ecommerce-payout-reconciliation",
+   "bank-reconciliation",
+   "accounts-receivable-cash-application"
+  ]
+ },
+ {
+  "slug": "invoice-to-purchase-order-matching",
+  "templateId": "ap-invoices-vs-po",
+  "name": "Invoice to purchase order matching",
+  "department": "Procurement and AP",
+  "metaTitle": "Match Supplier Invoices to Purchase Orders | Fincile",
+  "metaDescription": "Check that each supplier invoice traces to an approved purchase order at the agreed price, and see invoices with no PO and POs never invoiced.",
+  "h1": "Match supplier invoices to purchase orders before you pay",
+  "intro": "Upload your supplier invoices and your purchase orders. Fincile pairs them on the PO number, applies a price tolerance you set, and lists invoices with no PO, price differences and orders never invoiced.",
+  "sourceA": {
+   "label": "Supplier invoices",
+   "hint": "Invoice list with PO number and total"
+  },
+  "sourceB": {
+   "label": "Purchase orders",
+   "hint": "Approved PO list with PO number and total"
+  },
+  "problem": "Accounts payable teams pay invoices that should be checked against what was ordered. Suppliers invoice a slightly different price, bill a partial delivery as a full one, or quote a PO number that was never approved. Catching this before payment is cheaper than chasing a refund after.",
+  "whyHard": "Small differences are normal (freight, rounding, tax), so a strict match flags everything, while no check at all lets overbilling through.",
+  "handling": [
+   "Pairs on the PO number and ignores the invoice date, since an invoice can arrive weeks after the order.",
+   "Applies a tolerance of 2 percent or 5.00, whichever is wider, by default. Change both numbers to fit your policy.",
+   "Scores a within-tolerance match lower than an exact one and says why, so a reviewer can sort by confidence.",
+   "Lists invoices with no PO and POs with no invoice as separate exceptions."
+  ],
+  "sample": {
+   "fileA": "supplier-invoices.csv",
+   "fileB": "purchase-orders.csv",
+   "rowsA": 4,
+   "rowsB": 4,
+   "matched": 2,
+   "findings": [
+    {
+     "label": "Within tolerance",
+     "detail": "PO-1002 invoiced at 2,030.00 against 2,000.00 ordered. Matched at confidence 88 with the 30.00 difference noted.",
+     "amount": "30.00"
+    },
+    {
+     "label": "Large price difference",
+     "detail": "PO-1003 differs by 1,200.00. Listed as an exception for review.",
+     "amount": "1,200.00"
+    },
+    {
+     "label": "Invoice with no PO",
+     "detail": "An 845.00 invoice has no purchase order reference.",
+     "amount": "845.00"
+    },
+    {
+     "label": "PO never invoiced",
+     "detail": "PO-1004 for 3,300.00 has no invoice yet.",
+     "amount": "3,300.00"
+    }
+   ]
+  },
+  "exceptions": [
+   "Invoice with no purchase order",
+   "Price or quantity different from the PO",
+   "PO not yet invoiced",
+   "Partial deliveries invoiced in parts"
+  ],
+  "faqs": [
+   {
+    "q": "Is this a three-way match?",
+    "a": "No. It compares invoices with purchase orders. Goods-received data is not part of the match yet, so confirm delivery separately."
+   },
+   {
+    "q": "Can I set my own tolerance?",
+    "a": "Yes. Set an absolute amount, a percentage, or both. The wider of the two applies."
+   },
+   {
+    "q": "Does it approve or pay invoices?",
+    "a": "No. It only reports. Approval and payment stay in your AP process."
+   }
+  ],
+  "related": [
+   "vendor-statement-reconciliation",
+   "expense-card-reconciliation",
+   "bank-reconciliation"
+  ]
+ },
+ {
+  "slug": "vendor-statement-reconciliation",
+  "templateId": "vendor-statement-vs-payables",
+  "name": "Vendor statement reconciliation",
+  "department": "Accounts payable",
+  "metaTitle": "Vendor Statement Reconciliation vs Payables | Fincile",
+  "metaDescription": "Compare a supplier's statement of account with your payables ledger to find unrecorded invoices, duplicates and missing credit notes.",
+  "h1": "Reconcile a supplier statement with your payables",
+  "intro": "Upload the statement a supplier sent and your payables ledger for that supplier. Fincile shows what they say you owe that you have not recorded, and what you recorded that they do not show.",
+  "sourceA": {
+   "label": "Supplier statement",
+   "hint": "Statement of account as CSV or Excel"
+  },
+  "sourceB": {
+   "label": "Payables ledger",
+   "hint": "Your invoices and payments for this supplier"
+  },
+  "problem": "A statement is the supplier's version of your balance. When it differs from yours, someone has an invoice the other does not. The cause is usually mundane: an invoice that never reached you, a credit note recorded on one side only, a typo in an invoice number, or the same invoice listed twice.",
+  "whyHard": "Invoice numbers get mistyped, and a mistyped number looks like two unrelated unmatched lines instead of one problem.",
+  "handling": [
+   "Matches on invoice number first, then on near-identical numbers, so INV-20003 and INV20003 are paired.",
+   "Uses a 7-day date window by default.",
+   "Flags the second copy of an invoice listed twice as a possible duplicate instead of leaving it as an unexplained leftover.",
+   "Suggests a likely counterpart when an unmatched line has a near miss, so you can check it first."
+  ],
+  "sample": {
+   "fileA": "supplier-statement.csv",
+   "fileB": "payables-ledger.csv",
+   "rowsA": 7,
+   "rowsB": 6,
+   "matched": 5,
+   "findings": [
+    {
+     "label": "On the statement, not in your books",
+     "detail": "INV-20003 for 2,299.99 is on the supplier statement with no entry in the ledger.",
+     "amount": "2,299.99"
+    },
+    {
+     "label": "Possible duplicate",
+     "detail": "INV-20005 for 310.00 appears twice on the statement.",
+     "amount": "310.00"
+    },
+    {
+     "label": "In your books, not on the statement",
+     "detail": "INV-20009 for 95.00 is in your ledger but missing from the statement.",
+     "amount": "95.00"
+    }
+   ]
+  },
+  "exceptions": [
+   "Invoice on the vendor statement that you never received",
+   "Credit note missing on one side",
+   "Duplicate invoice on the statement",
+   "Typo in the invoice number"
+  ],
+  "faqs": [
+   {
+    "q": "Can I reconcile many suppliers at once?",
+    "a": "Each run compares one pair of files. For several suppliers, run one reconciliation per supplier, or combine ledger lines in one file and use the supplier name as part of the reference."
+   },
+   {
+    "q": "Does it handle credit notes?",
+    "a": "Credit notes are negative amounts. Fincile compares signed amounts, so a credit on one side matches the same credit on the other."
+   },
+   {
+    "q": "Will it contact the supplier?",
+    "a": "No. It produces a list of differences you can export and send."
+   }
+  ],
+  "related": [
+   "invoice-to-purchase-order-matching",
+   "bank-reconciliation",
+   "accounts-receivable-cash-application"
+  ]
+ },
+ {
+  "slug": "accounts-receivable-cash-application",
+  "templateId": "ar-invoices-vs-receipts",
+  "name": "Accounts receivable cash application",
+  "department": "Accounts receivable",
+  "metaTitle": "Cash Application: Match Payments to Invoices | Fincile",
+  "metaDescription": "Apply payments to open invoices, including one payment that settles several invoices and invoices paid in instalments.",
+  "h1": "Apply customer payments to the invoices they settle",
+  "intro": "Upload open invoices and the payments you received. Fincile pairs them even when one payment covers several invoices or one invoice is paid in parts, and lists short payments and unapplied cash.",
+  "sourceA": {
+   "label": "Customer invoices",
+   "hint": "Open invoice list"
+  },
+  "sourceB": {
+   "label": "Payments received",
+   "hint": "Bank receipts or remittance lines"
+  },
+  "problem": "Customers rarely pay one invoice with one payment. A BACS transfer settles three invoices at once, a card payment covers half of a large invoice, and the remittance note says only 'March invoices'. Applying cash by hand means adding combinations in a calculator until something fits.",
+  "whyHard": "The number of possible combinations grows quickly. Searching them by hand is slow and easy to get wrong.",
+  "handling": [
+   "Pairs a payment that quotes several invoice references with the invoices it lists.",
+   "Searches combinations of up to 5 records that add up to a single amount when no reference helps, with a bounded search so large files stay fast.",
+   "Allows a date window of 45 days, since customers pay late.",
+   "Marks grouped matches without a shared reference as lower confidence so a person confirms them."
+  ],
+  "sample": {
+   "fileA": "customer-invoices.csv",
+   "fileB": "payments-received.csv",
+   "rowsA": 5,
+   "rowsB": 4,
+   "matched": 2,
+   "findings": [
+    {
+     "label": "One invoice, two payments",
+     "detail": "INV-7003 for 2,500.00 was paid as 1,500.00 and 1,000.00. Grouped at confidence 92.",
+     "amount": "0.00"
+    },
+    {
+     "label": "One payment, two invoices",
+     "detail": "A 2,000.00 BACS receipt equals INV-7001 plus INV-7002. Grouped at confidence 72, so it is flagged for review.",
+     "amount": "0.00"
+    },
+    {
+     "label": "Short payment",
+     "detail": "INV-7004 was paid 20.00 short. Likely reason shown: a fee or discount.",
+     "amount": "20.00"
+    },
+    {
+     "label": "Unpaid",
+     "detail": "INV-7005 for 430.00 has no payment.",
+     "amount": "430.00"
+    }
+   ]
+  },
+  "exceptions": [
+   "Short payment after a deduction",
+   "One payment for many invoices",
+   "Payment without a reference",
+   "Overpayment or duplicate payment"
+  ],
+  "faqs": [
+   {
+    "q": "Why was a grouped match flagged for review?",
+    "a": "Without a shared reference the group is a sum that happens to fit. Fincile gives it a lower confidence (below 75 by default) and says so, so a person confirms it."
+   },
+   {
+    "q": "Does it write payments into my accounting system?",
+    "a": "No. It reports the pairings. You export them and apply cash in your own system."
+   },
+   {
+    "q": "What about overpayments?",
+    "a": "A payment larger than the invoice shows up as an amount difference or an unmatched receipt, depending on the reference."
+   }
+  ],
+  "related": [
+   "payment-processor-reconciliation",
+   "bank-reconciliation",
+   "insurance-claims-reconciliation"
+  ]
+ },
+ {
+  "slug": "inventory-count-reconciliation",
+  "templateId": "inventory-count-vs-records",
+  "name": "Inventory count reconciliation",
+  "department": "Operations",
+  "metaTitle": "Inventory Count Reconciliation: Stock vs Records | Fincile",
+  "metaDescription": "Compare physical stock counts with system quantities per SKU and see which items are over, short, uncounted or unknown to the system.",
+  "h1": "Compare a stock count with your inventory records",
+  "intro": "Upload the counted quantities and the system quantities per SKU. Fincile lists every SKU that is over, short, counted but unknown to the system, or in the system but not counted.",
+  "sourceA": {
+   "label": "Physical count",
+   "hint": "SKU and counted quantity"
+  },
+  "sourceB": {
+   "label": "System inventory",
+   "hint": "SKU and on-hand quantity"
+  },
+  "problem": "After a stock take, the count sheet and the system rarely agree. Some SKUs are short, some are over, some were never counted, and some were counted that the system does not know. Operations then spends days finding out whether it is a counting error, unposted receipts or shipments, or real shrinkage.",
+  "whyHard": "The values are quantities, not money, so fees, rounding and currency do not apply, and a tolerance of one unit may be acceptable for some SKUs and not for others.",
+  "handling": [
+   "Treats the values as quantities with no decimals, so wording says units over or short, not cents.",
+   "Matches on SKU only. Dates are ignored and fuzzy text matching is off, so two similar SKUs are never merged.",
+   "Applies an exact tolerance by default. Raise it if you accept a unit of drift.",
+   "Lists SKUs on only one side as separate exceptions."
+  ],
+  "sample": {
+   "fileA": "stock-count.csv",
+   "fileB": "system-inventory.csv",
+   "rowsA": 4,
+   "rowsB": 4,
+   "matched": 2,
+   "findings": [
+    {
+     "label": "Quantity differs",
+     "detail": "SKU-101 differs by 3 units between the count and the system.",
+     "amount": "3 units"
+    },
+    {
+     "label": "Counted, not in system",
+     "detail": "SKU-103 has a count of 75 and no system record.",
+     "amount": "75 units"
+    },
+    {
+     "label": "In system, not counted",
+     "detail": "SKU-999 has 12 units in the system and was not counted.",
+     "amount": "12 units"
+    }
+   ]
+  },
+  "exceptions": [
+   "Count differs from system",
+   "SKU counted but not in the system",
+   "SKU in the system but not counted",
+   "Unposted receipts or shipments"
+  ],
+  "faqs": [
+   {
+    "q": "Does it value the difference in money?",
+    "a": "No. It compares quantities. Multiply by unit cost in your own sheet if you need a value."
+   },
+   {
+    "q": "Can it handle several warehouses?",
+    "a": "Yes, if you include the location in the reference, for example SKU-100|WH2, on both sides."
+   },
+   {
+    "q": "Will it adjust stock for me?",
+    "a": "No. It only reports differences."
+   }
+  ],
+  "related": [
+   "ecommerce-payout-reconciliation",
+   "invoice-to-purchase-order-matching",
+   "sales-commission-reconciliation"
+  ]
+ },
+ {
+  "slug": "payroll-reconciliation",
+  "templateId": "payroll-vs-gl",
+  "name": "Payroll reconciliation",
+  "department": "HR and payroll",
+  "metaTitle": "Payroll Reconciliation: Register vs Bank Payments | Fincile",
+  "metaDescription": "Confirm net pay in the payroll register was paid out per employee, and catch missing payments, differences and double payments.",
+  "h1": "Confirm every payroll line was actually paid",
+  "intro": "Upload the payroll register and the payments that left the bank. Fincile pairs them per employee, then lists anyone not paid, anyone paid a different amount and anyone paid twice.",
+  "sourceA": {
+   "label": "Payroll register",
+   "hint": "Net pay per employee"
+  },
+  "sourceB": {
+   "label": "Bank or ledger payments",
+   "hint": "Payments made for payroll"
+  },
+  "problem": "The register says what should have been paid. The bank says what was paid. Between them sit corrections made after the register was run, one-off payments, a payment file sent twice, and an employee whose bank details failed. A mismatch of a few dollars per person adds up and is hard to see in totals.",
+  "whyHard": "Payroll is sensitive, and the two sides use opposite signs: money out of the bank is negative, net pay in the register is positive.",
+  "handling": [
+   "Compares amounts by size, ignoring sign, so a register amount of 3,120.45 matches a bank payment of -3,120.45.",
+   "Matches on employee ID within a 3-day window.",
+   "Flags a second payment to the same employee as a possible duplicate.",
+   "Shows how far a differing payment is from the register amount."
+  ],
+  "sample": {
+   "fileA": "payroll-register.csv",
+   "fileB": "bank-payments.csv",
+   "rowsA": 4,
+   "rowsB": 4,
+   "matched": 2,
+   "findings": [
+    {
+     "label": "Amount differs",
+     "detail": "E-003 was paid 9.00 different from the register.",
+     "amount": "9.00"
+    },
+    {
+     "label": "Not paid",
+     "detail": "E-004 is in the register for 2,575.25 with no payment.",
+     "amount": "2,575.25"
+    },
+    {
+     "label": "Possible duplicate",
+     "detail": "E-002 appears paid twice at 2,890.00.",
+     "amount": "2,890.00"
+    }
+   ]
+  },
+  "exceptions": [
+   "Employee in payroll but not paid",
+   "Payment with no payroll line",
+   "Duplicate payment",
+   "Net pay changed after the register was run"
+  ],
+  "faqs": [
+   {
+    "q": "Is it safe to upload payroll data?",
+    "a": "Use an employee ID instead of names, and leave out bank account details. Fincile stores the rows you upload so you can review exceptions, and you can delete the run at any time. Fincile has not been audited against any payroll or HR compliance standard."
+   },
+   {
+    "q": "Can it check tax and deductions?",
+    "a": "No. It compares net pay with payments made. It does not calculate or verify tax."
+   },
+   {
+    "q": "Does it need the register and bank in the same currency?",
+    "a": "By default yes. Rows in different currencies do not match unless you turn that check off."
+   }
+  ],
+  "related": [
+   "bank-reconciliation",
+   "expense-card-reconciliation",
+   "sales-commission-reconciliation"
+  ]
+ },
+ {
+  "slug": "sales-commission-reconciliation",
+  "templateId": "commissions-vs-sales",
+  "name": "Sales commission reconciliation",
+  "department": "Sales operations",
+  "metaTitle": "Commission Reconciliation: Statements vs Deals | Fincile",
+  "metaDescription": "Check that partner or rep commission statements match the deals your CRM says closed, at the agreed amount.",
+  "h1": "Check commission statements against closed deals",
+  "intro": "Upload the commission statement and the closed deals from your CRM. Fincile pairs them on deal ID, allows a small rounding tolerance, and lists deals missing from the statement and amounts that differ.",
+  "sourceA": {
+   "label": "Commission statement",
+   "hint": "Partner or rep statement with deal ID and commission"
+  },
+  "sourceB": {
+   "label": "Closed deals",
+   "hint": "CRM export with deal ID and expected commission"
+  },
+  "problem": "Partners and reps are paid from statements built from someone else's data. A deal can be missing, paid at the wrong rate, paid in two statements, or reversed by a clawback that never showed. Checking each by hand is slow, so most teams sample or trust the statement.",
+  "whyHard": "Commission calculations produce amounts that differ by cents because of rounding, and a strict comparison would flag nearly every line.",
+  "handling": [
+   "Matches on deal ID.",
+   "Allows 1.00 of rounding difference by default, and says so in the match reason.",
+   "Uses a 60-day date window because statements lag the close date.",
+   "Treats a large difference as an exception and a small one as a note on the match."
+  ],
+  "sample": {
+   "fileA": "commission-statement.csv",
+   "fileB": "closed-deals.csv",
+   "rowsA": 3,
+   "rowsB": 4,
+   "matched": 2,
+   "findings": [
+    {
+     "label": "Rounding difference",
+     "detail": "D-3003 differs by 0.50 and is matched at confidence 94 with the difference noted.",
+     "amount": "0.50"
+    },
+    {
+     "label": "Amount differs",
+     "detail": "D-3002 differs by 150.00. Listed for review.",
+     "amount": "150.00"
+    },
+    {
+     "label": "Missing from statement",
+     "detail": "D-3004 for 750.00 closed but is not on the statement.",
+     "amount": "750.00"
+    }
+   ]
+  },
+  "exceptions": [
+   "Deal missing from the statement",
+   "Wrong commission rate",
+   "Clawback not reflected",
+   "Deal paid in two statements"
+  ],
+  "faqs": [
+   {
+    "q": "Does it calculate commissions?",
+    "a": "No. It compares two lists you provide. If your CRM export has the expected commission per deal, the comparison is direct."
+   },
+   {
+    "q": "Can I check against several statements at once?",
+    "a": "Combine the statements into one file, with a statement-period column kept in the description, and reconcile against the full deal list."
+   },
+   {
+    "q": "Who sees the results?",
+    "a": "Only members of your workspace, with the role you gave them."
+   }
+  ],
+  "related": [
+   "ad-spend-reconciliation",
+   "payroll-reconciliation",
+   "accounts-receivable-cash-application"
+  ]
+ },
+ {
+  "slug": "insurance-claims-reconciliation",
+  "templateId": "claims-vs-remittances",
+  "name": "Claims and remittance reconciliation",
+  "department": "Healthcare and insurance billing",
+  "metaTitle": "Claims vs Remittance Reconciliation | Fincile",
+  "metaDescription": "Compare claims submitted with remittance advice to find unpaid, underpaid and split-paid claims without uploading patient details.",
+  "h1": "Compare claims billed with payments received",
+  "intro": "Upload the claims you submitted and the remittance lines you received. Fincile pairs them on claim ID, groups instalment payments, and lists claims unpaid, underpaid or paid for something you did not bill.",
+  "sourceA": {
+   "label": "Claims submitted",
+   "hint": "Claim ID and billed amount"
+  },
+  "sourceB": {
+   "label": "Remittance advice",
+   "hint": "Claim ID and paid amount"
+  },
+  "problem": "Payers pay claims weeks or months after submission, sometimes in instalments, sometimes below the billed amount after adjustments. A billing team needs to know which claims have never been paid and which were paid short, and chasing them is where the money is.",
+  "whyHard": "Payment lags are long, so the date window has to be wide, and one claim often arrives as several remittance lines.",
+  "handling": [
+   "Matches on claim ID with a 120-day window.",
+   "Adds up instalments that share a claim ID and confirms they equal the billed amount.",
+   "Reports a paid amount below the billed amount as an exception with the size of the shortfall.",
+   "Lists remittance lines for claims you did not submit."
+  ],
+  "sample": {
+   "fileA": "claims-submitted.csv",
+   "fileB": "remittance-advice.csv",
+   "rowsA": 4,
+   "rowsB": 5,
+   "matched": 2,
+   "findings": [
+    {
+     "label": "Paid in two instalments",
+     "detail": "CLM-503 for 2,200.00 was paid as 1,200.00 and 1,000.00. Grouped at confidence 92.",
+     "amount": "0.00"
+    },
+    {
+     "label": "Underpaid",
+     "detail": "CLM-502 was paid 128.00 less than billed.",
+     "amount": "128.00"
+    },
+    {
+     "label": "Not paid",
+     "detail": "CLM-504 for 300.00 has no remittance.",
+     "amount": "300.00"
+    },
+    {
+     "label": "Payment for a claim you did not bill",
+     "detail": "CLM-777 for 150.00 has no matching claim.",
+     "amount": "150.00"
+    }
+   ]
+  },
+  "exceptions": [
+   "Claim never paid",
+   "Paid below the billed amount",
+   "Claim paid in instalments",
+   "Payment for a claim you did not submit"
+  ],
+  "faqs": [
+   {
+    "q": "Can I upload protected health information?",
+    "a": "Do not. Use claim IDs and amounts only, and remove patient names and identifiers before uploading. Fincile has not been assessed for HIPAA or any similar standard and does not sign business associate agreements."
+   },
+   {
+    "q": "Does it read 835 or EDI files?",
+    "a": "No. It reads CSV, TSV and Excel files. Convert remittance data to a table first."
+   },
+   {
+    "q": "Does it tell me why a claim was underpaid?",
+    "a": "It shows the size of the shortfall and a likely reason such as a large difference. The payer's adjustment codes are not interpreted."
+   }
+  ],
+  "related": [
+   "accounts-receivable-cash-application",
+   "bank-reconciliation",
+   "payment-processor-reconciliation"
+  ]
+ },
+ {
+  "slug": "ad-spend-reconciliation",
+  "templateId": "ad-spend-vs-invoices",
+  "name": "Ad spend reconciliation",
+  "department": "Marketing",
+  "metaTitle": "Ad Spend Reconciliation: Platform vs Invoices | Fincile",
+  "metaDescription": "Compare what ad platforms report you spent with what agencies and vendors invoiced, campaign by campaign.",
+  "h1": "Compare ad platform spend with agency invoices",
+  "intro": "Upload the spend your ad platforms report and the invoices from agencies or vendors. Fincile pairs them per campaign and lists mark-ups, billing in the wrong month, spend never invoiced and credits not applied.",
+  "sourceA": {
+   "label": "Ad platform spend",
+   "hint": "Campaign ID and spend for the period"
+  },
+  "sourceB": {
+   "label": "Agency or vendor invoices",
+   "hint": "Campaign ID and invoiced amount"
+  },
+  "problem": "Agencies invoice on their own schedule, add fees, and bill some campaigns in the month after the spend. Finance sees an invoice total and marketing sees a platform total, and the two are never quite equal. Without a campaign-level check the gap is explained away.",
+  "whyHard": "Some difference is expected (agency fee or mark-up), so the question is whether a difference is within the agreed range.",
+  "handling": [
+   "Matches on campaign ID.",
+   "Allows 1 percent or 1.00 of difference by default. Set it to the mark-up you agreed to.",
+   "Uses a 40-day window so spend billed the following month still pairs.",
+   "Lists campaigns with spend but no invoice."
+  ],
+  "sample": {
+   "fileA": "ad-platform-spend.csv",
+   "fileB": "agency-invoices.csv",
+   "rowsA": 4,
+   "rowsB": 3,
+   "matched": 2,
+   "findings": [
+    {
+     "label": "Within tolerance",
+     "detail": "C-101 differs by 0.40 and is matched at confidence 99.",
+     "amount": "0.40"
+    },
+    {
+     "label": "Invoice higher than spend",
+     "detail": "C-102 differs by 450.00. In real data this can be a fee, a mark-up or a billing error.",
+     "amount": "450.00"
+    },
+    {
+     "label": "Spend never invoiced",
+     "detail": "C-103 shows 1,500.00 of spend with no invoice.",
+     "amount": "1,500.00"
+    }
+   ]
+  },
+  "exceptions": [
+   "Invoice higher than platform spend (agency fee or mark-up)",
+   "Campaign billed in the wrong month",
+   "Spend never invoiced",
+   "Credits not applied"
+  ],
+  "faqs": [
+   {
+    "q": "Does it connect to Google Ads or Meta?",
+    "a": "No. Export the spend report from the platform as CSV and upload it."
+   },
+   {
+    "q": "Can it check an agency's percentage fee?",
+    "a": "Set the percentage tolerance to the agreed fee. Spend within that range matches. Anything above is listed."
+   },
+   {
+    "q": "What about different currencies?",
+    "a": "By default rows in different currencies do not match. Convert first, or turn the currency check off if both sides are already in one currency."
+   }
+  ],
+  "related": [
+   "sales-commission-reconciliation",
+   "expense-card-reconciliation",
+   "invoice-to-purchase-order-matching"
+  ]
+ },
+ {
+  "slug": "ecommerce-payout-reconciliation",
+  "templateId": "shopify-payouts-vs-orders",
+  "name": "Store payout and order reconciliation",
+  "department": "E-commerce",
+  "metaTitle": "E-commerce Order and Payout Reconciliation | Fincile",
+  "metaDescription": "Check that orders in your store were paid by the processor and the amounts agree. Works with any store that exports orders; Shopify exports have a ready preset.",
+  "h1": "Check that your store's orders were actually paid",
+  "intro": "Upload the orders export from your store and the charges or payouts from your processor. Fincile lists orders marked paid with no charge, duplicate charges and amounts that differ.",
+  "sourceA": {
+   "label": "Store orders",
+   "hint": "Orders export with order number and total"
+  },
+  "sourceB": {
+   "label": "Processor charges",
+   "hint": "Charge or payout lines"
+  },
+  "problem": "A store can show an order as paid while the processor never captured the charge, or charge twice because of a retry. Stores with many payment methods end up with several processor reports that need checking against one order list.",
+  "whyHard": "Order numbers appear as #1001 in one file and 1001 in another, and the processor amount may be net of its fee.",
+  "handling": [
+   "Compares order numbers by digits only, so #1001, 1001 and order-1001 agree.",
+   "Uses a 3-day window.",
+   "Flags a second charge for the same order as a possible duplicate.",
+   "Lists orders with no charge and charges with no order."
+  ],
+  "sample": {
+   "fileA": "store-orders.csv",
+   "fileB": "processor-charges.csv",
+   "rowsA": 4,
+   "rowsB": 4,
+   "matched": 2,
+   "findings": [
+    {
+     "label": "Amount differs",
+     "detail": "Order 1004 differs by 5.00. Likely reason shown: a fee or discount.",
+     "amount": "5.00"
+    },
+    {
+     "label": "Paid, no charge found",
+     "detail": "Order #1003 for 45.00 has no matching charge.",
+     "amount": "45.00"
+    },
+    {
+     "label": "Possible duplicate",
+     "detail": "Order 1002 appears charged twice at 120.50.",
+     "amount": "120.50"
+    }
+   ]
+  },
+  "exceptions": [
+   "Order marked paid with no processor charge",
+   "Duplicate charge for one order",
+   "Refund missing on one side",
+   "Fee deducted from the amount"
+  ],
+  "faqs": [
+   {
+    "q": "Is this the same as the Fincile Shopify app?",
+    "a": "The Shopify app syncs installed stores directly and runs audits inside Shopify. This workspace version compares files, including a Shopify orders export, so it also works for stores on other platforms. Linking an installed store to a workspace is not built yet."
+   },
+   {
+    "q": "Which stores does it support?",
+    "a": "Any platform that exports orders to CSV or Excel. Shopify exports are recognised automatically."
+   },
+   {
+    "q": "Does it handle refunds?",
+    "a": "Refunds are negative lines. If both sides include them they match like any other line. A refund on one side only is listed as an exception."
+   }
+  ],
+  "related": [
+   "payment-processor-reconciliation",
+   "inventory-count-reconciliation",
+   "bank-reconciliation"
+  ]
+ },
+ {
+  "slug": "expense-card-reconciliation",
+  "templateId": "expenses-vs-card",
+  "name": "Expense report and card statement reconciliation",
+  "department": "Finance",
+  "metaTitle": "Match Expense Reports to Card Statements | Fincile",
+  "metaDescription": "Match employee expense claims to corporate card transactions and find card spend with no claim and claims with no card spend.",
+  "h1": "Match expense claims to corporate card spend",
+  "intro": "Upload the expense claims and the card statement. Fincile pairs them on amount and date, because most claims carry no common reference, and lists card spend nobody claimed and claims with no card transaction.",
+  "sourceA": {
+   "label": "Expense claims",
+   "hint": "Claim lines with amount and date"
+  },
+  "sourceB": {
+   "label": "Card statement",
+   "hint": "Card transactions with amount and date"
+  },
+  "problem": "Expense claims and card statements describe the same spend with different words and no shared ID. Finance checks that every card charge has a claim and that no claim is for spend the card never saw. Tips added after the receipt and mis-keyed amounts make a simple lookup fail.",
+  "whyHard": "With no reference, the only signals are the amount and the date, and the same amount can appear several times in a month.",
+  "handling": [
+   "Matches on amount and date within a 10-day window, ignoring sign so claims and card charges align.",
+   "Gives a lower confidence to a match without a reference, so a reviewer checks the weakest ones first.",
+   "Scores closer dates and similar descriptions higher, which settles ties when the same amount appears more than once.",
+   "Lists unmatched card spend and unmatched claims separately."
+  ],
+  "sample": {
+   "fileA": "expense-claims.csv",
+   "fileB": "card-statement.csv",
+   "rowsA": 5,
+   "rowsB": 4,
+   "matched": 3,
+   "findings": [
+    {
+     "label": "Matched on amount and date",
+     "detail": "Three claims paired with card charges at confidence 60 to 68, all flagged for review because there is no shared reference.",
+     "amount": "0.00"
+    },
+    {
+     "label": "Card spend with no claim",
+     "detail": "A 72.00 card charge has no matching claim.",
+     "amount": "72.00"
+    },
+    {
+     "label": "Claims with no card charge",
+     "detail": "Two claims, 87.15 and 64.00, have no card transaction.",
+     "amount": "151.15"
+    }
+   ]
+  },
+  "exceptions": [
+   "Card spend with no expense claim",
+   "Claim with no card transaction",
+   "Amount keyed differently on the claim",
+   "Tips added after the receipt"
+  ],
+  "faqs": [
+   {
+    "q": "Why are these matches flagged for review?",
+    "a": "Without a reference, an equal amount on a nearby date is a good sign but not proof. Fincile scores them lower so a person confirms them."
+   },
+   {
+    "q": "Can it read receipts?",
+    "a": "No. It compares the claim lines and card transactions you upload. It does not read receipt images."
+   },
+   {
+    "q": "Can I add a reference to improve matching?",
+    "a": "Yes. If your expense tool exports a merchant name or card last four digits, map it as a description column, which also feeds fuzzy matching."
+   }
+  ],
+  "related": [
+   "bank-reconciliation",
+   "payroll-reconciliation",
+   "ad-spend-reconciliation"
+  ]
+ }
+]

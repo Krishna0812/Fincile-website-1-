@@ -16,3 +16,29 @@ export const TRIAL_LINE = 'Free audit plan, plus a 14-day free trial on paid pla
 
 // What syncs live and what needs a payout CSV (app: lib/auto-sync.ts).
 export const SYNC_LINE = 'Live sync for Stripe and PayPal. Shopify Payments and 11+ other gateways by payout CSV upload.';
+
+// Workspace product (general reconciliation). Sign up and log in live in the app.
+export const APP_SIGNUP_URL = 'https://app.getfincile.com/signup';
+export const APP_SIGNIN_URL = 'https://app.getfincile.com/signin';
+
+export function signupUrl(template?: string) {
+  return template ? `${APP_SIGNUP_URL}?template=${encodeURIComponent(template)}` : APP_SIGNUP_URL;
+}
+
+// Mirrors the app's plan table (lib/billing.ts and lib/entitlements.ts). The site is
+// deployed separately from the app, so change both together.
+export const WORKSPACE_PLANS = [
+  { key: 'free', name: 'Free', price: '$0', rows: '100', runs: '1 run per month', exports: false, history: '90 days' },
+  { key: 'starter', name: 'Starter', price: '$29', rows: '500', runs: '4 runs per month', exports: true, history: '90 days' },
+  { key: 'growth', name: 'Growth', price: '$79', rows: '2,000', runs: 'Unlimited runs', exports: true, history: '1 year' },
+  { key: 'scale', name: 'Scale', price: '$179', rows: '8,000', runs: 'Unlimited runs', exports: true, history: 'Until you delete it' },
+] as const;
+
+// What works today. Keep this list in step with the app's adapter table (lib/recon/adapters/index.ts).
+export const INTEGRATION_STATUS = [
+  { name: 'CSV, TSV and Excel upload', status: 'Available', note: 'Any two files. Save your column choices as a template.' },
+  { name: 'Shopify orders export', status: 'Available', note: 'Recognised automatically. This is a file upload, not a live connection.' },
+  { name: 'Payment processor exports', status: 'Available', note: 'Stripe, PayPal, Shopify Payments, Square, Klarna, Afterpay, Authorize.net, Braintree, 2Checkout, Adyen and Razorpay headers are recognised. File upload only.' },
+  { name: 'QuickBooks Online (read-only)', status: 'Built, launching soon', note: 'OAuth connection that reads invoices, payments, deposits, bills and expenses. Tested against a simulated API, not yet against a live Intuit account.' },
+  { name: 'Live Shopify sync inside workspaces', status: 'Not built yet', note: 'The Shopify app syncs installed stores today. Linking a store to a workspace is planned.' },
+] as const;

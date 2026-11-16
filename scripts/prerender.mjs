@@ -9,8 +9,20 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const distDir = path.join(__dirname, "..", "dist");
 const PORT = 8811;
 
+import { readFileSync } from "node:fs";
+const readJson = (f) => JSON.parse(readFileSync(path.join(__dirname, "..", "src", "data", f), "utf8"));
+const useCaseRoutes = readJson("usecases.json").map((u) => `/use-cases/${u.slug}`);
+const industryRoutes = readJson("industries.json").map((i) => `/industries/${i.slug}`);
+
 const routes = [
   "/",
+  "/shopify",
+  "/use-cases",
+  ...useCaseRoutes,
+  "/industries",
+  ...industryRoutes,
+  "/pricing",
+  "/how-matching-works",
   "/about",
   "/blog",
   "/blog/ghost-orders-shopify",

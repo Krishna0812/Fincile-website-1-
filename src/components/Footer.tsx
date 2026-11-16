@@ -3,12 +3,15 @@ import logo from '@/assets/fincile-logo.png';
 import { PRICING_LINE, TRIAL_LINE } from '@/lib/site';
 
 const links = [
-  { label: 'How It Works', href: '/#how-it-works', internal: false },
-  { label: 'What We Detect', href: '/#what-we-detect', internal: false },
-  { label: 'Security', href: '/#security', internal: false },
+  { label: 'Use cases', href: '/use-cases', internal: true },
+  { label: 'Industries', href: '/industries', internal: true },
+  { label: 'How matching works', href: '/how-matching-works', internal: true },
+  { label: 'Pricing', href: '/pricing', internal: true },
+  { label: 'Shopify app', href: '/shopify', internal: true },
+  { label: 'Security', href: '/shopify#security', internal: false },
   { label: 'About', href: '/about', internal: true },
   { label: 'Blog', href: '/blog', internal: true },
-  { label: 'Contact', href: '/#contact', internal: false },
+  { label: 'Contact', href: '/shopify#contact', internal: false },
 ];
 
 export default function Footer() {
@@ -24,7 +27,7 @@ export default function Footer() {
               style={{ width: '150px', height: 'auto', objectFit: 'contain' }}
             />
             <p className="text-sm text-primary-foreground/60 leading-relaxed">
-              Revenue reconciliation and audit intelligence for Shopify merchants.
+              Reconciliation for finance, operations and billing teams. Match any two datasets and review what does not agree.
             </p>
           </div>
 

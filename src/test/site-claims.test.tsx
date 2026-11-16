@@ -44,10 +44,11 @@ describe('install and log in links', () => {
     }
   });
 
-  it('navbar: Install App -> listing, Log in -> app', () => {
+  it('navbar: Start free -> app sign-up, Log in -> app sign-in, Shopify -> /shopify', () => {
     const nav = links(show(<Navbar />));
-    expect(nav).toContainEqual({ text: 'Install App', href: STORE });
-    expect(nav).toContainEqual({ text: 'Log in', href: 'https://app.getfincile.com' });
+    expect(nav).toContainEqual({ text: 'Start free', href: 'https://app.getfincile.com/signup' });
+    expect(nav).toContainEqual({ text: 'Log in', href: 'https://app.getfincile.com/signin' });
+    expect(nav).toContainEqual({ text: 'Shopify', href: '/shopify' });
   });
 
   it('no page links to the old 404 listing, and app.getfincile.com is only the Log in link', () => {

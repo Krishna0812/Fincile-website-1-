@@ -4,6 +4,13 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
+import ShopifyPage from "./pages/Shopify.tsx";
+import UseCases from "./pages/UseCases.tsx";
+import UseCase from "./pages/UseCase.tsx";
+import Industries from "./pages/Industries.tsx";
+import Industry from "./pages/Industry.tsx";
+import Pricing from "./pages/Pricing.tsx";
+import HowMatchingWorks from "./pages/HowMatchingWorks.tsx";
 import About from "./pages/About.tsx";
 import Blog from "./pages/Blog.tsx";
 import BlogGhostOrders from "./pages/BlogGhostOrders.tsx";
@@ -28,6 +35,13 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/shopify" element={<ShopifyPage />} />
+          <Route path="/use-cases" element={<UseCases />} />
+          <Route path="/use-cases/:slug" element={<UseCase />} />
+          <Route path="/industries" element={<Industries />} />
+          <Route path="/industries/:slug" element={<Industry />} />
+          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/how-matching-works" element={<HowMatchingWorks />} />
           <Route path="/about" element={<About />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/ghost-orders-shopify" element={<BlogGhostOrders />} />

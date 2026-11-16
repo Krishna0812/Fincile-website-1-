@@ -2,15 +2,15 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import logo from '@/assets/fincile-logo.png';
-import { APP_LOGIN_URL, SHOPIFY_APP_STORE_URL } from '@/lib/site';
+import { APP_SIGNIN_URL, APP_SIGNUP_URL } from '@/lib/site';
 
 const navLinks = [
-  { label: 'How It Works', href: '/#how-it-works', internal: false },
-  { label: 'What We Detect', href: '/#what-we-detect', internal: false },
-  { label: "What's Next", href: '/#coming-soon', internal: false },
-  { label: 'Security', href: '/#security', internal: false },
+  { label: 'Use cases', href: '/use-cases', internal: true },
+  { label: 'Industries', href: '/industries', internal: true },
+  { label: 'How matching works', href: '/how-matching-works', internal: true },
+  { label: 'Pricing', href: '/pricing', internal: true },
+  { label: 'Shopify', href: '/shopify', internal: true },
   { label: 'Blog', href: '/blog', internal: true },
-  { label: 'Contact', href: '/#contact', internal: false },
 ];
 
 export default function Navbar() {
@@ -50,7 +50,7 @@ export default function Navbar() {
             )
           )}
           <a
-            href={APP_LOGIN_URL}
+            href={APP_SIGNIN_URL}
             target="_blank"
             rel="noopener noreferrer"
             className={linkClass}
@@ -58,18 +58,12 @@ export default function Navbar() {
             Log in
           </a>
           <a
-            href={SHOPIFY_APP_STORE_URL}
+            href={APP_SIGNUP_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center h-11 px-6 rounded-md text-sm font-semibold gradient-cta text-primary-foreground hover:opacity-90 active:scale-[0.98] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           >
-            Install App
-          </a>
-          <a
-            href="/#contact"
-            className="inline-flex items-center justify-center h-11 px-5 rounded-md text-sm font-semibold border border-border text-navy hover:bg-surface transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-          >
-            Request Free Audit
+            Start free
           </a>
         </div>
 
@@ -79,7 +73,7 @@ export default function Navbar() {
       </div>
 
       {mobileOpen && (
-        <div className="animate-fade-up-sm md:hidden bg-card flex flex-col items-center justify-center gap-8 py-8 shadow-sm">
+        <div className="animate-fade-up-sm md:hidden bg-card flex flex-col items-center justify-center gap-6 py-8 shadow-sm">
           {navLinks.map((l) =>
             l.internal ? (
               <Link
@@ -102,7 +96,7 @@ export default function Navbar() {
             )
           )}
           <a
-            href={APP_LOGIN_URL}
+            href={APP_SIGNIN_URL}
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setMobileOpen(false)}
@@ -111,20 +105,13 @@ export default function Navbar() {
             Log in
           </a>
           <a
-            href={SHOPIFY_APP_STORE_URL}
+            href={APP_SIGNUP_URL}
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setMobileOpen(false)}
             className="inline-flex items-center justify-center h-11 px-8 rounded-md text-base font-semibold gradient-cta text-primary-foreground active:scale-[0.98] transition-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           >
-            Install App
-          </a>
-          <a
-            href="/#contact"
-            onClick={() => setMobileOpen(false)}
-            className="inline-flex items-center justify-center h-11 px-8 rounded-md text-base font-semibold border border-border text-navy focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-          >
-            Request Free Audit
+            Start free
           </a>
         </div>
       )}
