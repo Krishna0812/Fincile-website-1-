@@ -14,6 +14,9 @@ export const PAID_PLANS_FROM = '$29/month';
 export const PRICING_LINE = `Start with a free audit. Paid plans from ${PAID_PLANS_FROM}.`;
 export const TRIAL_LINE = 'Free audit plan, plus a 14-day free trial on paid plans.';
 
+// Workspace product pricing wording. Billing runs in test mode, so nothing is charged yet.
+export const WORKSPACE_PRICING_LINE = 'Free plan with no card. Paid plans from $29/month are in test mode and nothing is charged yet.';
+
 // What syncs live and what needs a payout CSV (app: lib/auto-sync.ts).
 export const SYNC_LINE = 'Live sync for Stripe and PayPal. Shopify Payments and 11+ other gateways by payout CSV upload.';
 
@@ -39,6 +42,6 @@ export const INTEGRATION_STATUS = [
   { name: 'CSV, TSV and Excel upload', status: 'Available', note: 'Any two files. Save your column choices as a template.' },
   { name: 'Shopify orders export', status: 'Available', note: 'Recognised automatically. This is a file upload, not a live connection.' },
   { name: 'Payment processor exports', status: 'Available', note: 'Stripe, PayPal, Shopify Payments, Square, Klarna, Afterpay, Authorize.net, Braintree, 2Checkout, Adyen and Razorpay headers are recognised. File upload only.' },
-  { name: 'QuickBooks Online (read-only)', status: 'Built, launching soon', note: 'OAuth connection that reads invoices, payments, deposits, bills and expenses. Tested against a simulated API, not yet against a live Intuit account.' },
-  { name: 'Live Shopify sync inside workspaces', status: 'Not built yet', note: 'The Shopify app syncs installed stores today. Linking a store to a workspace is planned.' },
+  { name: 'QuickBooks Online (read-only)', status: 'Beta, not switched on', note: 'OAuth connection that reads invoices, payments, deposits, bills and expenses. Tested against a simulated API only, not against an Intuit sandbox or a live company. Upload an export for now.' },
+  { name: 'Live Shopify sync inside workspaces', status: 'Not built', note: 'Not available. Upload a Shopify orders export. The separate Shopify app syncs installed stores.' },
 ] as const;

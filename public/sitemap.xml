@@ -8,13 +8,13 @@
   </url>
   <url>
     <loc>https://www.getfincile.com/about</loc>
-    <lastmod>2026-07-19</lastmod>
+    <lastmod>2026-11-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.getfincile.com/blog</loc>
-    <lastmod>2026-10-07</lastmod>
+    <lastmod>2026-11-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -139,19 +139,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.getfincile.com/use-cases/payroll-reconciliation</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://www.getfincile.com/use-cases/sales-commission-reconciliation</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.getfincile.com/use-cases/insurance-claims-reconciliation</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -187,12 +175,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.getfincile.com/industries/healthcare-billing</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.getfincile.com/industries/property-management</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>monthly</changefreq>
@@ -215,5 +197,11 @@
     <lastmod>2026-11-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.getfincile.com/security</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>

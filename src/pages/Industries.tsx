@@ -3,7 +3,7 @@ import { PageShell, Crumbs, CtaBand } from '@/components/PageShell';
 import { useSeoMeta, combineSchemas, breadcrumbSchema, itemListSchema, webPageSchema } from '@/lib/seo';
 import industries from '@/data/industries.json';
 
-const DESC = 'How e-commerce, healthcare billing, property management and agency teams use Fincile to reconcile the systems they already have.';
+const DESC = 'How e-commerce, property management and agency teams use Fincile to reconcile the systems they already have.';
 
 export default function Industries() {
   useSeoMeta({

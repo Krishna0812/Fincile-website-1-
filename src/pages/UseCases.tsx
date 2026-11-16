@@ -3,8 +3,8 @@ import { PageShell, Crumbs, CtaBand } from '@/components/PageShell';
 import { useSeoMeta, combineSchemas, breadcrumbSchema, itemListSchema, webPageSchema } from '@/lib/seo';
 import usecases from '@/data/usecases.json';
 
-const TITLE = 'Reconciliation Use Cases: Bank, Payouts, AP, AR, Inventory, Payroll | Fincile';
-const DESC = 'Twelve reconciliation templates for finance, operations, sales and billing teams. Each shows the two files you need and what Fincile reports.';
+const TITLE = 'Reconciliation Use Cases: Bank, Supplier Statements, AP, AR, Payouts | Fincile';
+const DESC = 'Ten reconciliation guides, starting with bank and supplier statements. Each shows the two files you need and what Fincile reports.';
 
 export default function UseCases() {
   useSeoMeta({

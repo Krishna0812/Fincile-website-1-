@@ -22,6 +22,7 @@ const routes = [
   "/industries",
   ...industryRoutes,
   "/pricing",
+  "/security",
   "/how-matching-works",
   "/about",
   "/blog",

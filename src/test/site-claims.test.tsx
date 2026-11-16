@@ -71,9 +71,9 @@ describe('prices, trial, sync and example claims', () => {
       expect(t).not.toMatch(/founding|\$39|\$49|\$99|\$249/i);
     }
     expect(hero).toContain('Start with a free audit. Paid plans from $29/month. 14-day free trial on paid plans.');
-    expect(footer).toContain('Free audit plan, plus a 14-day free trial on paid plans.');
-    expect(footer).toContain('Start with a free audit. Paid plans from $29/month.');
-    expect(footer).not.toContain('free trial on all plans');
+    // The footer is on every page and describes the statement product, which has no trial.
+    expect(footer).toContain('Free plan with no card. Paid plans from $29/month are in test mode and nothing is charged yet.');
+    expect(footer).not.toMatch(/free trial|Revenue Audit/);
   });
 
   it('headline finds, not fixes; no "recover lost revenue"', () => {
@@ -116,7 +116,9 @@ describe('prices, trial, sync and example claims', () => {
     for (const s of [html, llms]) {
       expect(s).not.toMatch(/Fix Your Shopify Payout Mismatches Automatically|14-day free trial, no credit card required|14-day free trial\."/);
     }
-    expect(html).toContain('Free audit plan, plus a 14-day free trial on paid plans.');
+    // Static head and fallback content must not carry the old Shopify-only positioning or conflicting structured data.
+    expect(html).not.toMatch(/Shopify Payout Reconciliation Tool|Why doesn't my Shopify payout|"@type": "FAQPage"|"@type": "SoftwareApplication"/);
+    expect(html).toContain('Statement Reconciliation for Bookkeepers and Accounting Firms');
     expect(llms).toContain('Live sync for Stripe and PayPal. Shopify Payments and 11+ other gateways by payout CSV upload.');
   });
 });

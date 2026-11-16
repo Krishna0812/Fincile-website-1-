@@ -95,8 +95,8 @@ const posts = [
 
 export default function Blog() {
   useSeoMeta({
-    title: 'Blog — Shopify Revenue Reconciliation Guides | Fincile',
-    description: 'Guides on Shopify payout reconciliation: ghost orders, Stripe mismatches, payout discrepancies, and how Fincile compares to A2X and Synder.',
+    title: 'Fincile Blog: Reconciliation Guides, Including Shopify Payouts',
+    description: 'Guides on reconciliation. Today they cover Shopify payouts: ghost orders, Stripe mismatches, payout discrepancies, and how Fincile compares to A2X and Synder.',
     path: '/blog',
   });
 
@@ -114,10 +114,10 @@ export default function Blog() {
           <div className="mb-12">
             <span className="text-xs font-semibold tracking-[0.16em] uppercase text-teal mb-3 block">Fincile Blog</span>
             <h1 className="text-3xl md:text-4xl font-bold text-navy mb-4" style={{ textWrap: 'balance' }}>
-              Shopify Revenue & Reconciliation Guides
+              Reconciliation guides
             </h1>
             <p className="text-base text-text-secondary leading-relaxed">
-              Practical guides for Shopify merchants on payment reconciliation, payout gaps, and keeping your revenue numbers accurate.
+              Practical guides on reconciliation. The posts so far are about Shopify payouts, which is one use of Fincile. For bank and supplier statements, see the use cases.
             </p>
           </div>
 

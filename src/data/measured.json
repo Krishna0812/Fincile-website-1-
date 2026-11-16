@@ -1,0 +1,152 @@
+{
+  "measuredOn": "2026-11-16",
+  "note": "Synthetic, seeded test files made by Fincile. They are not customer data. Numbers describe this test set only.",
+  "scenarios": [
+    {
+      "id": "bank-vs-ledger",
+      "useCase": "Bank reconciliation",
+      "messiness": [
+        "EU date and number format, semicolons, BOM",
+        "separate debit/credit columns",
+        "3 title rows and a total row above/below the data",
+        "refs shared on only 40% of lines, different schemes otherwise",
+        "25% of lines use repeated popular amounts",
+        "date lag 0-4 days",
+        "6% bank-only and 6% ledger-only lines"
+      ],
+      "rowsA": 243,
+      "rowsB": 250,
+      "truePairs": 233,
+      "pairsFound": 230,
+      "matchRatePct": 98.7,
+      "matchesProposed": 232,
+      "falseMatches": 2,
+      "falseMatchRatePct": 0.9,
+      "autoAccepted": 210,
+      "autoAcceptedFalse": 0,
+      "differsEvents": 0,
+      "differsSurfaced": 0
+    },
+    {
+      "id": "processor-vs-ledger",
+      "useCase": "Payment processor reconciliation",
+      "messiness": [
+        "US date and thousands format vs ISO and plain",
+        "mixed USD/EUR/GBP rows",
+        "35% of payouts booked as 2-3 ledger entries, 40% of those without the payout id",
+        "payout id buried in a memo",
+        "4% booked net of fees (should surface, not match silently)",
+        "5% processor-only and 5% ledger-only lines"
+      ],
+      "rowsA": 137,
+      "rowsB": 207,
+      "truePairs": 120,
+      "pairsFound": 119,
+      "matchRatePct": 99.2,
+      "matchesProposed": 119,
+      "falseMatches": 0,
+      "falseMatchRatePct": 0,
+      "autoAccepted": 70,
+      "autoAcceptedFalse": 0,
+      "differsEvents": 11,
+      "differsSurfaced": 5
+    },
+    {
+      "id": "ar-invoices-vs-receipts",
+      "useCase": "Accounts receivable cash application",
+      "messiness": [
+        "30% of payments carry no reference",
+        "18% of payments cover 2-3 invoices, half quoting all invoice numbers",
+        "10% of invoices paid in two instalments up to 12 days apart",
+        "8% short payments",
+        "8% unpaid invoices and 6% unknown payments",
+        "payment lag 3-40 days"
+      ],
+      "rowsA": 128,
+      "rowsB": 113,
+      "truePairs": 81,
+      "pairsFound": 81,
+      "matchRatePct": 100,
+      "matchesProposed": 81,
+      "falseMatches": 0,
+      "falseMatchRatePct": 0,
+      "autoAccepted": 64,
+      "autoAcceptedFalse": 0,
+      "differsEvents": 12,
+      "differsSurfaced": 12
+    },
+    {
+      "id": "vendor-statement-vs-payables",
+      "useCase": "Vendor statement reconciliation",
+      "messiness": [
+        "Windows-1252 encoding with accented characters",
+        "EU number format on the statement, US on the ledger",
+        "DD-MM-YYYY vs ISO dates",
+        "6% invoice numbers mistyped (digit swap, O for 0, prefix dropped)",
+        "3% invoices listed twice on the statement",
+        "5% credit notes",
+        "4% statement-only and 4% ledger-only lines"
+      ],
+      "rowsA": 215,
+      "rowsB": 205,
+      "truePairs": 198,
+      "pairsFound": 198,
+      "matchRatePct": 100,
+      "matchesProposed": 198,
+      "falseMatches": 0,
+      "falseMatchRatePct": 0,
+      "autoAccepted": 187,
+      "autoAcceptedFalse": 0,
+      "differsEvents": 0,
+      "differsSurfaced": 0
+    },
+    {
+      "id": "ap-invoices-vs-po",
+      "useCase": "Invoice to purchase order matching",
+      "messiness": [
+        "PO number buried in a supplier reference, written PO-4001 or PO 4001",
+        "currency symbols and thousands separators",
+        "price drift up to 1.8% (within tolerance) on 40% of invoices",
+        "5% over-billed by 3-13%",
+        "5% invoices with no PO and 5% POs never invoiced",
+        "invoice dates 3-45 days after the PO"
+      ],
+      "rowsA": 163,
+      "rowsB": 157,
+      "truePairs": 138,
+      "pairsFound": 138,
+      "matchRatePct": 100,
+      "matchesProposed": 142,
+      "falseMatches": 4,
+      "falseMatchRatePct": 2.8,
+      "autoAccepted": 138,
+      "autoAcceptedFalse": 0,
+      "differsEvents": 12,
+      "differsSurfaced": 12
+    },
+    {
+      "id": "expenses-vs-card",
+      "useCase": "Expense claims vs card statement",
+      "messiness": [
+        "no shared reference at all",
+        "50% of amounts come from a small pool of popular values",
+        "merchant names differ completely in wording",
+        "10% tips added on the card (15-20% higher)",
+        "8% claims with no card line and 8% card lines with no claim",
+        "dates 0-3 days apart"
+      ],
+      "rowsA": 153,
+      "rowsB": 139,
+      "truePairs": 119,
+      "pairsFound": 74,
+      "matchRatePct": 62.2,
+      "matchesProposed": 119,
+      "falseMatches": 45,
+      "falseMatchRatePct": 37.8,
+      "autoAccepted": 0,
+      "autoAcceptedFalse": 0,
+      "differsEvents": 13,
+      "differsSurfaced": 0
+    }
+  ]
+}

@@ -3,9 +3,9 @@ import { useSeoMeta, combineSchemas, breadcrumbSchema, faqPageSchema, webPageSch
 import { WORKSPACE_PLANS, signupUrl, SHOPIFY_APP_STORE_URL } from '@/lib/site';
 
 const faqs = [
-  { q: 'Can I pay for a plan today?', a: 'Not yet. Billing in the workspace product runs in test mode. You can switch plans to try the limits, and nothing is charged. Live card billing is not built yet, so the paid prices below are the planned prices.' },
+  { q: 'Can I pay for a plan today?', a: 'Not yet. Paid plans run in test mode: checkout with a test card, upgrades, cancellation, failed-payment handling and receipts all work, and nothing is charged. Live card payments are switched off, so the paid prices below are the planned prices.' },
   { q: 'What does a row limit mean?', a: 'The limit applies to each file in a run. A run of two files with 400 rows each fits the Starter plan.' },
-  { q: 'What happens to my data if I downgrade?', a: 'Runs older than your plan history window are deleted by a scheduled job. You can delete any run or your whole workspace yourself at any time.' },
+  { q: 'What happens to my data if I downgrade?', a: 'If you cancel, you keep the paid plan until the end of the period you paid for, then the workspace moves to Free. Runs older than the Free history window are then deleted by a scheduled job. If a payment fails, the plan stays for 7 days before the workspace moves to Free. You can delete any run or your whole workspace yourself at any time.' },
   { q: 'Is the Shopify app priced the same way?', a: 'No. The Shopify app has its own plans in the Shopify App Store.' },
 ];
 
@@ -30,7 +30,7 @@ export default function Pricing() {
         <h1 className="text-3xl md:text-5xl font-extrabold text-navy tracking-tight mb-4">Pricing</h1>
         <p className="text-text-secondary max-w-2xl mb-3">Start on the free plan. Paid plans raise the row limit and add export and longer history.</p>
         <p className="text-sm bg-teal-light text-navy rounded-lg px-4 py-3 max-w-2xl mb-10">
-          Billing is in test mode. You can pick a paid plan to try its limits, and nothing is charged. Live billing is not available yet.
+          Billing is in test mode. You can subscribe to a paid plan with a test card to try its limits, and nothing is charged. Live payments are not switched on yet.
         </p>
         <div className="grid md:grid-cols-4 gap-4">
           {WORKSPACE_PLANS.map((p) => (

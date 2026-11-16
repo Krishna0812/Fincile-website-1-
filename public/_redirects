@@ -8,3 +8,9 @@
 # rather than duplicating legal content across two codebases.
 /privacy https://app.getfincile.com/privacy 301
 /terms https://app.getfincile.com/terms 301
+
+# Pages removed when the site was refocused on statement reconciliation. Payroll and health billing
+# are not target segments yet (see /security).
+/use-cases/payroll-reconciliation /use-cases 301
+/use-cases/insurance-claims-reconciliation /use-cases 301
+/industries/healthcare-billing /industries 301

@@ -1,170 +1,131 @@
 [
- {
-  "slug": "ecommerce-and-retail",
-  "name": "E-commerce and retail",
-  "metaTitle": "Reconciliation for E-commerce and Retail Finance Teams | Fincile",
-  "metaDescription": "Order, payout, stock and ad-spend reconciliation for online and retail businesses, using exports from the tools you already have.",
-  "h1": "Reconciliation for e-commerce and retail",
-  "intro": "Online and retail businesses have several systems that should agree: the store, the payment processors, the bank, the stock system and the ad platforms. Fincile compares any two of them from exports.",
-  "pains": [
-   "Orders marked paid with no matching processor charge, or charged twice",
-   "Processor payouts that arrive net of fees and are booked in pieces",
-   "Stock counts that differ from the system after a stock take",
-   "Agency or ad platform invoices that do not match reported spend"
-  ],
-  "uses": [
-   {
-    "slug": "ecommerce-payout-reconciliation",
-    "how": "Compare store orders with processor charges, for Shopify or any store that exports orders."
-   },
-   {
-    "slug": "payment-processor-reconciliation",
-    "how": "Check each Stripe, PayPal or Adyen payout against what was booked."
-   },
-   {
-    "slug": "inventory-count-reconciliation",
-    "how": "Compare a stock take with system quantities for each SKU."
-   },
-   {
-    "slug": "ad-spend-reconciliation",
-    "how": "Compare reported campaign spend with agency invoices."
-   }
-  ],
-  "dataNote": "Fincile has a separate Shopify app for installed stores with live sync for Stripe and PayPal. The workspace product on this page compares files and works with any platform.",
-  "faqs": [
-   {
-    "q": "Do I need the Shopify app to use this?",
-    "a": "No. The workspace product works from CSV and Excel exports of any store. The Shopify app is a separate product for stores that want audits inside Shopify."
-   },
-   {
-    "q": "Can I reconcile several sales channels together?",
-    "a": "Combine the channel exports into one file and keep the channel in the description column, or run one reconciliation per channel."
-   }
-  ]
- },
- {
-  "slug": "healthcare-billing",
-  "name": "Healthcare and insurance billing",
-  "metaTitle": "Claims and Remittance Reconciliation for Billing Teams | Fincile",
-  "metaDescription": "Compare claims billed with payments received to find unpaid, underpaid and instalment-paid claims, without uploading patient details.",
-  "h1": "Reconciliation for billing and revenue cycle teams",
-  "intro": "Billing teams need to know which claims were paid, which were underpaid and which are still open. Fincile compares a list of submitted claims with the remittance lines you received.",
-  "pains": [
-   "Claims that were never paid and are not on anyone's list",
-   "Payments below the billed amount that nobody questioned",
-   "One claim paid in several instalments, so totals look wrong",
-   "Remittance lines for claims that were never billed"
-  ],
-  "uses": [
-   {
-    "slug": "insurance-claims-reconciliation",
-    "how": "Pair each claim with its remittance lines and list shortfalls."
-   },
-   {
-    "slug": "accounts-receivable-cash-application",
-    "how": "Apply patient or payer payments to open balances."
-   },
-   {
-    "slug": "bank-reconciliation",
-    "how": "Check that deposits in the bank match what remittances say was paid."
-   }
-  ],
-  "dataNote": "Do not upload protected health information. Use claim IDs and amounts, and remove patient names and identifiers. Fincile has not been assessed for HIPAA and does not sign business associate agreements.",
-  "faqs": [
-   {
-    "q": "Does Fincile meet HIPAA requirements?",
-    "a": "Fincile has not been assessed against HIPAA and does not claim compliance. Remove patient identifiers before uploading."
-   },
-   {
-    "q": "Does it read EDI 835 files?",
-    "a": "No. Convert remittance data to CSV or Excel first."
-   }
-  ]
- },
- {
-  "slug": "property-management",
-  "name": "Property management",
-  "metaTitle": "Rent and Deposit Reconciliation for Property Managers | Fincile",
-  "metaDescription": "Match tenant rent ledgers to bank deposits, vendor statements to payables, and card spend to expense claims across a property portfolio.",
-  "h1": "Reconciliation for property managers",
-  "intro": "Property managers collect rent into several accounts and pay many vendors. Fincile compares the tenant ledger with the bank, and vendor statements with what you recorded.",
-  "pains": [
-   "Rent paid in parts or one transfer covering several units",
-   "Vendor statements that disagree with the payables ledger",
-   "Card spend by site managers that never reached an expense claim",
-   "Deposits that arrive on different days from the ledger entry"
-  ],
-  "uses": [
-   {
-    "slug": "bank-reconciliation",
-    "how": "Use the unit number as the reference and match tenant ledger lines to bank deposits."
-   },
-   {
-    "slug": "accounts-receivable-cash-application",
-    "how": "Apply a single transfer to several units or months."
-   },
-   {
-    "slug": "vendor-statement-reconciliation",
-    "how": "Check contractor and utility statements against payables."
-   },
-   {
-    "slug": "expense-card-reconciliation",
-    "how": "Match site card spend to claims."
-   }
-  ],
-  "dataNote": "Property managers use the same templates as accounting teams. Map the unit or lease ID as the reference column. Fincile is not property management software and does not track leases.",
-  "faqs": [
-   {
-    "q": "Is there a rent roll template?",
-    "a": "Not as a separate template. The bank reconciliation and cash application templates work when you map unit or lease ID as the reference."
-   },
-   {
-    "q": "Can I keep each property separate?",
-    "a": "Create a workspace per portfolio, or include the property code in the reference."
-   }
-  ]
- },
- {
-  "slug": "agencies-and-professional-services",
-  "name": "Agencies and professional services",
-  "metaTitle": "Reconciliation for Agencies and Professional Services | Fincile",
-  "metaDescription": "Check ad spend against client billing, match client payments to invoices and tie out expenses for agencies and consultancies.",
-  "h1": "Reconciliation for agencies and professional services",
-  "intro": "Agencies and consultancies pass costs through to clients and wait on payments. Fincile checks that what you spent, what you billed and what you were paid line up.",
-  "pains": [
-   "Pass-through ad spend that differs from what the client was billed",
-   "Clients paying several invoices in one transfer",
-   "Contractor and software costs on cards that never reach an expense claim",
-   "Commission or revenue-share statements that cannot be checked"
-  ],
-  "uses": [
-   {
-    "slug": "ad-spend-reconciliation",
-    "how": "Compare platform spend with client invoices per campaign."
-   },
-   {
-    "slug": "accounts-receivable-cash-application",
-    "how": "Apply client payments to the invoices they settle."
-   },
-   {
-    "slug": "expense-card-reconciliation",
-    "how": "Match team card spend to claims."
-   },
-   {
-    "slug": "sales-commission-reconciliation",
-    "how": "Check partner statements against closed deals."
-   }
-  ],
-  "dataNote": "Everything here compares files you export. Fincile does not connect to ad platforms or billing tools in workspaces today.",
-  "faqs": [
-   {
-    "q": "Can I run this for several clients?",
-    "a": "Use one workspace per client for separate access, or one workspace with a run per client."
-   },
-   {
-    "q": "Can clients see the results?",
-    "a": "Add them as viewers. Viewers can read results and cannot run or change anything."
-   }
-  ]
- }
+  {
+    "slug": "ecommerce-and-retail",
+    "name": "E-commerce and retail",
+    "metaTitle": "Reconciliation for E-commerce and Retail Finance Teams | Fincile",
+    "metaDescription": "Order, payout, stock and ad-spend reconciliation for online and retail businesses, using exports from the tools you already have.",
+    "h1": "Reconciliation for e-commerce and retail",
+    "intro": "Online and retail businesses have several systems that should agree: the store, the payment processors, the bank, the stock system and the ad platforms. Fincile compares any two of them from exports.",
+    "pains": [
+      "Orders marked paid with no matching processor charge, or charged twice",
+      "Processor payouts that arrive net of fees and are booked in pieces",
+      "Stock counts that differ from the system after a stock take",
+      "Agency or ad platform invoices that do not match reported spend"
+    ],
+    "uses": [
+      {
+        "slug": "ecommerce-payout-reconciliation",
+        "how": "Compare store orders with processor charges, for Shopify or any store that exports orders."
+      },
+      {
+        "slug": "payment-processor-reconciliation",
+        "how": "Check each Stripe, PayPal or Adyen payout against what was booked."
+      },
+      {
+        "slug": "inventory-count-reconciliation",
+        "how": "Compare a stock take with system quantities for each SKU."
+      },
+      {
+        "slug": "ad-spend-reconciliation",
+        "how": "Compare reported campaign spend with agency invoices."
+      }
+    ],
+    "dataNote": "Fincile has a separate Shopify app for installed stores with live sync for Stripe and PayPal. The workspace product on this page compares files and works with any platform.",
+    "faqs": [
+      {
+        "q": "Do I need the Shopify app to use this?",
+        "a": "No. The workspace product works from CSV and Excel exports of any store. The Shopify app is a separate product for stores that want audits inside Shopify."
+      },
+      {
+        "q": "Can I reconcile several sales channels together?",
+        "a": "Combine the channel exports into one file and keep the channel in the description column, or run one reconciliation per channel."
+      }
+    ]
+  },
+  {
+    "slug": "property-management",
+    "name": "Property management",
+    "metaTitle": "Rent and Deposit Reconciliation for Property Managers | Fincile",
+    "metaDescription": "Match tenant rent ledgers to bank deposits, vendor statements to payables, and card spend to expense claims across a property portfolio.",
+    "h1": "Reconciliation for property managers",
+    "intro": "Property managers collect rent into several accounts and pay many vendors. Fincile compares the tenant ledger with the bank, and vendor statements with what you recorded.",
+    "pains": [
+      "Rent paid in parts or one transfer covering several units",
+      "Vendor statements that disagree with the payables ledger",
+      "Card spend by site managers that never reached an expense claim",
+      "Deposits that arrive on different days from the ledger entry"
+    ],
+    "uses": [
+      {
+        "slug": "bank-reconciliation",
+        "how": "Use the unit number as the reference and match tenant ledger lines to bank deposits."
+      },
+      {
+        "slug": "accounts-receivable-cash-application",
+        "how": "Apply a single transfer to several units or months."
+      },
+      {
+        "slug": "vendor-statement-reconciliation",
+        "how": "Check contractor and utility statements against payables."
+      },
+      {
+        "slug": "expense-card-reconciliation",
+        "how": "Match site card spend to claims."
+      }
+    ],
+    "dataNote": "Property managers use the same templates as accounting teams. Map the unit or lease ID as the reference column. Fincile is not property management software and does not track leases.",
+    "faqs": [
+      {
+        "q": "Is there a rent roll template?",
+        "a": "Not as a separate template. The bank reconciliation and cash application templates work when you map unit or lease ID as the reference."
+      },
+      {
+        "q": "Can I keep each property separate?",
+        "a": "Create a workspace per portfolio, or include the property code in the reference."
+      }
+    ]
+  },
+  {
+    "slug": "agencies-and-professional-services",
+    "name": "Agencies and professional services",
+    "metaTitle": "Reconciliation for Agencies and Professional Services | Fincile",
+    "metaDescription": "Check ad spend against client billing, match client payments to invoices and tie out expenses for agencies and consultancies.",
+    "h1": "Reconciliation for agencies and professional services",
+    "intro": "Agencies and consultancies pass costs through to clients and wait on payments. Fincile checks that what you spent, what you billed and what you were paid line up.",
+    "pains": [
+      "Pass-through ad spend that differs from what the client was billed",
+      "Clients paying several invoices in one transfer",
+      "Contractor and software costs on cards that never reach an expense claim",
+      "Commission or revenue-share statements that cannot be checked"
+    ],
+    "uses": [
+      {
+        "slug": "ad-spend-reconciliation",
+        "how": "Compare platform spend with client invoices per campaign."
+      },
+      {
+        "slug": "accounts-receivable-cash-application",
+        "how": "Apply client payments to the invoices they settle."
+      },
+      {
+        "slug": "expense-card-reconciliation",
+        "how": "Match team card spend to claims."
+      },
+      {
+        "slug": "sales-commission-reconciliation",
+        "how": "Check partner statements against closed deals."
+      }
+    ],
+    "dataNote": "Everything here compares files you export. Fincile does not connect to ad platforms or billing tools in workspaces today.",
+    "faqs": [
+      {
+        "q": "Can I run this for several clients?",
+        "a": "Use one workspace per client for separate access, or one workspace with a run per client."
+      },
+      {
+        "q": "Can clients see the results?",
+        "a": "Add them as viewers. Viewers can read results and cannot run or change anything."
+      }
+    ]
+  }
 ]

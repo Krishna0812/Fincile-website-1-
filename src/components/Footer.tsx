@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import logo from '@/assets/fincile-logo.png';
-import { PRICING_LINE, TRIAL_LINE } from '@/lib/site';
+import { WORKSPACE_PRICING_LINE } from '@/lib/site';
 
 const links = [
   { label: 'Use cases', href: '/use-cases', internal: true },
@@ -8,7 +8,7 @@ const links = [
   { label: 'How matching works', href: '/how-matching-works', internal: true },
   { label: 'Pricing', href: '/pricing', internal: true },
   { label: 'Shopify app', href: '/shopify', internal: true },
-  { label: 'Security', href: '/shopify#security', internal: false },
+  { label: 'Security', href: '/security', internal: true },
   { label: 'About', href: '/about', internal: true },
   { label: 'Blog', href: '/blog', internal: true },
   { label: 'Contact', href: '/shopify#contact', internal: false },
@@ -27,7 +27,7 @@ export default function Footer() {
               style={{ width: '150px', height: 'auto', objectFit: 'contain' }}
             />
             <p className="text-sm text-primary-foreground/60 leading-relaxed">
-              Reconciliation for finance, operations and billing teams. Match any two datasets and review what does not agree.
+              Statement reconciliation for bookkeepers and accounting firms. Upload two files and review what does not agree.
             </p>
           </div>
 
@@ -61,14 +61,13 @@ export default function Footer() {
             <a href="mailto:support@getfincile.com" className="block text-sm text-teal hover:underline mb-2">
               support@getfincile.com
             </a>
-            <p className="text-sm text-primary-foreground/60">{TRIAL_LINE}</p>
-            <p className="text-sm text-primary-foreground/60">{PRICING_LINE}</p>
+            <p className="text-sm text-primary-foreground/60">{WORKSPACE_PRICING_LINE}</p>
           </div>
         </div>
 
         <div className="border-t border-primary-foreground/10 pt-6">
           <p className="text-xs text-primary-foreground/40 text-center">
-            (c) 2026 Fincile. Revenue Audit - Reconciliation - Intelligence. All rights reserved.
+            (c) 2026 Fincile. All rights reserved.
           </p>
         </div>
       </div>

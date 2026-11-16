@@ -10,6 +10,7 @@ import UseCase from "./pages/UseCase.tsx";
 import Industries from "./pages/Industries.tsx";
 import Industry from "./pages/Industry.tsx";
 import Pricing from "./pages/Pricing.tsx";
+import Security from './pages/Security';
 import HowMatchingWorks from "./pages/HowMatchingWorks.tsx";
 import About from "./pages/About.tsx";
 import Blog from "./pages/Blog.tsx";
@@ -41,6 +42,7 @@ const App = () => (
           <Route path="/industries" element={<Industries />} />
           <Route path="/industries/:slug" element={<Industry />} />
           <Route path="/pricing" element={<Pricing />} />
+          <Route path="/security" element={<Security />} />
           <Route path="/how-matching-works" element={<HowMatchingWorks />} />
           <Route path="/about" element={<About />} />
           <Route path="/blog" element={<Blog />} />

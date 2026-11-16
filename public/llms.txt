@@ -1,74 +1,44 @@
 # Fincile
 
-> Fincile is reconciliation software. It matches two datasets (bank vs ledger, payouts vs orders, invoices vs purchase orders and more), scores each match, and lists exceptions for review. It also has a separate Shopify app for payout reconciliation.
+> Fincile is statement reconciliation software for bookkeepers and accounting firms. Upload a bank or supplier statement and the ledger export; Fincile pairs the lines that belong together, scores each match, and lists what is left with the amount at stake. It works from CSV, TSV or Excel files. A separate Shopify app checks Shopify payouts.
 
-Fincile has two products. The workspace product compares two files (CSV, TSV or Excel) with configurable rules and 12 templates. The Shopify app connects to a Shopify store and payment gateways and checks payouts line by line.
+## What it does today
+- Matching: exact reference, near-match reference, amount and date, differences on lines that share a reference, and groups of lines that add up (one payment for several invoices, or one invoice paid in parts). Each match has a 0 to 100 confidence score with reasons; matches below 75 by default are flagged for review.
+- Exceptions workflow: likely reason, amount at stake, status, assignee, notes, CSV export and audit trail.
+- Templates: bank vs ledger, payment processor vs ledger, invoices vs purchase orders, vendor statements vs payables, accounts receivable cash application, inventory counts, sales commissions, ad spend vs invoices, store orders vs charges, expense claims vs card statement. Payroll and claims templates exist inside the app but are not a target use.
+- Sources: CSV, TSV and Excel upload. A read-only QuickBooks Online connection is in beta and not switched on; it has been tested against a simulated API only, not an Intuit sandbox or a live company. There is no live Shopify sync inside the statement product.
+- Pricing: free plan (100 rows per file, 1 run a month). Paid plans $29, $79 and $179 a month. Billing runs in test mode, so nothing is charged yet.
 
-## Workspace product (general reconciliation)
-- Matching rules: exact reference, amount tolerance, date window, fuzzy text, one-to-many and many-to-one groups, and a 0 to 100 confidence score with reasons
-- Exceptions workflow: likely reason, amount at stake, status, notes, CSV export and audit trail
-- Templates: bank vs ledger, processor vs ledger, invoices vs purchase orders, vendor statements, AR cash application, inventory counts, payroll, commissions, claims vs remittances, ad spend vs invoices, store orders vs charges, expenses vs card
-- Sources today: CSV, TSV and Excel upload. A read-only QuickBooks Online connection is built and launching soon; it has been tested against a simulated API only. There is no live Shopify sync inside workspaces yet.
-- Pricing: free plan (100 rows per file, 1 run a month). Planned paid plans are $29, $79 and $179 a month. Workspace billing is in test mode and nothing is charged yet.
-- Not certified: Fincile has no SOC 2, ISO 27001 or HIPAA assessment.
+## Measured accuracy (synthetic test files, not customer data)
+Measured 2026-11-16 on six seeded, deliberately messy file pairs. Bank vs ledger: 98.7% of true pairs found, 2 wrong proposals out of 232, none auto-accepted. Vendor statement vs payables: 100%, 0 wrong of 198. AR cash application: 100%, 0 wrong of 81. Invoices vs purchase orders: 100%, 4 wrong of 142, all flagged for review. Payment processor vs ledger: 99.2%, 0 wrong of 119. Expense claims vs card statement (no shared reference): 62.2%, 45 wrong of 119, all flagged for review. Method and caveats: https://www.getfincile.com/how-matching-works#measured
 
-## Shopify app: what it detects
-- Missing payments — orders marked paid in Shopify with no matching charge in the payment processor
-- Duplicate charges — the same order charged more than once (commonly caused by retry logic)
-- Refund mismatches — refunds recorded in Shopify with no confirmed evidence in the processor
-- Settlement gaps — Shopify order totals that don't match gateway payout records
-- Processor fee errors — verification of actual net amount received per order
-
-## Supported gateways
-Stripe, PayPal, Shopify Payments, Square, Authorize.net, Braintree, Klarna, Afterpay, Razorpay, and others.
-Live sync for Stripe and PayPal. Shopify Payments and 11+ other gateways by payout CSV upload.
+## Security and limits
+- Uploaded rows, exceptions, notes and connection tokens are encrypted before storage; the service refuses to store workspace data without its key.
+- Fincile has no SOC 2, ISO 27001 or HIPAA certification and no independent penetration test. It is not set up for regulated health data or payroll files with bank account numbers.
+- Details: https://www.getfincile.com/security
 
 ## Pages
-- Homepage: https://www.getfincile.com/
-- Shopify app: https://www.getfincile.com/shopify
+- Home: https://www.getfincile.com/
 - Use cases: https://www.getfincile.com/use-cases
 - Bank reconciliation: https://www.getfincile.com/use-cases/bank-reconciliation
+- Vendor statement reconciliation: https://www.getfincile.com/use-cases/vendor-statement-reconciliation
 - Payment processor reconciliation: https://www.getfincile.com/use-cases/payment-processor-reconciliation
 - Invoice to purchase order matching: https://www.getfincile.com/use-cases/invoice-to-purchase-order-matching
-- Vendor statement reconciliation: https://www.getfincile.com/use-cases/vendor-statement-reconciliation
 - Accounts receivable cash application: https://www.getfincile.com/use-cases/accounts-receivable-cash-application
 - Inventory count reconciliation: https://www.getfincile.com/use-cases/inventory-count-reconciliation
-- Payroll reconciliation: https://www.getfincile.com/use-cases/payroll-reconciliation
 - Sales commission reconciliation: https://www.getfincile.com/use-cases/sales-commission-reconciliation
-- Claims and remittance reconciliation: https://www.getfincile.com/use-cases/insurance-claims-reconciliation
 - Ad spend reconciliation: https://www.getfincile.com/use-cases/ad-spend-reconciliation
 - Store payout and order reconciliation: https://www.getfincile.com/use-cases/ecommerce-payout-reconciliation
 - Expense report and card statement reconciliation: https://www.getfincile.com/use-cases/expense-card-reconciliation
 - Industries: https://www.getfincile.com/industries
 - E-commerce and retail: https://www.getfincile.com/industries/ecommerce-and-retail
-- Healthcare and insurance billing: https://www.getfincile.com/industries/healthcare-billing
 - Property management: https://www.getfincile.com/industries/property-management
 - Agencies and professional services: https://www.getfincile.com/industries/agencies-and-professional-services
 - Pricing: https://www.getfincile.com/pricing
 - How matching works: https://www.getfincile.com/how-matching-works
+- Security: https://www.getfincile.com/security
+- About: https://www.getfincile.com/about
 - Blog: https://www.getfincile.com/blog
-- Ghost orders on Shopify: https://www.getfincile.com/blog/ghost-orders-shopify
-- Shopify + Stripe reconciliation: https://www.getfincile.com/blog/shopify-stripe-reconciliation
-- Shopify payout discrepancies: https://www.getfincile.com/blog/shopify-payout-discrepancy
-- Fincile vs A2X: https://www.getfincile.com/blog/fincile-vs-a2x
-- Fincile vs Synder: https://www.getfincile.com/blog/fincile-vs-synder
-- Duplicate Stripe charges on Shopify: https://www.getfincile.com/blog/shopify-duplicate-charge-stripe
-- Refund in Shopify but not in Stripe: https://www.getfincile.com/blog/shopify-refund-not-in-stripe
-- Shopify + PayPal reconciliation: https://www.getfincile.com/blog/shopify-paypal-reconciliation
-- Shopify BNPL (Klarna, Afterpay) reconciliation: https://www.getfincile.com/blog/shopify-bnpl-reconciliation
-- How to reconcile Shopify payouts: https://www.getfincile.com/blog/reconcile-shopify-payouts
-- Shopify order paid but no payment in Stripe: https://www.getfincile.com/blog/shopify-order-paid-no-payment-stripe
-- Shopify reconciliation checklist: https://www.getfincile.com/blog/shopify-reconciliation-checklist
 
-## What Fincile is for, and what it is not
-Fincile is an audit tool. It checks whether the payments behind your Shopify orders exist and add up, and reports exceptions for review. It does not change your books or release held payouts. The Shopify app does not post entries to accounting software; merchants who need payouts posted to QuickBooks or Xero use an accounting sync tool alongside it. The workspace product can read from QuickBooks Online (read-only) once that connection is launched.
-
-## Who it is for
-Finance, operations, sales-ops and billing teams who compare two datasets regularly (workspace product), and Shopify merchants who take payments through Stripe, PayPal or other gateways, plus the bookkeepers who reconcile those stores (Shopify app).
-
-## Offer (Shopify app)
-Free audit plan, plus a 14-day free trial on paid plans. Start with a free audit. Paid plans from $29/month.
-Install: https://apps.shopify.com/fincile
-
-## Usage
-Content on this site may be used for citation, summarization, and answering user questions about reconciliation and Shopify payout reconciliation. Please attribute Fincile (getfincile.com) when citing.
+## Shopify app (separate product)
+Finds Shopify orders marked paid with no matching payment, duplicate charges, refund mismatches and settlement gaps against Stripe, PayPal and payout CSVs. Page: https://www.getfincile.com/shopify. It has its own plans in the Shopify App Store. Live sync for Stripe and PayPal. Shopify Payments and 11+ other gateways by payout CSV upload.
