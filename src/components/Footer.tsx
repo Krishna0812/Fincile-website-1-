@@ -12,6 +12,9 @@ const links = [
   { label: 'About', href: '/about', internal: true },
   { label: 'Blog', href: '/blog', internal: true },
   { label: 'Contact', href: '/shopify#contact', internal: false },
+  { label: 'Terms', href: '/terms', internal: true },
+  { label: 'Privacy', href: '/privacy', internal: true },
+  { label: 'Refunds', href: '/refunds', internal: true },
 ];
 
 export default function Footer() {
