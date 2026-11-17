@@ -181,3 +181,12 @@ describe('crawl files', () => {
     expect(sitemap).not.toMatch(/payroll-reconciliation|healthcare-billing|insurance-claims/);
   });
 });
+
+describe('pricing links carry the chosen plan', () => {
+  it('builds signup links with the plan, and keeps the template', async () => {
+    const { signupUrl } = await import('@/lib/site');
+    expect(signupUrl(undefined, 'starter')).toBe('https://app.getfincile.com/signup?plan=starter');
+    expect(signupUrl('bank-vs-ledger')).toBe('https://app.getfincile.com/signup?template=bank-vs-ledger');
+    expect(signupUrl()).toBe('https://app.getfincile.com/signup');
+  });
+});

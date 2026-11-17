@@ -24,8 +24,12 @@ export const SYNC_LINE = 'Live sync for Stripe and PayPal. Shopify Payments and 
 export const APP_SIGNUP_URL = 'https://app.getfincile.com/signup';
 export const APP_SIGNIN_URL = 'https://app.getfincile.com/signin';
 
-export function signupUrl(template?: string) {
-  return template ? `${APP_SIGNUP_URL}?template=${encodeURIComponent(template)}` : APP_SIGNUP_URL;
+export function signupUrl(template?: string, plan?: string) {
+  const q = new URLSearchParams();
+  if (template) q.set('template', template);
+  if (plan) q.set('plan', plan);
+  const qs = q.toString();
+  return qs ? `${APP_SIGNUP_URL}?${qs}` : APP_SIGNUP_URL;
 }
 
 // Mirrors the app's plan table (lib/billing.ts and lib/entitlements.ts). The site is

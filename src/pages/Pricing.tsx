@@ -44,7 +44,7 @@ export default function Pricing() {
                 <li>Results kept {p.history}</li>
                 <li>Unlimited workspace members</li>
               </ul>
-              <a href={signupUrl()} className="gradient-cta text-white font-semibold rounded-lg px-4 py-2 text-center">{p.key === 'free' ? 'Start free' : 'Try in test mode'}</a>
+              <a href={signupUrl(undefined, p.key === 'free' ? undefined : p.key)} className="gradient-cta text-white font-semibold rounded-lg px-4 py-2 text-center">{p.key === 'free' ? 'Start free' : 'Try in test mode'}</a>
             </div>
           ))}
         </div>
