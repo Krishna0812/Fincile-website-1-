@@ -1,6 +1,6 @@
 import { PageShell, Crumbs, Faqs, CtaBand } from '@/components/PageShell';
 import { useSeoMeta, combineSchemas, breadcrumbSchema, faqPageSchema, webPageSchema, softwareApplicationSchema } from '@/lib/seo';
-import { WORKSPACE_PLANS, signupUrl, SHOPIFY_APP_STORE_URL } from '@/lib/site';
+import { WORKSPACE_PLANS, signupUrl, SHOPIFY_APP_STORE_URL, LIVE_BILLING } from '@/lib/site';
 
 const faqs = [
   { q: 'Can I pay for a plan today?', a: 'Not yet. Paid plans run in test mode: checkout with a test card, upgrades, cancellation, failed-payment handling and receipts all work, and nothing is charged. Live card payments are switched off, so the paid prices below are the planned prices.' },
@@ -29,9 +29,15 @@ export default function Pricing() {
         <Crumbs items={[{ name: 'Home', path: '/' }, { name: 'Pricing' }]} />
         <h1 className="text-3xl md:text-5xl font-extrabold text-navy tracking-tight mb-4">Pricing</h1>
         <p className="text-text-secondary max-w-2xl mb-3">Start on the free plan. Paid plans raise the row limit and add export and longer history.</p>
-        <p className="text-sm bg-teal-light text-navy rounded-lg px-4 py-3 max-w-2xl mb-10">
-          Billing is in test mode. You can subscribe to a paid plan with a test card to try its limits, and nothing is charged. Live payments are not switched on yet.
-        </p>
+        {LIVE_BILLING ? (
+          <p className="text-sm text-text-secondary max-w-2xl mb-10">
+            Paid plans renew monthly until you cancel. Prices are in US dollars, tax is added at checkout where it applies, and Dodo Payments is the merchant of record. Cancel any time and keep the plan until the period ends. See the <a className="text-teal font-semibold" href="/refunds">refund policy</a> and <a className="text-teal font-semibold" href="/terms">terms</a>.
+          </p>
+        ) : (
+          <p className="text-sm bg-teal-light text-navy rounded-lg px-4 py-3 max-w-2xl mb-10">
+            Billing is in test mode. You can subscribe to a paid plan with a test card to try its limits, and nothing is charged. Live payments are not switched on yet.
+          </p>
+        )}
         <div className="grid md:grid-cols-4 gap-4">
           {WORKSPACE_PLANS.map((p) => (
             <div key={p.key} className="bg-card rounded-xl border border-border p-6 flex flex-col">
@@ -44,7 +50,7 @@ export default function Pricing() {
                 <li>Results kept {p.history}</li>
                 <li>Unlimited workspace members</li>
               </ul>
-              <a href={signupUrl()} className="gradient-cta text-white font-semibold rounded-lg px-4 py-2 text-center">{p.key === 'free' ? 'Start free' : 'Try in test mode'}</a>
+              <a href={signupUrl(undefined, p.key)} className="gradient-cta text-white font-semibold rounded-lg px-4 py-2 text-center">{p.key === 'free' ? 'Start free' : LIVE_BILLING ? `Subscribe to ${p.name}` : 'Try in test mode'}</a>
             </div>
           ))}
         </div>

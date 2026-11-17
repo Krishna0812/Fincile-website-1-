@@ -14,6 +14,7 @@ import Security from './pages/Security';
 import HowMatchingWorks from "./pages/HowMatchingWorks.tsx";
 import About from "./pages/About.tsx";
 import Legal from "./pages/Legal.tsx";
+import BillingReturn from "./pages/BillingReturn.tsx";
 import Blog from "./pages/Blog.tsx";
 import BlogGhostOrders from "./pages/BlogGhostOrders.tsx";
 import BlogStripeShopify from "./pages/BlogStripeShopify.tsx";
@@ -49,6 +50,7 @@ const App = () => (
           <Route path="/terms" element={<Legal doc="terms" />} />
           <Route path="/privacy" element={<Legal doc="privacy" />} />
           <Route path="/refunds" element={<Legal doc="refunds" />} />
+          <Route path="/billing/return" element={<BillingReturn />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/ghost-orders-shopify" element={<BlogGhostOrders />} />
           <Route path="/blog/shopify-stripe-reconciliation" element={<BlogStripeShopify />} />
